@@ -1,12 +1,70 @@
 export const units = [
   //grail duo cheerleader binary healer refresher rearmed resplendent altHell
-//{id: '', name: '', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+//{id: '', name: '', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', dateAdded: '', image: 'pictures/.png'},
 
-
-
-  //cormag
-  //
-
+//UNIT BATCH TWO: All the A's (that weren't in the test batch)
+{id: 'abelBase', name: 'Abel', epithet: 'The Panther', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: 'aelfricBase', name: 'Aelfric', epithet: 'Custodian Monk', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+//Alcryst
+{id: 'alearFLegendary', name: 'Alear', epithet: 'Awoken Divinity', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: 'alearFBase', name: 'Alear', epithet: 'Dragon Child', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: 'alearMBase', name: 'Alear', epithet: 'Dragon Youth', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alfonse', epithet: 'Askran Duo', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alfonse', epithet: 'Prince of Askr', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alfonse', epithet: 'Spring Prince', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alfonse', epithet: 'Uplifting Love', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alfred', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alm', epithet: 'Hero of Prophecy', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alm', epithet: 'Imperial Ascent', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alm', epithet: 'Lovebird Duo', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Alm', epithet: 'Saint-King', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Altena', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Altina', epithet: 'Cross-Time Duo', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Altina', epithet: "Dawn's Trueblade", baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Amelia', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Anankos', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Anna', epithet: 'Commander', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Anna', epithet: 'Secret Seller', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Anna', epithet: 'Twice the Anna', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Anna', epithet: 'Wealth-Wisher', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Annand', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Annette', epithet: 'Festive Helper', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Annette', epithet: 'Overachiever', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arden', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ares', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arrette', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arion', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arthur', epithet: 'Furious Mage', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arthur', epithet: 'Hapless Hero', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+//Artur
+{id: '', name: 'Arval', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Arvis', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Asbel', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ash', epithet: 'Earnest Greetings', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ash', epithet: 'Retainer to Askr', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ashe', epithet: 'Budding Chivalry', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ashe', epithet: 'Fabled Sea Knight', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ashera', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ashnard', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Askr', epithet: 'God of Openness', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Askr', epithet: 'Renewed Gods', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Astram', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Astrid', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Athena', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Atlas', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'August', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Aversa', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ayra', epithet: "Astra's Wielder", baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Ayra', epithet: 'Together in Tea', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azama', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azelle', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Celebratory Spirit', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Hatari Duet', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Lady of Ballads', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Lady of the Lake', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Vallite Songstress', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+{id: '', name: 'Azura', epithet: 'Young Songstress', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
+//UNIT BATCH ONE: the initial batch I used to test. all batches will eventually be integrated into the full alphabetical list
   {id: 'alcrystBaseRearmed', name: 'Alcryst', epithet: 'Tender Archer', baseOrNot: 'base', special: 'rearmed', games: ['engage'], gameplayRole: 'pc', weaponType: 'bow', weaponColor: 'colorless', damageType: 'physical', range: '2', moveType: 'infantry', gender: 'm', image: 'pictures/alcrystBaseRearmed.png'},
   {id: 'arturSpecialWinter', name: 'Artur', epithet: 'Silver Saint', baseOrNot: 'special', special: 'winter', games: ['fe8'], gameplayRole: 'pc', weaponType: 'anima', weaponColor: 'green', damageType: 'magic', range: '2', moveType: 'armored', gender: 'm', image: 'pictures/arturSpecialWinter.png', altHell: true},
   {id: 'eliwoodBase', name: 'Eliwood', epithet: 'Knight of Lycia', baseOrNot: 'base', special: 'none', games: ['fe7'], gameplayRole: 'protagonist', weaponType: 'sword', weaponColor: 'red', damageType: 'physical', range: '1', moveType: 'cavalry', gender: 'm', image: 'pictures/eliwoodBase.png', resplendent: 'askr'},
@@ -25,7 +83,7 @@ export const units = [
   {id: 'shigureBase', name: 'Shigure', epithet: 'Uplifting Artist', baseOrNot: 'base', special: 'none', games: ['fe14'], gameplayRole: 'pc', weaponType: 'lance', weaponColor: 'blue', damageType: 'physical', range: '1', moveType: 'flying', gender: 'm', image: 'pictures/shigureBase.png', resplendent: 'nifl'},
   {id: 'sorenFE9Base', name: 'Soren', epithet: 'Shrewd Strategist', baseOrNot: 'base', special: 'none', games: ['fe9'], gameplayRole: 'pc', weaponType: 'anima', weaponColor: 'green', damageType: 'magic', range: '2', moveType: 'infantry', gender: 'm', image: 'pictures/sorenFE9Base.png'},
   {id: 'sorenFE10Brave', name: 'Soren', epithet: 'Radiant Confidant', baseOrNot: 'brave', special: 'none', games: ['fe10'], gameplayRole: 'pc', weaponType: 'anima', weaponColor: 'green', damageType: 'magic', range: '2', moveType: 'infantry', gender: 'm', image: 'pictures/sorenFE10Brave.png', },
-  //{id: '', name: '', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: '.png'},
+  //{id: '', name: '', epithet: '', baseOrNot: '', special: '', games: [''], gameplayRole: '', weaponType: '', weaponColor: '', damageType: '', range: '', moveType: '', gender: '', image: 'pictures/.png'},
   //grail duo cheerleader binary healer refresher rearmed resplendent altHell
   //maybe add option to use thumbnails instead as a toggle
 ];
