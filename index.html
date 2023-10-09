@@ -527,7 +527,9 @@
   <div id="container">
   
   <div id="picking">
-  <ul id="pokemon" class="item-list" style="opacity: 1; width: 435px;"><li class="item"><span><img src="/sprites/gen8/home-thumb/043.png" alt="Oddish" title="Oddish" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/026.png" alt="Raichu" title="Raichu" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/103.png" alt="Exeggutor" title="Exeggutor" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/031.png" alt="Nidoqueen" title="Nidoqueen" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/115.png" alt="Kangaskhan" title="Kangaskhan" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/123.png" alt="Scyther" title="Scyther" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/015.png" alt="Beedrill" title="Beedrill" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/050.png" alt="Diglett" title="Diglett" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/087.png" alt="Dewgong" title="Dewgong" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/035.png" alt="Clefairy" title="Clefairy" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/013.png" alt="Weedle" title="Weedle" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/151.png" alt="Mew" title="Mew" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/074.png" alt="Geodude" title="Geodude" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/021.png" alt="Spearow" title="Spearow" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/086.png" alt="Seel" title="Seel" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/095.png" alt="Onix" title="Onix" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/014.png" alt="Kakuna" title="Kakuna" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/078.png" alt="Rapidash" title="Rapidash" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/005.png" alt="Charmeleon" title="Charmeleon" loading="eager"></span></li><li class="item"><span><img src="/sprites/gen8/home-thumb/025.png" alt="Pikachu" title="Pikachu" loading="eager"></span></li></ul>
+  <ul id="pokemon" class="item-list" style="opacity: 1; width: 435px;">
+
+</ul>
   
   <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo" class="disabled">Undo</button> <button id="redo" class="disabled">Redo</button></p>
   
@@ -540,7 +542,7 @@
   
   <div id="secondary">
   <ul class="tabs">
-  <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li><li class="active"><a href="#found-favorites">Found Favorites</a></li><li><a href="#options">Options</a></li>
+  <li id="expand-favorites"><a href="#" title="Expand list">expand</a></li><li class="active"><a href="#found-favorites">Found Favorites</a></li><li><a href="#options">Options</a></li>
   </ul>
   
   <div id="found-favorites" style="display: block;"><p class="state-info">None yet! Your favorites will start appearing here when you've narrowed things down.</p>
@@ -895,9 +897,12 @@
       wrapItem: function(item) {
           return $('<li></li>').append($('<span></span>').append(item));
       },
-      getItemImageUrl: function(pokemon, settings) {
-          return "/sprites/gen8/home-thumb/" + (settings.shiny ? "shiny/" : "") + zeropad(pokemon.number) + (pokemon.form ? "-" + pokemon.form : "") + ".png";
-      }
+        getItemImageUrl: function(unit, settings) {
+            return "/images/" + (settings.resplendent ? "resplendent/" : "") + unit.id + ".png";
+        }
+    //   getItemImageUrl: function(pokemon, settings) {
+    //       return "/sprites/gen8/home-thumb/" + (settings.shiny ? "shiny/" : "") + zeropad(pokemon.number) + (pokemon.form ? "-" + pokemon.form : "") + ".png";
+    //   }
   });
   
   $.getJSON("/static/favorite-pokemon.json?v=sv6", function(json) {

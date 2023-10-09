@@ -1,0 +1,101 @@
+body {
+  background:#001122;
+  color:#CDD;
+}
+
+h1, .info {
+  color:#FFF;
+}
+
+a:link, a:visited {
+  color:#AEF;
+}
+
+a:active, a:hover {
+  color:#FFF;
+}
+
+button {
+  background:#224466;
+  color:#FFF;
+}
+
+button:hover, button:active, button:focus, button.disabled:hover {
+  background:#335577;
+}
+
+button.disabled {
+  background:#335577;
+  color:#88AACC;
+}
+
+.tabs {
+  border-bottom-color:#335577;
+}
+
+.tabs li {
+  border-color:#335577;
+  background:#224466;
+}
+
+.tabs li.active {
+  background:#335577;
+  border-bottom-color:#335577;
+}
+
+.tabs a {
+  color:#FFF;
+}
+
+#pick {
+  background:#3388AA;
+}
+
+#pick.disabled {
+  background:#55AACC;
+}
+
+#pick:hover {
+  background:#55AACC;
+}
+
+.item-list li {
+  color:#224466;
+}
+
+.item-list li span {
+  background:#112244;
+}
+
+.item-list li:hover span {
+  background:#335577;
+}
+
+.item-list.sorting li:hover span {
+  background:#112244;
+}
+
+#pokemon li.selected span {
+  border-color:#AEF;
+}
+
+#pokemon li.notice {
+  background:#113355;
+  color:#FFF;
+}
+
+#progress-bar {
+  background:#224466;
+}
+
+#progress-bar span {
+  background:#AEF;
+}
+
+#shared-list-modal {
+  background:#001233;
+}
+
+#shared-list-modal:before {
+  background:#000;
+}
