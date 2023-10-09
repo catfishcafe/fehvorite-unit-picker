@@ -465,17 +465,17 @@
          * is set, it returns an image with that URL; otherwise, it simply
          * returns a plain text list item.
          */
-        let itemContent;
-        const itemName = item.name || item.id;
-        const unitEpithet = item.epithet;
+        var itemContent;
+        var itemName;
+        itemName = item.name || item.id;
         if (this.options.getItemElem) {
             return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
         }
         if (item.image || this.options.getItemImageUrl) {
-            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px"' + '" alt="' + itemName + ': ' + unitEpithet + '" title="' + itemName + '" loading="eager">');
+            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" alt="' + itemName + '" title="' + itemName + '" loading="eager">');
         }
         else {
-            itemContent = $('<span>' + itemName + ': ' + unitEpithet + '</span>');
+            itemContent = $('<span>' + itemName + '</span>');
         }
         return this.wrapItem(itemContent).addClass('item').data('item', item.id);
     };
