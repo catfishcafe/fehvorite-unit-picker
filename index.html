@@ -542,7 +542,7 @@
   
   <div id="secondary">
   <ul class="tabs">
-  <li id="expand-favorites"><a href="#" title="Expand list">expand</a></li><li class="active"><a href="#found-favorites">Found Favorites</a></li><li><a href="#options">Options</a></li>
+  <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li><li class="active"><a href="#found-favorites">Found Favorites</a></li><li><a href="#options">Options</a></li>
   </ul>
   
   <div id="found-favorites" style="display: block;"><p class="state-info">None yet! Your favorites will start appearing here when you've narrowed things down.</p>
@@ -952,78 +952,78 @@
   
   /* DISPUTE */
   
-  function dispute(missing) {
-      /**
-       * Locates the Pokémon whose name is given by missing (if it exists)
-       * and explains to the user where it is in the picker state.
-       */
-      var identifier = identifierFromName(missing);
-      var missingPokemon;
-      var i;
-      var eliminated, eliminator, joinedEliminators;
-      var eliminators = [];
-      var settings = pokemonPicker.getSettings();
+//   function dispute(missing) {
+//       /**
+//        * Locates the Pokémon whose name is given by missing (if it exists)
+//        * and explains to the user where it is in the picker state.
+//        */
+//       var identifier = identifierFromName(missing);
+//       var missingPokemon;
+//       var i;
+//       var eliminated, eliminator, joinedEliminators;
+//       var eliminators = [];
+//       var settings = pokemonPicker.getSettings();
   
-      if (!identifier) {
-          alert("'" + missing + "' does not seem to be a Pokémon recognized by the picker. Note that the 'default' form (the one used in non-forms mode) is just the name of its species, so that there is for example no Unown A, just Unown. Otherwise, check your spelling (note that the Nidorans are \"Nidoran (m)\" and \"Nidoran (f)\").");
-          return;
-      }
-      missingPokemon = pokemonPicker.itemMap[identifier];
-      if (pokemonPicker.state.items.indexOf(identifier) === -1) {
-          if (!settingIncludesPokemon(missingPokemon, 'includeForms', settings)) {
-              alert(missingPokemon.name + "'s form is listed as '" + missingPokemon.formType + "'. To appear as a distinct Pokémon, you must enable the appropriate form types by checking the respective boxes under the Options tab. If this form designation seems odd in a more than debatable way, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
-          }
-          else if (!settingIncludesPokemon(missingPokemon, 'finalOnly', settings)) {
-              alert(missingPokemon.name + " is a non-final evolution, and you have checked \"Final evolutions only\". If you are confident this Pokémon does not evolve into anything in the generations you selected, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
-          }
-          else if (!settingIncludesPokemon(missingPokemon, 'generations', settings)) {
-              alert(missingPokemon.name + " is from Gen " + missingPokemon.gen + ", and you have excluded that generation. Keep in mind that Mega Evolutions are considered Gen 6, but gender dimorphisms are classified with the generation in which the Pokémon itself was introduced. If I have made a mistake classifying something, please contact me at antialiasis@gmail.com.");
-          }
-          else if (!settingIncludesPokemon(missingPokemon, 'types', settings)) {
-              alert("You have filtered by type, and " + missingPokemon.name + " does not have any of the types you selected. You must select " + prettyJoin(missingPokemon.types.map(capitalize), 'or') + " under \"Types included\" to include this Pokémon.");
-          }
-          else if (!settingIncludesPokemon(missingPokemon, 'spoilers', settings)) {
-              alert(missingPokemon.name + " is considered a spoiler. To include this Pokémon, check \"Include spoilers\" in the Options tab.");
-          }
-          else {
-              alert("Hmm, " + missingPokemon.name + " is not in the filtered list of Pokémon but none of the possible reasons why seem to match. I've done something wrong here. Let me know at antialiasis@gmail.com, include an export of your state (accessible in the bottom right of the Found Favorites tab), and I'll try to figure it out.");
-          }
-          return;
-      }
+//       if (!identifier) {
+//           alert("'" + missing + "' does not seem to be a Pokémon recognized by the picker. Note that the 'default' form (the one used in non-forms mode) is just the name of its species, so that there is for example no Unown A, just Unown. Otherwise, check your spelling (note that the Nidorans are \"Nidoran (m)\" and \"Nidoran (f)\").");
+//           return;
+//       }
+//       missingPokemon = pokemonPicker.itemMap[identifier];
+//       if (pokemonPicker.state.items.indexOf(identifier) === -1) {
+//           if (!settingIncludesPokemon(missingPokemon, 'includeForms', settings)) {
+//               alert(missingPokemon.name + "'s form is listed as '" + missingPokemon.formType + "'. To appear as a distinct Pokémon, you must enable the appropriate form types by checking the respective boxes under the Options tab. If this form designation seems odd in a more than debatable way, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
+//           }
+//           else if (!settingIncludesPokemon(missingPokemon, 'finalOnly', settings)) {
+//               alert(missingPokemon.name + " is a non-final evolution, and you have checked \"Final evolutions only\". If you are confident this Pokémon does not evolve into anything in the generations you selected, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
+//           }
+//           else if (!settingIncludesPokemon(missingPokemon, 'generations', settings)) {
+//               alert(missingPokemon.name + " is from Gen " + missingPokemon.gen + ", and you have excluded that generation. Keep in mind that Mega Evolutions are considered Gen 6, but gender dimorphisms are classified with the generation in which the Pokémon itself was introduced. If I have made a mistake classifying something, please contact me at antialiasis@gmail.com.");
+//           }
+//           else if (!settingIncludesPokemon(missingPokemon, 'types', settings)) {
+//               alert("You have filtered by type, and " + missingPokemon.name + " does not have any of the types you selected. You must select " + prettyJoin(missingPokemon.types.map(capitalize), 'or') + " under \"Types included\" to include this Pokémon.");
+//           }
+//           else if (!settingIncludesPokemon(missingPokemon, 'spoilers', settings)) {
+//               alert(missingPokemon.name + " is considered a spoiler. To include this Pokémon, check \"Include spoilers\" in the Options tab.");
+//           }
+//           else {
+//               alert("Hmm, " + missingPokemon.name + " is not in the filtered list of Pokémon but none of the possible reasons why seem to match. I've done something wrong here. Let me know at antialiasis@gmail.com, include an export of your state (accessible in the bottom right of the Found Favorites tab), and I'll try to figure it out.");
+//           }
+//           return;
+//       }
   
-      eliminated = pokemonPicker.state.findInArray(identifier, 'eliminated');
+//       eliminated = pokemonPicker.state.findInArray(identifier, 'eliminated');
   
-      if (eliminated) {
-          // The Pokémon was eliminated
-          for (i = 0; i < eliminated.eliminatedBy.length; i++) {
-              eliminator = pokemonPicker.itemMap[eliminated.eliminatedBy[i] + ""];
-              eliminators.push(eliminator.name);
-          }
-          if (eliminators.length === 0) {
-              alert("Hmm, something seems to have gone wrong somewhere. This Pokémon has been eliminated, but not by any Pokémon, which should not happen. Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
-          }
-          else {
-              joinedEliminators = prettyJoin(eliminators);
-              alert(missingPokemon.name + " has been marked as eliminated by " + joinedEliminators + ". That means that when it last appeared, you picked " + joinedEliminators + " (and possibly other Pokémon already in your Found Favorites) over it. You will see " + missingPokemon.name + " again when " + joinedEliminators + (eliminators.length === 1 ? " is" : " are") + " under your Found Favorites.");
-          }
-      }
-      else if (pokemonPicker.state.findInArray(identifier, 'survived')) {
-          alert("You've already picked " + missingPokemon.name + " this round. It will be returning in the next.");
-      }
-      else if (pokemonPicker.state.findInArray(identifier, 'current')) {
-          alert(missingPokemon.name + " has yet to appear this round. Don't worry, it's going to.");
-      }
-      else if (pokemonPicker.state.findInArray(identifier, 'favorites')) {
-          alert("What are you talking about? " + missingPokemon.name + " is already in your Found Favorites.");
-      }
-      else if (pokemonPicker.state.findInArray(identifier, 'evaluating')) {
-          alert(missingPokemon.name + " is right there, in the batch you're evaluating right now.");
-      }
-      else {
-          // The Pokémon really isn't in any of our arrays
-          alert("Huh, " + missingPokemon.name + " really doesn't actually seem to be anywhere in here. There seems to be an actual bug! Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
-      }
-  }
+//       if (eliminated) {
+//           // The Pokémon was eliminated
+//           for (i = 0; i < eliminated.eliminatedBy.length; i++) {
+//               eliminator = pokemonPicker.itemMap[eliminated.eliminatedBy[i] + ""];
+//               eliminators.push(eliminator.name);
+//           }
+//           if (eliminators.length === 0) {
+//               alert("Hmm, something seems to have gone wrong somewhere. This Pokémon has been eliminated, but not by any Pokémon, which should not happen. Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
+//           }
+//           else {
+//               joinedEliminators = prettyJoin(eliminators);
+//               alert(missingPokemon.name + " has been marked as eliminated by " + joinedEliminators + ". That means that when it last appeared, you picked " + joinedEliminators + " (and possibly other Pokémon already in your Found Favorites) over it. You will see " + missingPokemon.name + " again when " + joinedEliminators + (eliminators.length === 1 ? " is" : " are") + " under your Found Favorites.");
+//           }
+//       }
+//       else if (pokemonPicker.state.findInArray(identifier, 'survived')) {
+//           alert("You've already picked " + missingPokemon.name + " this round. It will be returning in the next.");
+//       }
+//       else if (pokemonPicker.state.findInArray(identifier, 'current')) {
+//           alert(missingPokemon.name + " has yet to appear this round. Don't worry, it's going to.");
+//       }
+//       else if (pokemonPicker.state.findInArray(identifier, 'favorites')) {
+//           alert("What are you talking about? " + missingPokemon.name + " is already in your Found Favorites.");
+//       }
+//       else if (pokemonPicker.state.findInArray(identifier, 'evaluating')) {
+//           alert(missingPokemon.name + " is right there, in the batch you're evaluating right now.");
+//       }
+//       else {
+//           // The Pokémon really isn't in any of our arrays
+//           alert("Huh, " + missingPokemon.name + " really doesn't actually seem to be anywhere in here. There seems to be an actual bug! Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
+//       }
+//   }
   
   
   /* PROGRESS BAR */
