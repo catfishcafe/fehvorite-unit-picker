@@ -41,8 +41,7 @@
             current: copyArray(this.arrays.current),
             evaluating: copyArray(this.arrays.evaluating),
             favorites: copyArray(this.arrays.favorites),
-            settings: copyObject(this.settings),
-            roundSize: this.roundSize
+            settings: copyObject(this.settings)
         };
     };
 
@@ -62,7 +61,6 @@
             favorites: []
         };
         this.batchSize = this.getBatchSize(this.arrays.current.length);
-        this.setRoundSize();
 
         shuffle(this.arrays.current);
 
@@ -85,11 +83,6 @@
             favorites: copyArray(state.favorites)
         };
         this.batchSize = this.arrays.evaluating.length;
-        if ('roundSize' in state) {
-            this.roundSize = state.roundSize;
-        } else {
-            this.setRoundSize();
-        }
 
         this.validate();
     };
@@ -108,16 +101,11 @@
         /**
          * Sets the settings.
          */
-        var prevNumItems = this.items.length;
-        var prevNumFavorites = this.arrays.favorites.length;
-        var prevNumEliminated = this.arrays.eliminated.length;
-
         this.settings = settings;
         this.items = this.getFilteredItems();
 
         this.validate();
         this.resetBatchSize();
-        this.setRoundSize();
     };
 
     PickerState.prototype.setFavorites = function(favorites) {
@@ -126,12 +114,8 @@
          * Since it runs validate, it should be fine if this changes the
          * actual contents of the list.
          */
-        var prevNumFavorites = this.arrays.favorites.length;
-        var prevNumEliminated = this.arrays.eliminated.length;
-
         this.arrays.favorites = favorites;
         this.validate();
-        this.setRoundSize();
     };
 
     /* STATE UTILITY FUNCTIONS */
@@ -218,13 +202,6 @@
         this.arrays.evaluating = this.arrays.current.splice(0, this.getBatchSize(this.arrays.current.length + this.arrays.survived.length));
         this.batchSize = this.arrays.evaluating.length;
     };
-
-    PickerState.prototype.setRoundSize = function() {
-        /**
-         * Sets the round size to the current number of items remaining.
-         */
-        this.roundSize = Math.max(0, this.items.length - this.arrays.favorites.length - this.arrays.eliminated.length - 1);
-    }
 
     /* STATE VALIDATION */
 
@@ -436,7 +413,6 @@
         // the new survivors.
         if (this.arrays.current.length === 0 && this.arrays.survived.length === 1) {
             this.addToFavorites(this.arrays.survived.pop());
-            this.setRoundSize();
             this.nextRound();
             return;
         }
@@ -455,22 +431,18 @@
             return new Picker(options);
         }
 
+        if (!options.items) {
+            console.error("No items specified for picker.");
+            return;
+        }
+
+        var self = this;
+
+        this.itemMap = {};
         this.options = copyObject({
             historyLength: 3,
             favoritesQueryParam: 'favs'
         }, options);
-
-        if (this.options.items) {
-            this.initialize();
-        }
-    }
-
-    /* PICKER INITIALIZATION */
-
-    Picker.prototype.initialize = function() {
-        var self = this;
-
-        this.itemMap = {};
 
         this.history = [];
         this.historyPos = -1;
@@ -478,49 +450,69 @@
         var i;
 
         // Build the itemMap and catch errors
-        for (i = 0; i < this.options.items.length; i++) {
-            if (this.options.items[i].id === undefined) {
-                console.error("You have an item without an ID! An ID is necessary for the picker's functionality to work.", this.options.items[i]);
+        for (i = 0; i < options.items.length; i++) {
+            if (options.items[i].id === undefined) {
+                console.error("You have an item without an ID! An ID is necessary for the picker's functionality to work.", options.items[i]);
                 return;
             }
-            if (this.itemMap.hasOwnProperty(this.options.items[i].id)) {
-                console.error("You have more than one item with the same ID (" + this.options.items[i].id + ")! Please ensure the IDs of your items are unique.");
+            if (this.itemMap.hasOwnProperty(options.items[i].id)) {
+                console.error("You have more than one item with the same ID (" + options.items[i].id + ")! Please ensure the IDs of your items are unique.");
                 return;
             }
-            if (this.options.shortcodeLength && (!this.options.items[i].shortcode || this.options.items[i].shortcode.length !== this.options.shortcodeLength)) {
-                console.error("You have defined a shortcode length of " + this.options.shortcodeLength + "; however, you have an item with a shortcode that does not match this length (" + this.options.items[i].shortcode + "). The shortcode functionality only works if the item shortcodes are of a consistent length.", this.options.items[i]);
+            if (options.shortcodeLength && (!options.items[i].shortcode || options.items[i].shortcode.length !== options.shortcodeLength)) {
+                console.error("You have defined a shortcode length of " + options.shortcodeLength + "; however, you have an item with a shortcode that does not match this length (" + options.items[i].shortcode + "). The shortcode functionality only works if the item shortcodes are of a consistent length.", options.items[i]);
                 return;
             } 
-            this.itemMap[this.options.items[i].id] = this.options.items[i];
+            this.itemMap[options.items[i].id] = options.items[i];
         }
 
-        var defaultSettings = this.options.defaultSettings || {};
+        var defaultSettings = options.defaultSettings || {};
+
+
+        /* PICKER INITIALIZATION */
 
         var pickerStateOptions = {
-            items: map(this.options.items, function (item) {
+            items: map(options.items, function (item) {
                 return item.id;
             }),
-            getBatchSize: this.options.getBatchSize,
-            shouldIncludeItem: this.options.shouldIncludeItem && function (identifier, settings) {
-                return self.options.shouldIncludeItem(self.itemMap[identifier], settings)
+            getBatchSize: options.getBatchSize,
+            shouldIncludeItem: options.shouldIncludeItem && function (identifier, settings) {
+                return options.shouldIncludeItem(self.itemMap[identifier], settings)
             },
-            getFilteredItems: this.options.getFilteredItems,
+            getFilteredItems: options.getFilteredItems,
             defaultSettings: defaultSettings
         };
 
-        this.state = new PickerState(pickerStateOptions);
-
         var savedState = this.loadState();
 
-        // Set this saved state, unless it is invalid.
-        if (!this.setState(savedState)) {
-            if (savedState) {
-                console.warn("Ignoring invalid saved state");
+        // Modify the savedState if we have a modifyState function...
+        if (savedState && options.modifyState) {
+            savedState = options.modifyState(savedState);
+        }
+        // ...but if the end result isn't a valid state, throw it away
+        if (savedState && !isState(savedState)) {
+            console.warn("Ignoring invalid saved state");
+            savedState = null;
+        }
+
+        this.state = new PickerState(pickerStateOptions);
+
+        if (savedState) {
+            this.state.restoreState(savedState, defaultSettings);
+            if (options.onLoadState) {
+                options.onLoadState.call(
+                    this,
+                    this.state.missingItems || [],
+                    this.state.extraItems || []
+                );
             }
+            this.pushHistory();
+        }
+        else {
             this.state.initialize(defaultSettings);
             this.pushHistory();
         }
-    };
+    }
 
     /* GETTERS */
 
@@ -580,22 +572,7 @@
         /**
          * Gets a shortcode link for the current favorite list.
          */
-        var params = [];
-        var link = '?';
-        var i;
-        var setting;
-
-        params.push([this.options.favoritesQueryParam, this.getShortcodeString()]);
-
-        if (this.options.sharedSettings) {
-            for (i = 0; i < this.options.sharedSettings.length; i++) {
-                setting = this.options.sharedSettings[i];
-                if (this.options.default_settings.hasOwnProperty(setting)) {
-                    params.append([setting, this.state.settings[setting]]);
-                }
-            }
-        }
-        return '?' + map(params, function(item) { return map(item, encodeURIComponent).join('='); }).join('&');
+        return '?' + this.options.favoritesQueryParam + '=' + this.getShortcodeString();
     };
 
     Picker.prototype.parseShortcodeString = function(shortcodeString) {
@@ -742,33 +719,6 @@
             }
         }
         return state;
-    };
-
-    Picker.prototype.setState = function(state) {
-        /**
-         * If the given state is valid, restores that state and return true;
-         * otherwise, do nothing and return false.
-         */
-        // Modify the state if we have a modifyState function
-        if (state && this.options.modifyState) {
-            state = this.options.modifyState(state);
-        }
-        // Check if the result is valid
-        if (!isState(state)) {
-            return false;
-        }
-
-        this.state.restoreState(state);
-        if (this.options.onLoadState) {
-            this.options.onLoadState.call(
-                this,
-                this.state.missingItems || [],
-                this.state.extraItems || []
-            );
-        }
-        this.pushHistory();
-
-        return true;
     };
 
     Picker.prototype.isUntouched = function() {
