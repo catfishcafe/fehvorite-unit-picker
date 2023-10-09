@@ -1,0 +1,18 @@
+{"items": [
+  {"id": "alfonse-base", "shortcode": "AA", "name": "Alfonse", "epithet": "Prince of Askr", "baseOrNot": "base", "special": "none", "weaponType": "sword", "moveType": "infantry", "story": true, "types": ["normal"]},
+  {"id": "sharena-base", "shortcode": "AB", "name": "Sharena", "epithet": "Princess of Askr", "weaponType": "lance", "moveType": "infantry", "story": true, "types": ["normal"]},
+  {"id": "anna-feh-base", "shortcode": "AC", "name": "Anna", "epithet": "Commander", "weaponType": "axe", "moveType": "infantry", "story": true, "types": ["normal"]},
+  {"id": "abel-base", "shortcode": "AD", "name": "Abel", "epithet": "The Panther", "weaponType": "lance", "moveType": "cavalry", "types": ["normal"]},
+  {"id": "arthur-fe14-base", "shortcode": "AE", "name": "Arthur", "epithet": "Hapless Hero", "weaponType": "axe", "moveType": "infantry", "types": ["normal"]},
+  {"id": "azama-base", "shortcode": "AF", "name": "Azama", "epithet": "Carefree Monk", "weaponType": "staff", "moveType": "infantry", "types": ["normal"]},
+  {"id": "azura-base", "shortcode": "AG", "name": "Azura", "epithet": "Lady of the Lake", "weaponType": "lance", "moveType": "infantry", "types": ["normal"]},
+  {"id": "barst-base", "shortcode": "AH", "name": "Barst", "epithet": "The Hatchet", "weaponType": "axe", "moveType": "infantry", "types": ["normal"]},
+  {"id": "eliwood-base", "shortcode": "AX", "name": "Eliwood", "epithet": "Knight of Lycia", "weaponType": "lance", "moveType": "cavalry", "types": ["normal"]},
+  {"id": "lucina-base", "shortcode": "Ay", "name": "Lucina", "epithet": "Future Witness", "weaponType": "sword", "moveType": "infantry", "types": ["normal"]},
+  {"id": "lucius-base", "shortcode": "Bn", "name": "Lucius", "epithet": "The Light", "weaponType": "staff", "moveType": "infantry", "types": ["normal"]},
+  {"id": "ninian-base", "shortcode": "Bo", "name": "Ninian", "epithet": "Oracle of Destiny", "weaponType": "dragonBlue", "moveType": "infantry", "types": ["normal"]},
+  {"id": "soren-fe09-base", "shortcode": "B3", "name": "Soren", "epithet": "Shrewd Strategist", "weaponType": "anima", "moveType": "infantry", "types": ["normal"]},
+  {"id": "athena-base", "shortcode": "CF", "name": "Athena", "epithet": "", "weaponType": "sword", "moveType": "infantry", "types": ["normal"]},
+  {"id": "amelia-base", "shortcode": "Cc", "name": "Amelia", "epithet": "Rose of the War", "weaponType": "axe", "moveType": "armored", "types": ["normal"]},
+  {"id": "azura-s-performer", "shortcode": "B3", "name": "Azura", "epithet": "Lady of Ballads", "weaponType": "lance", "moveType": "infantry", "types": ["normal"]}
+]}
