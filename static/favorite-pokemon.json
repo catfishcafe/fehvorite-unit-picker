@@ -1,12 +1,12 @@
 {"items": [
-  {"id": "Bulbasaur", "number": 1, "shortcode": "AA", "name": "Bulbasaur", "types": ["grass", "poison"], "gen": 1},
-  {"id": "Ivysaur", "number": 2, "shortcode": "AB", "name": "Ivysaur", "types": ["grass", "poison"], "gen": 1},
-  {"id": "Venusaur", "number": 3, "shortcode": "AC", "name": "Venusaur", "types": ["grass", "poison"], "gen": 1, "finalEvolution": true},
-  {"id": "charmander", "number": 4, "shortcode": "AD", "name": "Charmander", "types": ["fire"], "gen": 1},
-  {"id": "charmeleon", "number": 5, "shortcode": "AE", "name": "Charmeleon", "types": ["fire"], "gen": 1},
-  {"id": "charizard", "number": 6, "shortcode": "AF", "name": "Charizard", "types": ["fire", "flying"], "gen": 1, "finalEvolution": true},
-  {"id": "squirtle", "number": 7, "shortcode": "AG", "name": "Squirtle", "types": ["water"], "gen": 1},
-  {"id": "wartortle", "number": 8, "shortcode": "AH", "name": "Wartortle", "types": ["water"], "gen": 1},
-  {"id": "blastoise", "number": 9, "shortcode": "AI", "name": "Blastoise", "types": ["water"], "gen": 1, "finalEvolution": true},
-  {"id": "caterpie", "number": 10, "shortcode": "AJ", "name": "Caterpie", "types": ["bug"], "gen": 1}
+  {"id": "alfonse-base", "number": 1, "shortcode": "AA", "name": "Alfonse", "types": ["grass", "poison"], "gen": 1},
+  {"id": "sharena-base", "number": 2, "shortcode": "AB", "name": "Sharena", "types": ["grass", "poison"], "gen": 1},
+  {"id": "anna-feh-base", "number": 3, "shortcode": "AC", "name": "Anna", "types": ["grass", "poison"], "gen": 1, "finalEvolution": true},
+  {"id": "abel-base", "number": 4, "shortcode": "AD", "name": "Abel", "types": ["fire"], "gen": 1},
+  {"id": "arthur-fe14-base", "number": 5, "shortcode": "AE", "name": "Arthur", "types": ["fire"], "gen": 1},
+  {"id": "azama-base", "number": 6, "shortcode": "AF", "name": "Azama", "types": ["fire", "flying"], "gen": 1, "finalEvolution": true},
+  {"id": "azura-base", "number": 7, "shortcode": "AG", "name": "Azura", "types": ["water"], "gen": 1},
+  {"id": "barst-base", "number": 8, "shortcode": "AH", "name": "Barst", "types": ["water"], "gen": 1},
+  {"id": "beruka-base", "number": 9, "shortcode": "AI", "name": "Beruka", "types": ["water"], "gen": 1, "finalEvolution": true},
+  {"id": "caeda-base", "number": 10, "shortcode": "AJ", "name": "Caeda", "types": ["bug"], "gen": 1}
 ]}
