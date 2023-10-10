@@ -29,5 +29,9 @@
   {"id": "fir-base", "number": 1, "shortcode": "Ab", "name": "Fir", "gen": 2},
   {"id": "florina-base", "number": 1, "shortcode": "Ac", "name": "Florina", "gen": 2, "resplendent": "Hel"},
   {"id": "olivia-base", "number": 1, "shortcode": "A_", "name": "Olivia", "gen": 2, "refresher": true},
-  {"id": "ninian-base", "number": 1, "shortcode": "Bo", "name": "Ninian", "gen": 2, "refresher": true, "resplendent": "nifl"}
+  {"id": "ninian-base", "number": 1, "shortcode": "Bo", "name": "Ninian", "gen": 2, "refresher": true, "resplendent": "nifl"},
+  {"id": "azura-s-performer", "number": 1, "shortcode": "Cp", "name": "Azura", "gen": 2, "refresher": true},
+  {"id": "inigo-s-performer", "number": 1, "shortcode": "Cq", "name": "Inigo", "gen": 2, "refresher": true},
+  {"id": "olivia-s-performer", "number": 1, "shortcode": "Cr", "name": "Olivia", "gen": 2, "refresher": true},
+  {"id": "shigure-s-performer", "number": 1, "shortcode": "Cs", "name": "Shigure", "gen": 2, "refresher": true}
   ]}

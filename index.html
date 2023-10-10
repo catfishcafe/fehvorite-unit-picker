@@ -562,8 +562,8 @@
   <p id="major-only"><label><input type="checkbox" id="major"> Major forms only</label>
   <span class="help-text">If checked, only forms marked as "major" (aesthetically significant, as judged somewhat arbitrarily by me) will be included - for instance, no barely-visible gender differences or partial color variations.</span></p>
   
-  <p><label><input type="checkbox" id="final"> Final evolutions only</label>
-  <span class="help-text">If checked, only final evolutions will be included.</span></p>
+  <p><label><input type="checkbox" id="refreshers"> Refreshers only</label>
+  <span class="help-text">If checked, only units who can grant other units another turn with assist skills (dance/sing/chant/play/etc.) will be included. (Units who can grant other units another action with duo skills are not included.)</span></p>
   
   <p>Generations to include:
   <label>(<input type="checkbox" id="generations-all" class="select-all" value="generations"> Select all)</label>
@@ -619,7 +619,7 @@
       resplendent: false,
       includeForms: [],
       majorOnly: false,
-      finalOnly: false,
+      refreshersOnly: false,
       spoilers: true,
       generations: lists.generations,
       maxBatchSize: 20
@@ -771,7 +771,7 @@
           settings: {
               resplendent: "#resplendent",
               includeForms: ".include-forms",
-              finalOnly: "#final",
+              refreshersOnly: "#refreshers",
               majorOnly: "#major",
               generations: ".generations",
             //   types: ".types",
@@ -1012,8 +1012,8 @@
               return value.indexOf(pokemon.gen) !== -1;
         //   case 'types':
         //       return hasType(pokemon, value);
-          case 'finalOnly':
-              return !value || finalInGeneration(pokemon, settings.generations);
+          case 'refreshersOnly':
+              return !value || pokemon.refresher === true;
           case 'spoilers':
               return value || !pokemon.spoiler;
           default:
@@ -1091,13 +1091,13 @@
       });
   }
   
-  function finalInGeneration(pokemon, generations) {
-      /**
-       * Returns true if the given pokemon object is a final evolution in
-       * the given generation.
-       */
-      return pokemon.finalEvolution === true || pokemon.finalEvolution && generations.indexOf(pokemon.finalEvolution) === -1;
-  }
+//   function finalInGeneration(pokemon, generations) {
+//       /**
+//        * Returns true if the given pokemon object is a final evolution in
+//        * the given generation.
+//        */
+//       return pokemon.refresher === true;
+//   }
   
   function isFormIncluded(pokemon, includeForms, majorOnly) {
       /**
