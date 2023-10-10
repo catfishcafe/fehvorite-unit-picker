@@ -197,8 +197,6 @@
       position:relative;
       vertical-align:top;
       overflow:visible;
-      border-radius:100%;
-      color:#F7F7F7;
   }
   
   .item-list li span {
@@ -206,19 +204,13 @@
       width:100px;
       height:100px;
       padding:3px;
-      background:#F7F7F7;
-      border-radius:100%;
   }
   
   .item-list li img {
       position:absolute;
-      top:-5px;
-      left:-3px;
-      /*
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
-      */
       z-index:100;
   }
   
@@ -459,6 +451,7 @@
   </style>
   <link rel="alternate stylesheet" title="dark" type="text/css" href="/styles/favorite-dark.css">
   <script type="text/javascript">
+
   /* STYLE SWITCHER */
   
   function setActiveStyleSheet(title) {
@@ -563,7 +556,7 @@
   </div>
   
   <div id="options" style="display: none;">
-  <p><label><input type="checkbox" id="shiny"> Shiny mode</label>
+  <p><label><input type="checkbox" id="resplendent"> Resplendent mode</label>
   <span class="help-text">If checked, all displayed sprites will be shiny.</span></p>
   
   <p><label>Maximum batch size: <input type="number" id="max-batch-size" value="20" min="2" max="20" step="1"></label>
@@ -650,7 +643,7 @@
   <script>
   'use strict';
   
-  /* POKÉMON DATA CONSTANTS */
+  /* DATA CONSTANTS */
   
   var lists = {
       types: ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"],
@@ -660,7 +653,7 @@
   };
   
   var defaultSettings = {
-      shiny: false,
+      resplendent: false,
       includeForms: [],
       majorOnly: false,
       finalOnly: false,
@@ -697,33 +690,33 @@
           var identifier;
           var i, j;
   
-          if (!state.settings) {
-              // Backwards-compatibility: old states since before settings became a sub-object
-              state.settings = {
-                  shiny: state.shiny,
-                  includeForms: state.include_forms ? lists.includeForms : [],
-                  spoilers: state.spoilers,
-                  finalOnly: state.final_only,
-                  // We want major only checked by default for users who weren't including forms before, so as to make it the default in forms mode
-                  majorOnly: state.major_only === undefined && !state.include_forms ? true : state.major_only || true,
-                  // Default to all generations/types checked.
-                  generations: state.generations || lists.generations,
-                  types: state.types || lists.types,
-                  maxBatchSize: state.max_batch_size || defaultSettings.maxBatchSize
-              };
-          } else {
-              // Backwards-compatibility: ensure we have the camelCase settings (and no extra settings)
-              state.settings = {
-                  shiny: state.settings.shiny,
-                  includeForms: state.settings.includeForms || (state.settings.include_forms ? lists.includeForms : []),
-                  spoilers: state.settings.spoilers,
-                  finalOnly: state.settings.finalOnly || state.settings.final_only,
-                  majorOnly: state.settings.majorOnly || state.settings.major_only,
-                  generations: state.settings.generations,
-                  types: state.settings.types,
-                  maxBatchSize: state.settings.maxBatchSize || state.settings.max_batch_size
-              };
-          }
+        //   if (!state.settings) {
+        //       // Backwards-compatibility: old states since before settings became a sub-object
+        //       state.settings = {
+        //           resplendent: state.resplendent,
+        //           includeForms: state.include_forms ? lists.includeForms : [],
+        //           spoilers: state.spoilers,
+        //           finalOnly: state.final_only,
+        //           // We want major only checked by default for users who weren't including forms before, so as to make it the default in forms mode
+        //           majorOnly: state.major_only === undefined && !state.include_forms ? true : state.major_only || true,
+        //           // Default to all generations/types checked.
+        //           generations: state.generations || lists.generations,
+        //           types: state.types || lists.types,
+        //           maxBatchSize: state.max_batch_size || defaultSettings.maxBatchSize
+        //       };
+        //   } else {
+        //       // Backwards-compatibility: ensure we have the camelCase settings (and no extra settings)
+        //       state.settings = {
+        //           resplendent: state.settings.resplendent,
+        //           includeForms: state.settings.includeForms || (state.settings.include_forms ? lists.includeForms : []),
+        //           spoilers: state.settings.spoilers,
+        //           finalOnly: state.settings.finalOnly || state.settings.final_only,
+        //           majorOnly: state.settings.majorOnly || state.settings.major_only,
+        //           generations: state.settings.generations,
+        //           types: state.settings.types,
+        //           maxBatchSize: state.settings.maxBatchSize || state.settings.max_batch_size
+        //       };
+        //   }
   
           if (typeof state.settings.includeForms !== 'object') {
               state.settings.includeForms = state.settings.includeForms ? lists.includeForms : [];
@@ -771,14 +764,14 @@
           return state;
       },
       settingsFromFavorites: function(favorites) {
-          var settings = {
+          let settings = {
               includeForms: [],
               majorOnly: true,
               spoilers: false
           };
-          var i, j;
-          var formTypes;
-          var formType;
+          let i, j;
+          let formTypes;
+          let formType;
   
           for (i = 0; i < favorites.length; i++) {
               // Activate forms mode if the Pokémon has a form...
@@ -842,7 +835,7 @@
   var pickerUI = new PickerUI(pokemonPicker, {
       elements: {
           settings: {
-              shiny: "#shiny",
+              resplendent: "#resplendent",
               includeForms: ".include-forms",
               finalOnly: "#final",
               majorOnly: "#major",
@@ -889,7 +882,7 @@
           if (favorites === 0) {
               $("#found-favorites").prepend('<p class="state-info">None yet! Your favorites will start appearing here when you\'ve narrowed things down.</p>');
           } else {
-              $("#dispute").after('<p class="state-info"><a href="/favorite-list' + this.picker.getShortcodeLink() + (this.picker.state.settings.shiny ? '&shiny=1' : '') + '">Shareable link to your current favorites list.</a> Note that that page won\'t automatically update as you go; you\'ll have to share a new link when you\'ve found more favorites.</p>');
+              $("#dispute").after('<p class="state-info"><a href="/favorite-list' + this.picker.getShortcodeLink() + (this.picker.state.settings.resplendent ? '&resplendent=1' : '') + '">Shareable link to your current favorites list.</a> Note that that page won\'t automatically update as you go; you\'ll have to share a new link when you\'ve found more favorites.</p>');
           }
   
           $("#debug-state").val(JSON ? JSON.stringify(this.picker.state.getState()) : "Your browser does not support native JSON serialization! Unfortunately, at the moment you cannot use the import/export feature.");
@@ -898,8 +891,10 @@
           return $('<li></li>').append($('<span></span>').append(item));
       },
         getItemImageUrl: function(unit, settings) {
-            return "/images/" + (settings.resplendent ? "resplendent/" : "") + unit.id + ".png";
+            console.log (unit.hasOwnProperty("resplendent"));
+            return "/images/" + unit.id + (settings.resplendent && unit.hasOwnProperty("resplendent") ? "-r" : "")+ ".png";
         }
+
     //   getItemImageUrl: function(pokemon, settings) {
     //       return "/sprites/gen8/home-thumb/" + (settings.shiny ? "shiny/" : "") + zeropad(pokemon.number) + (pokemon.form ? "-" + pokemon.form : "") + ".png";
     //   }
@@ -1166,8 +1161,8 @@
               return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
           case 'generations':
               return value.indexOf(pokemon.gen) !== -1;
-          case 'types':
-              return hasType(pokemon, value);
+        //   case 'types':
+        //       return hasType(pokemon, value);
           case 'finalOnly':
               return !value || finalInGeneration(pokemon, settings.generations);
           case 'spoilers':
@@ -1225,16 +1220,16 @@
       return word.substring(0, 1).toUpperCase() + word.substring(1);
   }
   
-  function zeropad(number) {
-      /**
-       * Pads a number with zeroes up to three digits.
-       */
-      var num = number.toString();
-      while (num.length < 3) {
-          num = "0" + num;
-      }
-      return num;
-  }
+//   function zeropad(number) {
+//       /**
+//        * Pads a number with zeroes up to three digits.
+//        */
+//       var num = number.toString();
+//       while (num.length < 3) {
+//           num = "0" + num;
+//       }
+//       return num;
+//   }
   
   function getPokemonIdentifier(pokemon) {
       /**
@@ -1287,10 +1282,10 @@
       if (!pokemon.form) {
           return true;
       }
-      var formTypes = pokemon.formType.split(",");
-      var formType;
-      var i;
-      for (var i = 0; i < formTypes.length; i++) {
+      const formTypes = pokemon.formType.split(",");
+      let formType;
+      let i;
+      for (i = 0; i < formTypes.length; i++) {
           formType = formTypes[i].split("-");
           if (majorOnly && formType[1] === 'minor') {
               return false;

@@ -465,9 +465,8 @@
          * is set, it returns an image with that URL; otherwise, it simply
          * returns a plain text list item.
          */
-        var itemContent;
-        var itemName;
-        itemName = item.name || item.id;
+        let itemContent;
+        const itemName = item.name || item.id;
         if (this.options.getItemElem) {
             return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
         }
@@ -484,7 +483,7 @@
         /**
          * Creates and returns a reset button.
          */
-        var self = this;
+        const self = this;
         return $('<button type="button">' + (text || this.messages.reset) + '</button>').on('click', function() {
             self.reset();
         });

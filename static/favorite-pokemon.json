@@ -1,12 +1,12 @@
 {"items": [
   {"id": "alfonse-base", "number": 1, "shortcode": "AA", "name": "Alfonse", "types": ["grass", "poison"], "gen": 1},
-  {"id": "sharena-base", "number": 2, "shortcode": "AB", "name": "Sharena", "types": ["grass", "poison"], "gen": 1},
-  {"id": "anna-feh-base", "number": 3, "shortcode": "AC", "name": "Anna", "types": ["grass", "poison"], "gen": 1, "finalEvolution": true},
-  {"id": "abel-base", "number": 4, "shortcode": "AD", "name": "Abel", "types": ["fire"], "gen": 1},
-  {"id": "arthur-fe14-base", "number": 5, "shortcode": "AE", "name": "Arthur", "types": ["fire"], "gen": 1},
-  {"id": "azama-base", "number": 6, "shortcode": "AF", "name": "Azama", "types": ["fire", "flying"], "gen": 1, "finalEvolution": true},
-  {"id": "azura-base", "number": 7, "shortcode": "AG", "name": "Azura", "types": ["water"], "gen": 1},
+  {"id": "sharena-base", "number": 2, "shortcode": "AB", "name": "Sharena", "types": ["normal", "fairy"], "gen": 1},
+  {"id": "anna-feh-base", "number": 3, "shortcode": "AC", "name": "Anna", "types": ["ground", "electric"], "gen": 1, "finalEvolution": true},
+  {"id": "abel-base", "number": 4, "shortcode": "AD", "name": "Abel", "types": ["fire, rock"], "gen": 1},
+  {"id": "arthur-fe14-base", "number": 5, "shortcode": "AE", "name": "Arthur", "types": ["fighting"], "gen": 1},
+  {"id": "azama-base", "number": 6, "shortcode": "AF", "name": "Azama", "types": ["psychic", "flying"], "gen": 1, "finalEvolution": true},
+  {"id": "azura-base", "number": 7, "shortcode": "AG", "name": "Azura", "types": ["water, dark"], "gen": 1, "resplendent": "nifl"},
   {"id": "barst-base", "number": 8, "shortcode": "AH", "name": "Barst", "types": ["water"], "gen": 1},
   {"id": "beruka-base", "number": 9, "shortcode": "AI", "name": "Beruka", "types": ["water"], "gen": 1, "finalEvolution": true},
-  {"id": "caeda-base", "number": 10, "shortcode": "AJ", "name": "Caeda", "types": ["bug"], "gen": 1}
+  {"id": "caeda-base", "number": 10, "shortcode": "AJ", "name": "Caeda", "types": ["bug"], "gen": 1, "resplendent": "nifl"}
 ]}
