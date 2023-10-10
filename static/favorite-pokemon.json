@@ -1,13 +1,13 @@
 {"items": [
-  {"id": "alfonse-base", "number": 1, "shortcode": "AA", "name": "Alfonse", "gen": 1},
-  {"id": "sharena-base", "number": 2, "shortcode": "AB", "name": "Sharena", "gen": 1},
+  {"id": "alfonse-base", "number": 1, "shortcode": "AA", "name": "Alfonse", "gen": 1, "finalEvolution": true},
+  {"id": "sharena-base", "number": 2, "shortcode": "AB", "name": "Sharena", "gen": 1, "finalEvolution": true},
   {"id": "anna-feh-base", "number": 3, "shortcode": "AC", "name": "Anna", "gen": 1, "finalEvolution": true},
-  {"id": "abel-base", "number": 4, "shortcode": "AD", "name": "Abel", "gen": 1},
-  {"id": "arthur-fe14-base", "number": 5, "shortcode": "AE", "name": "Arthur", "gen": 1},
-  {"id": "azama-base", "number": 6, "shortcode": "AF", "name": "Azama", "gen": 1, "finalEvolution": true},
-  {"id": "azura-base", "number": 7, "shortcode": "AG", "name": "Azura", "gen": 1, "resplendent": "nifl"},
+  {"id": "abel-base", "number": 4, "shortcode": "AD", "name": "Abel", "gen": 1, "finalEvolution": true},
+  {"id": "arthur-fe14-base", "number": 5, "shortcode": "AE", "name": "Arthur", "gen": 1, "finalEvolution": true},
+  {"id": "azama-base", "number": 6, "shortcode": "AF", "name": "Azama", "gen": 1},
+  {"id": "azura-base", "number": 7, "shortcode": "AG", "name": "Azura", "gen": 1, "refresher": true, "resplendent": "nifl"},
   {"id": "barst-base", "number": 8, "shortcode": "AH", "name": "Barst", "gen": 1},
-  {"id": "beruka-base", "number": 9, "shortcode": "AI", "name": "Beruka", "gen": 1, "finalEvolution": true},
+  {"id": "beruka-base", "number": 9, "shortcode": "AI", "name": "Beruka", "gen": 1},
   {"id": "caeda-base", "number": 10, "shortcode": "AJ", "name": "Caeda", "gen": 1, "resplendent": "nifl"},
   {"id": "cain-base", "number": 1, "shortcode": "AK", "name": "Cain", "gen": 2},
   {"id": "camilla-base", "number": 1, "shortcode": "AL", "name": "Camilla", "gen": 2},
@@ -27,5 +27,7 @@
   {"id": "fae-base", "number": 1, "shortcode": "AZ", "name": "Fae", "gen": 2, "resplendent": "placeholder"},
   {"id": "felicia-base", "number": 1, "shortcode": "Aa", "name": "Felicia", "gen": 2},
   {"id": "fir-base", "number": 1, "shortcode": "Ab", "name": "Fir", "gen": 2},
-  {"id": "florina-base", "number": 1, "shortcode": "Ac", "name": "Florina", "gen": 2, "resplendent": "Hel"}
+  {"id": "florina-base", "number": 1, "shortcode": "Ac", "name": "Florina", "gen": 2, "resplendent": "Hel"},
+  {"id": "olivia-base", "number": 1, "shortcode": "A_", "name": "Olivia", "gen": 2, "refresher": true},
+  {"id": "ninian-base", "number": 1, "shortcode": "Bo", "name": "Ninian", "gen": 2, "refresher": true, "resplendent": "nifl"}
   ]}
