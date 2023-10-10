@@ -4,7 +4,7 @@
   <meta name="viewport" content="initial-scale=1.0">
   <meta name="flattr:id" content="9ykjj0">
   <link href="/favicon.png" rel="shortcut icon" type="image/png">
-  <title>Favorite Pokémon Picker</title>
+  <title>Favorite pokemon Picker</title>
   <style>
   body {
       background:#00c3ff;
@@ -491,9 +491,9 @@
   </head>
   <body>
   <a href="#" id="darkmode">Light mode</a>
-  <h1>Favorite Pokémon Picker</h1><p class="info">Welcome back! Your previous state has been loaded. If you would like to start from scratch, please click this button: <button type="button">Reset</button></p>
+  <h1>Favorite pokemon Picker</h1><p class="info">Welcome back! Your previous state has been loaded. If you would like to start from scratch, please click this button: <button type="button">Reset</button></p>
   
-  <p>For each group of Pokémon presented to you, click one or more of your favorites from that group and press the "Pick" button. Eventually, your favorite Pokémon will start appearing under "Found Favorites". You can continue as long as you like to construct an arbitrarily long list of your favorite Pokémon.</p>
+  <p>For each group of pokemon presented to you, click one or more of your favorites from that group and press the "Pick" button. Eventually, your favorite pokemon will start appearing under "Found Favorites". You can continue as long as you like to construct an arbitrarily long list of your favorite pokemon.</p>
   
   <p>In principle, this picker is perfectly accurate, provided you pick consistently - you'll correctly get your second favorite second, even if it's pitted against your absolute favorite early on, for instance. <a href="#howitworks" class="toggle">Click here for more on how this tool works.</a> You can reorder your favorites after you've found them, but in principle you shouldn't need to.</p>
   
@@ -504,15 +504,15 @@
   <div id="howitworks">
   <h2>How It Works</h2>
   
-  <p>The idea for the favorite Pokémon picker is not original to me; it is inspired by an old, now-defunct original that has been recreated with upgrades <a href="http://fio4ri.github.io/FavoritePokemon/">here</a>. Basically, it would present you with a random pair of Pokémon, you'd pick the one you liked better, and that would eliminate the other Pokémon from the running and then give you another pair randomly chosen from the remaining Pokémon. Eventually, when you had eliminated every Pokémon but one, the remaining one had to be your very favorite Pokémon, and the last few you eliminated were given second to tenth place.</p>
+  <p>The idea for the favorite pokemon picker is not original to me; it is inspired by an old, now-defunct original that has been recreated with upgrades <a href="http://fio4ri.github.io/FavoritePokemon/">here</a>. Basically, it would present you with a random pair of pokemon, you'd pick the one you liked better, and that would eliminate the other pokemon from the running and then give you another pair randomly chosen from the remaining pokemon. Eventually, when you had eliminated every pokemon but one, the remaining one had to be your very favorite pokemon, and the last few you eliminated were given second to tenth place.</p>
   
-  <p>This picker was designed to improve on this concept. The main differences are that it will present you with up to 20 Pokémon at a time by default, which speeds up the picking process considerably, and that rather than giving second to tenth place to the last nine Pokémon you eliminated (which leaves them partially up to chance - if the old picker happens to make you pick between your two favorites early on, your real second favorite won't even make the list), it will instead bring back all Pokémon eliminated by your favorite and have you pick between them in the same way as before. This recursiveness also means that instead of cutting it off at top ten, you can in theory continue picking until you've ordered literally every single Pokémon into a favorites list.</p>
+  <p>This picker was designed to improve on this concept. The main differences are that it will present you with up to 20 pokemon at a time by default, which speeds up the picking process considerably, and that rather than giving second to tenth place to the last nine pokemon you eliminated (which leaves them partially up to chance - if the old picker happens to make you pick between your two favorites early on, your real second favorite won't even make the list), it will instead bring back all pokemon eliminated by your favorite and have you pick between them in the same way as before. This recursiveness also means that instead of cutting it off at top ten, you can in theory continue picking until you've ordered literally every single pokemon into a favorites list.</p>
   
-  <p>The basic principle driving this picker is still elimination - it just also keeps track of which Pokémon you picked over each eliminated Pokémon. For example, if the picker shows Charizard and Butterfree, and you pick Charizard, it doesn't give Charizard points or mark it as liked somehow; it just marks Butterfree as eliminated by Charizard. If you eventually go on to eliminate every Pokémon except Charizard, then Charizard will be added to your Found Favorites, and Butterfree (and any other Pokémon that were eliminated by Charizard) will be back in the running for second place. Similarly, if you had previously had a batch with Charizard, Butterfree and Blastoise in it, and you picked Charizard and Butterfree, then Blastoise will reappear whenever Charizard and Butterfree have <em>both</em> been added under Found Favorites.</p>
+  <p>The basic principle driving this picker is still elimination - it just also keeps track of which pokemon you picked over each eliminated pokemon. For example, if the picker shows Charizard and Butterfree, and you pick Charizard, it doesn't give Charizard points or mark it as liked somehow; it just marks Butterfree as eliminated by Charizard. If you eventually go on to eliminate every pokemon except Charizard, then Charizard will be added to your Found Favorites, and Butterfree (and any other pokemon that were eliminated by Charizard) will be back in the running for second place. Similarly, if you had previously had a batch with Charizard, Butterfree and Blastoise in it, and you picked Charizard and Butterfree, then Blastoise will reappear whenever Charizard and Butterfree have <em>both</em> been added under Found Favorites.</p>
   
-  <p>All that picking means is therefore, "I like all of <em>these</em> Pokémon better than any of <em>those</em>." This is intentionally a broad, flexible statement; you'll end up with the same result regardless of how many Pokémon you choose to pick from each batch, so it's up to you how many you want to pick at a time. If you just want to get your number one favorite or a select few, it's quickest to try to pick just one Pokémon from each batch, while if you want to construct something like a top fifty list, you may want to start by picking every Pokémon that's likely to end up in that top fifty.</p>
+  <p>All that picking means is therefore, "I like all of <em>these</em> pokemon better than any of <em>those</em>." This is intentionally a broad, flexible statement; you'll end up with the same result regardless of how many pokemon you choose to pick from each batch, so it's up to you how many you want to pick at a time. If you just want to get your number one favorite or a select few, it's quickest to try to pick just one pokemon from each batch, while if you want to construct something like a top fifty list, you may want to start by picking every pokemon that's likely to end up in that top fifty.</p>
   
-  <p>The elimination mechanic is also why you can't pick nothing; Pokémon can only ever be eliminated <em>by some other Pokémon</em>, so that the picker can know when to bring them back. The "Pass" button is instead equivalent to picking <em>every</em> Pokémon in the batch, which eliminates nothing and simply means all those Pokémon get shuffled into the next round - passing over and over won't get you anywhere, so make sure you do some actual picking.</p>
+  <p>The elimination mechanic is also why you can't pick nothing; pokemon can only ever be eliminated <em>by some other pokemon</em>, so that the picker can know when to bring them back. The "Pass" button is instead equivalent to picking <em>every</em> pokemon in the batch, which eliminates nothing and simply means all those pokemon get shuffled into the next round - passing over and over won't get you anywhere, so make sure you do some actual picking.</p>
   
   <p><a href="#howitworks" class="toggle">Hide explanation</a></p>
   </div>
@@ -527,7 +527,7 @@
   <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo" class="disabled">Undo</button> <button id="redo" class="disabled">Redo</button></p>
   
   <div class="picker-info">
-  <p>Pokémon remaining to be eliminated before next favorite is found: <span id="remaining">112</span></p>
+  <p>pokemon remaining to be eliminated before next favorite is found: <span id="remaining">112</span></p>
   
   <p>Progress towards next favorite: <span id="progress-bar"><span style="width: 25.3333%;"></span></span></p>
   </div>
@@ -541,7 +541,7 @@
   <div id="found-favorites" style="display: block;"><p class="state-info">None yet! Your favorites will start appearing here when you've narrowed things down.</p>
   <ol id="favorites" class="item-list"></ol>
   
-  <p id="dispute">Not seeing one of your favorite Pokémon? <a href="#">Click here to check what happened to it.</a></p>
+  <p id="dispute">Not seeing one of your favorite pokemon? <a href="#">Click here to check what happened to it.</a></p>
   
   <p id="debug-toggle"><a href="#debug" class="toggle">Import/export state</a></p>
   
@@ -557,10 +557,10 @@
   
   <div id="options" style="display: none;">
   <p><label><input type="checkbox" id="resplendent"> Resplendent mode</label>
-  <span class="help-text">If checked, all displayed sprites will be shiny.</span></p>
+  <span class="help-text">If checked, any units with resplendents will display their resplendent artowrk.</span></p>
   
   <p><label>Maximum batch size: <input type="number" id="max-batch-size" value="20" min="2" max="20" step="1"></label>
-  <span class="help-text">The maximum number of Pokémon shown at a time. When there are few Pokémon left in a round, you'll see fewer than this. Reducing the maximum batch size may make it easier to pick, but it will also take longer to get through each round.</span></p>
+  <span class="help-text">The maximum number of pokemon shown at a time. When there are few pokemon left in a round, you'll see fewer than this. Reducing the maximum batch size may make it easier to pick, but it will also take longer to get through each round.</span></p>
   
   <p>Include forms:
   <label>(<input type="checkbox" id="forms-all" class="select-all" value="includeForms"> Select all)</label>
@@ -571,7 +571,7 @@
   <label><input type="checkbox" class="include-forms" value="battle"> other battle transformations</label>,
   <label><input type="checkbox" class="include-forms" value="aesthetic"> aesthetic variants</label>,
   <label><input type="checkbox" class="include-forms" value="gender"> gender differences</label>
-  <span class="help-text">In forms mode, Pokémon forms are included as separate entities, split into the above categories.</span></p>
+  <span class="help-text">In forms mode, pokemon forms are included as separate entities, split into the above categories.</span></p>
   
   <p id="major-only"><label><input type="checkbox" id="major"> Major forms only</label>
   <span class="help-text">If checked, only forms marked as "major" (aesthetically significant, as judged somewhat arbitrarily by me) will be included - for instance, no barely-visible gender differences or partial color variations.</span></p>
@@ -591,9 +591,9 @@
   <label><input type="checkbox" class="generations setting-number" value="8" checked=""> VIII</label>,
   <label><input type="checkbox" class="generations setting-number" value="8.5" checked=""> Legends: Arceus</label>,
   <label><input type="checkbox" class="generations setting-number" value="9" checked=""> IX</label>
-  <span class="help-text">Only Pokémon from the checked generations will appear. In forms mode, forms count as the generation where they were introduced, but gender differences as the base Pokémon's generation.</span></p>
+  <span class="help-text">Only pokemon from the checked generations will appear. In forms mode, forms count as the generation where they were introduced, but gender differences as the base pokemon's generation.</span></p>
   
-  <p>Types to include:
+  <!-- <p>Types to include:
   <label>(<input type="checkbox" id="types-all" class="select-all" value="types"> Select all)</label>
   <label><input type="checkbox" class="types" value="normal" checked=""> Normal</label>,
   <label><input type="checkbox" class="types" value="fire" checked=""> Fire</label>,
@@ -613,10 +613,10 @@
   <label><input type="checkbox" class="types" value="dark" checked=""> Dark</label>,
   <label><input type="checkbox" class="types" value="steel" checked=""> Steel</label>,
   <label><input type="checkbox" class="types" value="fairy" checked=""> Fairy</label>
-  <span class="help-text">Only Pokémon that have at least one of the selected types will appear.</span></p>
-  
+  <span class="help-text">Only pokemon that have at least one of the selected types will appear.</span></p>
+   -->
   <p><label><input type="checkbox" id="spoilers"> Include spoilers</label>
-  <span class="help-text">If unchecked, Pokémon that might be considered spoilers, either for story reasons or because they're officially unreleased, will be excluded.</span></p>
+  <span class="help-text">If unchecked, pokemon that might be considered spoilers, either for story reasons or because they're officially unreleased, will be excluded.</span></p>
   
   <p><button class="reset">Reset</button></p>
   </div>
@@ -646,7 +646,7 @@
   /* DATA CONSTANTS */
   
   var lists = {
-      types: ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"],
+    //   types: ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"],
       generations: [1, 2, 3, 4, 5, 6, 7, 8, 8.5, 9],
       includeForms: ["regional", "alternate", "mega", "gigantamax", "battle", "gender", "aesthetic"],
       minorFormTypes: ["alternate", "battle", "gender", "aesthetic"]
@@ -659,7 +659,7 @@
       finalOnly: false,
       spoilers: true,
       generations: lists.generations,
-      types: lists.types,
+    //   types: lists.types,
       maxBatchSize: 20
   };
   
@@ -722,7 +722,7 @@
               state.settings.includeForms = state.settings.includeForms ? lists.includeForms : [];
           }
   
-          // Go through all the Pokémon in each array and correct legacy data format
+          // Go through all the pokemon in each array and correct legacy data format
           for (i = 0; i < arrays.length; i++) {
               for (j = arrays[i].length - 1; j >= 0; j--) {
                   if (arrays[i][j].number) {
@@ -774,7 +774,7 @@
           let formType;
   
           for (i = 0; i < favorites.length; i++) {
-              // Activate forms mode if the Pokémon has a form...
+              // Activate forms mode if the pokemon has a form...
               if (favorites[i].form) {
                   formTypes = favorites[i].formType.split(",");
                   for (j = 0; j < formTypes.length; j++) {
@@ -788,7 +788,7 @@
                       }
                   }
               }
-              // Enable spoilers if the Pokémon is a spoiler.
+              // Enable spoilers if the pokemon is a spoiler.
               if (favorites[i].spoiler) {
                   settings.spoilers = true;
               }
@@ -819,7 +819,7 @@
                       addedSpoilers = true;
                   }
               }
-              if (addedSpoilers && !confirm("Some Pokémon marked as spoilers have been added since last time you were here. Press OK to proceed with these Pokémon added. Press Cancel to turn off spoilers so that you won't see these Pokémon.")) {
+              if (addedSpoilers && !confirm("Some pokemon marked as spoilers have been added since last time you were here. Press OK to proceed with these pokemon added. Press Cancel to turn off spoilers so that you won't see these pokemon.")) {
                   settings.spoilers = false;
                   this.setSettings(settings);
               }
@@ -840,7 +840,7 @@
               finalOnly: "#final",
               majorOnly: "#major",
               generations: ".generations",
-              types: ".types",
+            //   types: ".types",
               spoilers: "#spoilers",
               maxBatchSize: "#max-batch-size"
           },
@@ -857,9 +857,9 @@
           sharedListSkip: ".shared-list-skip"
       },
       messages: {
-          mustSelect: "You must select some Pokémon first! If you like them all the same, press Pass.",
-          orderedAll: 'You have ordered every available Pokémon!',
-          noItems: 'There are no Pokémon that fit your criteria! Set some different options and try again.'
+          mustSelect: "You must select some pokemon first! If you like them all the same, press Pass.",
+          orderedAll: 'You have ordered every available pokemon!',
+          noItems: 'There are no pokemon that fit your criteria! Set some different options and try again.'
       },
       onUpdate: function(updateType) {
           var totalPokemon = this.picker.state.items.length;
@@ -913,16 +913,16 @@
           setSelectAll('includeForms');
       });
   
-      pickerUI.elem.settings.types.on('change', function() {
-          setSelectAll('types');
-      });
+    //   pickerUI.elem.settings.types.on('change', function() {
+    //       setSelectAll('types');
+    //   });
   
       pickerUI.elem.settings.generations.on('change', function() {
           setSelectAll('generations');
       });
   
       setSelectAll('includeForms');
-      setSelectAll('types');
+    //   setSelectAll('types');
       setSelectAll('generations');
   });
   
@@ -949,7 +949,7 @@
   
 //   function dispute(missing) {
 //       /**
-//        * Locates the Pokémon whose name is given by missing (if it exists)
+//        * Locates the pokemon whose name is given by missing (if it exists)
 //        * and explains to the user where it is in the picker state.
 //        */
 //       var identifier = identifierFromName(missing);
@@ -960,28 +960,28 @@
 //       var settings = pokemonPicker.getSettings();
   
 //       if (!identifier) {
-//           alert("'" + missing + "' does not seem to be a Pokémon recognized by the picker. Note that the 'default' form (the one used in non-forms mode) is just the name of its species, so that there is for example no Unown A, just Unown. Otherwise, check your spelling (note that the Nidorans are \"Nidoran (m)\" and \"Nidoran (f)\").");
+//           alert("'" + missing + "' does not seem to be a pokemon recognized by the picker. Note that the 'default' form (the one used in non-forms mode) is just the name of its species, so that there is for example no Unown A, just Unown. Otherwise, check your spelling (note that the Nidorans are \"Nidoran (m)\" and \"Nidoran (f)\").");
 //           return;
 //       }
 //       missingPokemon = pokemonPicker.itemMap[identifier];
 //       if (pokemonPicker.state.items.indexOf(identifier) === -1) {
 //           if (!settingIncludesPokemon(missingPokemon, 'includeForms', settings)) {
-//               alert(missingPokemon.name + "'s form is listed as '" + missingPokemon.formType + "'. To appear as a distinct Pokémon, you must enable the appropriate form types by checking the respective boxes under the Options tab. If this form designation seems odd in a more than debatable way, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
+//               alert(missingPokemon.name + "'s form is listed as '" + missingPokemon.formType + "'. To appear as a distinct pokemon, you must enable the appropriate form types by checking the respective boxes under the Options tab. If this form designation seems odd in a more than debatable way, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
 //           }
 //           else if (!settingIncludesPokemon(missingPokemon, 'finalOnly', settings)) {
-//               alert(missingPokemon.name + " is a non-final evolution, and you have checked \"Final evolutions only\". If you are confident this Pokémon does not evolve into anything in the generations you selected, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
+//               alert(missingPokemon.name + " is a non-final evolution, and you have checked \"Final evolutions only\". If you are confident this pokemon does not evolve into anything in the generations you selected, I may have made a mistake classifying it; contact me at antialiasis@gmail.com.");
 //           }
 //           else if (!settingIncludesPokemon(missingPokemon, 'generations', settings)) {
-//               alert(missingPokemon.name + " is from Gen " + missingPokemon.gen + ", and you have excluded that generation. Keep in mind that Mega Evolutions are considered Gen 6, but gender dimorphisms are classified with the generation in which the Pokémon itself was introduced. If I have made a mistake classifying something, please contact me at antialiasis@gmail.com.");
+//               alert(missingPokemon.name + " is from Gen " + missingPokemon.gen + ", and you have excluded that generation. Keep in mind that Mega Evolutions are considered Gen 6, but gender dimorphisms are classified with the generation in which the pokemon itself was introduced. If I have made a mistake classifying something, please contact me at antialiasis@gmail.com.");
 //           }
 //           else if (!settingIncludesPokemon(missingPokemon, 'types', settings)) {
-//               alert("You have filtered by type, and " + missingPokemon.name + " does not have any of the types you selected. You must select " + prettyJoin(missingPokemon.types.map(capitalize), 'or') + " under \"Types included\" to include this Pokémon.");
+//               alert("You have filtered by type, and " + missingPokemon.name + " does not have any of the types you selected. You must select " + prettyJoin(missingPokemon.types.map(capitalize), 'or') + " under \"Types included\" to include this pokemon.");
 //           }
 //           else if (!settingIncludesPokemon(missingPokemon, 'spoilers', settings)) {
-//               alert(missingPokemon.name + " is considered a spoiler. To include this Pokémon, check \"Include spoilers\" in the Options tab.");
+//               alert(missingPokemon.name + " is considered a spoiler. To include this pokemon, check \"Include spoilers\" in the Options tab.");
 //           }
 //           else {
-//               alert("Hmm, " + missingPokemon.name + " is not in the filtered list of Pokémon but none of the possible reasons why seem to match. I've done something wrong here. Let me know at antialiasis@gmail.com, include an export of your state (accessible in the bottom right of the Found Favorites tab), and I'll try to figure it out.");
+//               alert("Hmm, " + missingPokemon.name + " is not in the filtered list of pokemon but none of the possible reasons why seem to match. I've done something wrong here. Let me know at antialiasis@gmail.com, include an export of your state (accessible in the bottom right of the Found Favorites tab), and I'll try to figure it out.");
 //           }
 //           return;
 //       }
@@ -989,17 +989,17 @@
 //       eliminated = pokemonPicker.state.findInArray(identifier, 'eliminated');
   
 //       if (eliminated) {
-//           // The Pokémon was eliminated
+//           // The pokemon was eliminated
 //           for (i = 0; i < eliminated.eliminatedBy.length; i++) {
 //               eliminator = pokemonPicker.itemMap[eliminated.eliminatedBy[i] + ""];
 //               eliminators.push(eliminator.name);
 //           }
 //           if (eliminators.length === 0) {
-//               alert("Hmm, something seems to have gone wrong somewhere. This Pokémon has been eliminated, but not by any Pokémon, which should not happen. Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
+//               alert("Hmm, something seems to have gone wrong somewhere. This pokemon has been eliminated, but not by any pokemon, which should not happen. Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
 //           }
 //           else {
 //               joinedEliminators = prettyJoin(eliminators);
-//               alert(missingPokemon.name + " has been marked as eliminated by " + joinedEliminators + ". That means that when it last appeared, you picked " + joinedEliminators + " (and possibly other Pokémon already in your Found Favorites) over it. You will see " + missingPokemon.name + " again when " + joinedEliminators + (eliminators.length === 1 ? " is" : " are") + " under your Found Favorites.");
+//               alert(missingPokemon.name + " has been marked as eliminated by " + joinedEliminators + ". That means that when it last appeared, you picked " + joinedEliminators + " (and possibly other pokemon already in your Found Favorites) over it. You will see " + missingPokemon.name + " again when " + joinedEliminators + (eliminators.length === 1 ? " is" : " are") + " under your Found Favorites.");
 //           }
 //       }
 //       else if (pokemonPicker.state.findInArray(identifier, 'survived')) {
@@ -1015,7 +1015,7 @@
 //           alert(missingPokemon.name + " is right there, in the batch you're evaluating right now.");
 //       }
 //       else {
-//           // The Pokémon really isn't in any of our arrays
+//           // The pokemon really isn't in any of our arrays
 //           alert("Huh, " + missingPokemon.name + " really doesn't actually seem to be anywhere in here. There seems to be an actual bug! Please let me know at antialiasis@gmail.com and include an export of your state (accessible in the bottom right of the Found Favorites tab).");
 //       }
 //   }
@@ -1071,7 +1071,7 @@
   });
   
   $("#dispute").children('a').on('click', function() {
-      var missing = prompt("Enter the name of a Pokémon to check where it is in the picker's internal lists.");
+      var missing = prompt("Enter the name of a pokemon to check where it is in the picker's internal lists.");
       if (missing) {
           dispute(missing);
       }
@@ -1152,7 +1152,7 @@
   
   function settingIncludesPokemon(pokemon, setting, settings) {
       /**
-       * Returns false if the Pokémon should be filtered out by the given
+       * Returns false if the pokemon should be filtered out by the given
        * setting, or true otherwise.
        */
       var value = settings[setting];
@@ -1174,7 +1174,7 @@
   
   function getBatchWidth(batchSize, maxWidth) {
       /**
-       * Calculate how many sprites wide the display area for the Pokémon
+       * Calculate how many sprites wide the display area for the pokemon
        * should be, for the given batch size.
        * We want the closest thing possible to a square, but prefer perfect
        * rectangles to imperfect squares.
@@ -1233,14 +1233,14 @@
   
   function getPokemonIdentifier(pokemon) {
       /**
-       * Returns the identifier of the given Pokémon.
+       * Returns the identifier of the given pokemon.
        */
       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
   }
   
   function identifierFromName(name) {
       /**
-       * Returns the identifier of the Pokémon whose name is given
+       * Returns the identifier of the pokemon whose name is given
        * (case-insensitive).
        */
       return pokemonPicker.forEachItem(function(identifier) {
@@ -1253,22 +1253,22 @@
       });
   }
   
-  function hasType(pokemon, types) {
-      /**
-       * Returns true if the given Pokémon object has at least one of the
-       * given types.
-       */
-      for (var i = 0; i < pokemon.types.length; i++) {
-          if (types.indexOf(pokemon.types[i]) !== -1) {
-              return true;
-          }
-      }
-      return false;
-  }
+//   function hasType(pokemon, types) {
+//       /**
+//        * Returns true if the given pokemon object has at least one of the
+//        * given types.
+//        */
+//       for (var i = 0; i < pokemon.types.length; i++) {
+//           if (types.indexOf(pokemon.types[i]) !== -1) {
+//               return true;
+//           }
+//       }
+//       return false;
+//   }
   
   function finalInGeneration(pokemon, generations) {
       /**
-       * Returns true if the given Pokémon object is a final evolution in
+       * Returns true if the given pokemon object is a final evolution in
        * the given generation.
        */
       return pokemon.finalEvolution === true || pokemon.finalEvolution && generations.indexOf(pokemon.finalEvolution) === -1;
@@ -1276,7 +1276,7 @@
   
   function isFormIncluded(pokemon, includeForms, majorOnly) {
       /**
-       * Returns true if the given Pokémon object should be included by
+       * Returns true if the given pokemon object should be included by
        * the given form settings.
        */
       if (!pokemon.form) {
@@ -1346,8 +1346,8 @@
       console.log(Object.keys(formTypeMap).sort());
   }
   
-  // Some fun simulation: How many Pokémon are you going to get for the second "run", i.e. how many will you need to eliminate to find your second favorite after finding your first?
-  // The pickedMin and pickedMax arguments determine how many Pokémon you'll generally pick from a batch of many.
+  // Some fun simulation: How many pokemon are you going to get for the second "run", i.e. how many will you need to eliminate to find your second favorite after finding your first?
+  // The pickedMin and pickedMax arguments determine how many pokemon you'll generally pick from a batch of many.
   function simulateFirstPickerRound(pickedMin, pickedMax) {
       var simulatedPicker = new picker.Picker({
           items: Array.from(Array(1008).keys()).map(function(i) { return { id: i }; })
