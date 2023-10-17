@@ -465,13 +465,13 @@
          * is set, it returns an image with that URL; otherwise, it simply
          * returns a plain text list item.
          */
-        let itemContent;
-        const itemName = item.name || item.id;
+        var itemContent;
+        var itemName = `${item.name}: ${item.epithet}`
         if (this.options.getItemElem) {
             return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
         }
         if (item.image || this.options.getItemImageUrl) {
-            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px" alt="' + itemName + ': ' + 'epithet' + '" title="' + itemName + '" loading="eager">');
+            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px" alt="' + itemName + '" title="' + itemName + '" loading="eager">');
         }
         else {
             itemContent = $('<span>' + itemName + '</span>');
@@ -483,7 +483,7 @@
         /**
          * Creates and returns a reset button.
          */
-        const self = this;
+        var self = this;
         return $('<button type="button">' + (text || this.messages.reset) + '</button>').on('click', function() {
             self.reset();
         });

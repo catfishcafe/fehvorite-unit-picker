@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <html><head>
   <meta name="viewport" content="initial-scale=1.0">
   <meta name="flattr:id" content="9ykjj0">
@@ -7,7 +5,7 @@
   <title>FEHvorite Unit Picker</title>
   <style>
   body {
-      background:#00c3ff;
+      background:#00e1ff;
       color:#000;
       font-family:verdana, sans-serif;
       font-size:10pt;
@@ -208,9 +206,13 @@
   
   .item-list li img {
       position:absolute;
+      top:-5px;
+      left:-3px;
+      /*
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
+      */
       z-index:100;
   }
   
@@ -262,7 +264,7 @@
       }
   }
   
-  #pokemon li {
+  #units li {
       cursor:pointer;
   }
   
@@ -287,17 +289,17 @@
       background:#F7F7F7;
   }
   
-  #pokemon li.selected span {
+  #units li.selected span {
       padding:0;
       border:3px solid #7AC;
   }
   
-  #pokemon, #buttons {
+  #units, #buttons {
       text-align:center;
       margin:auto;
   }
   
-  #pokemon li.notice {
+  #units li.notice {
       width:auto;
       height:auto;
       max-width:260px;
@@ -311,7 +313,7 @@
       cursor:auto;
   }
   
-  #pokemon li.notice span {
+  #units li.notice span {
       display:inline;
       background:none;
       width:auto;
@@ -451,7 +453,6 @@
   </style>
   <link rel="alternate stylesheet" title="dark" type="text/css" href="/styles/favorite-dark.css">
   <script type="text/javascript">
-
   /* STYLE SWITCHER */
   
   function setActiveStyleSheet(title) {
@@ -491,31 +492,34 @@
   </head>
   <body>
   <a href="#" id="darkmode">Light mode</a>
-  <h1>FEHvorite Unit Picker: Pick and sort your favorite Fire Emblem Heroes units!</h1>
+  <h1>FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes units!</h1>
+  <h2>Original picker code and written descriptions from <a href="pokesite.aspx">The Cave of Dragonflies</a>
+  </h2>
+
+  <p>For each group of units presented to you, click one or more of your favorites from that group and press the "Pick" button. Eventually, your favorite unit will start appearing under "Found Favorites". You can continue as long as you like to construct an arbitrarily long list of your favorite units.</p>
   
-  <!-- <p class="info">Welcome back! Your previous state has been loaded. If you would like to start from scratch, please click this button: <button type="button">Reset</button></p> -->
-  
-  <p>For each group of pokemon presented to you, click one or more of your favorites from that group and press the "Pick" button. Eventually, your favorite pokemon will start appearing under "Found Favorites". You can continue as long as you like to construct an arbitrarily long list of your favorite pokemon.</p>
-  
-  <p>In principle, this picker is perfectly accurate, provided you pick consistently - you'll correctly get your second favorite second, even if it's pitted against your absolute favorite early on, for instance. You can reorder your favorites after you've found them, but in principle you shouldn't need to.</p>
+  <p>In principle, this picker is perfectly accurate, provided you pick consistently - you'll correctly get your second favorite second, even if it's pitted against your absolute favorite early on, for instance. <a href="#howitworks" class="toggle">Click here for more on how this tool works.</a> You can reorder your favorites after you've found them, but in principle you shouldn't need to.</p>
   
   <p>Various filtering and presentation options for the picker can be found in the "Options" tab next to "Found Favorites" below.</p>
   
   <p>Want to create your own favorite picker? <a href="https://github.com/antialiasis/favorite-picker">It's on GitHub with instructions to get you started.</a></p>
   
+  <div id="howitworks">
+
+  </div>
+  
   <div id="container">
   
   <div id="picking">
-  <ul id="pokemon" class="item-list" style="opacity: 1; width: 435px;">
-
-</ul>
+  <ul id="units" class="item-list" style="opacity: 1; width: 560px;">
+  </ul>
   
   <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo" class="disabled">Undo</button> <button id="redo" class="disabled">Redo</button></p>
   
   <div class="picker-info">
-  <p>pokemon remaining to be eliminated before next favorite is found: <span id="remaining">112</span></p>
+  <p>Units remaining to be eliminated before next favorite is found: <span id="remaining">1237</span></p>
   
-  <p>Progress towards next favorite: <span id="progress-bar"><span style="width: 25.3333%;"></span></span></p>
+  <p>Progress towards next favorite: <span id="progress-bar"><span style="width: 0%;"></span></span></p>
   </div>
   </div>
   
@@ -526,8 +530,6 @@
   
   <div id="found-favorites" style="display: block;"><p class="state-info">None yet! Your favorites will start appearing here when you've narrowed things down.</p>
   <ol id="favorites" class="item-list"></ol>
-  
-  <p id="dispute">Not seeing one of your favorite pokemon? <a href="#">Click here to check what happened to it.</a></p>
   
   <p id="debug-toggle"><a href="#debug" class="toggle">Import/export state</a></p>
   
@@ -542,13 +544,13 @@
   </div>
   
   <div id="options" style="display: none;">
-  <p><label><input type="checkbox" id="resplendent"> Resplendent mode</label>
-  <span class="help-text">If checked, any units with resplendents will display their resplendent artowrk.</span></p>
+  <p><label><input type="checkbox" id="resplendent"> resplendent mode</label>
+  <span class="help-text">If checked, all displayed sprites will be resplendent.</span></p>
   
   <p><label>Maximum batch size: <input type="number" id="max-batch-size" value="20" min="2" max="20" step="1"></label>
-  <span class="help-text">The maximum number of pokemon shown at a time. When there are few pokemon left in a round, you'll see fewer than this. Reducing the maximum batch size may make it easier to pick, but it will also take longer to get through each round.</span></p>
+  <span class="help-text">The maximum number of units shown at a time. When there are few units left in a round, you'll see fewer than this. Reducing the maximum batch size may make it easier to pick, but it will also take longer to get through each round.</span></p>
   
-  <p>Include forms:
+  <!-- <p>Include forms:
   <label>(<input type="checkbox" id="forms-all" class="select-all" value="includeForms"> Select all)</label>
   <label><input type="checkbox" class="include-forms" value="regional"> regional variants</label>,
   <label><input type="checkbox" class="include-forms" value="alternate"> other alternate forms</label>,
@@ -557,40 +559,57 @@
   <label><input type="checkbox" class="include-forms" value="battle"> other battle transformations</label>,
   <label><input type="checkbox" class="include-forms" value="aesthetic"> aesthetic variants</label>,
   <label><input type="checkbox" class="include-forms" value="gender"> gender differences</label>
-  <span class="help-text">In forms mode, pokemon forms are included as separate entities, split into the above categories.</span></p>
-  
-  <p id="major-only"><label><input type="checkbox" id="major"> Major forms only</label>
+   -->
+  <!-- <p id="major-only"><label><input type="checkbox" id="major"> Major forms only</label>
   <span class="help-text">If checked, only forms marked as "major" (aesthetically significant, as judged somewhat arbitrarily by me) will be included - for instance, no barely-visible gender differences or partial color variations.</span></p>
   
-  <p><label><input type="checkbox" id="refreshers"> Refreshers only</label>
-  <span class="help-text">If checked, only units who can grant other units another turn with assist skills (dance/sing/chant/play/etc.) will be included. (Units who can grant other units another action with duo skills are not included.)</span></p>
-  
-  <p>Generations to include:
-  <label>(<input type="checkbox" id="generations-all" class="select-all" value="generations"> Select all)</label>
-  <label><input type="checkbox" class="generations setting-number" value="1" checked=""> I</label>,
-  <label><input type="checkbox" class="generations setting-number" value="2" checked=""> II</label>,
-  <label><input type="checkbox" class="generations setting-number" value="3" checked=""> III</label>,
-  <label><input type="checkbox" class="generations setting-number" value="4" checked=""> IV</label>,
-  <label><input type="checkbox" class="generations setting-number" value="5" checked=""> V</label>,
-  <label><input type="checkbox" class="generations setting-number" value="6" checked=""> VI</label>,
-  <label><input type="checkbox" class="generations setting-number" value="7" checked=""> VII</label>,
-  <label><input type="checkbox" class="generations setting-number" value="8" checked=""> VIII</label>,
-  <label><input type="checkbox" class="generations setting-number" value="8.5" checked=""> Legends: Arceus</label>,
-  <label><input type="checkbox" class="generations setting-number" value="9" checked=""> IX</label>
-  <span class="help-text">Only pokemon from the checked generations will appear. In forms mode, forms count as the generation where they were introduced, but gender differences as the base pokemon's generation.</span></p>
-  
+  <p><label><input type="checkbox" id="final"> Final evolutions only</label>
+  <span class="help-text">If checked, only final evolutions will be included.</span></p>
+   -->
+  <p>Weapon types to include:</p><p>
+  <label>(<input type="checkbox" id="weaponTypes-all" class="select-all" value="weaponTypes"> Select all)</label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="sword" checked=""> <img src="static/images/weapon-melee-sword.png" alt="sword icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="lance" checked=""> <img src="static/images/weapon-melee-lance.png" alt="lance icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="axe" checked=""> <img src="static/images/weapon-melee-axe.png" alt="axe icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="staff" checked=""> <img src="static/images/weapon-staff.png" alt="staff icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dark" checked=""> <img src="static/images/weapon-tome-red.png" alt="red tome icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="light" checked=""> <img src="static/images/weapon-tome-blue.png" alt="blue tome icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="anima" checked=""> <img src="static/images/weapon-tome-green.png" alt="green icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="tome" checked=""> <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow red" checked=""> <img src="static/images/weapon-bow-red.png" alt="red bowicon"></label>,
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow blue" checked=""> <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow green" checked=""> <img src="static/images/weapon-bow-green.png" alt="green bow icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow colorless" checked=""> <img src="static/images/weapon-bow-colorless.png" alt="colorless bow icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger red" checked=""> <img src="static/images/weapon-dagger-red.png" alt="red dagger icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger blue" checked=""> <img src="static/images/weapon-dagger-blue.png" alt="blue dagger icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger green" checked=""> <img src="static/images/weapon-dagger-green.png" alt="green dagger icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger colorless" checked=""> <img src="static/images/weapon-dagger-colorless.png" alt="colorless dagger icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast red" checked=""> <img src="static/images/weapon-beast-red.png" alt="red beast icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast blue" checked=""> <img src="static/images/weapon-beast-blue.png" alt="blue beast icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast green" checked=""> <img src="static/images/weapon-beast-green.png" alt="green beast icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast colorless" checked=""> <img src="static/images/weapon-beast-colorless.png" alt="colorless beast icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon red" checked=""> <img src="static/images/weapon-dragon-red.png" alt="red dragon icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon blue" checked=""> <img src="static/images/weapon-dragon-blue.png" alt="blue dragon icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon green" checked=""> <img src="static/images/weapon-dragon-green.png" alt="green dragon icon"></label>
+  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon colorless" checked=""> <img src="static/images/weapon-dragon-colorless.png" alt="colorless dragon icon"></label>
+
+  <p>Movement types to include:</p><p>
+    <label>(<input type="checkbox" id="moveTypes-all" class="select-all" value="moveTypes"> Select all)</label>
+    <label><input type="checkbox" class="moveTypes dummyClass" value="infantry" checked=""> <img src="static/images/move-infantry.png" alt="infantry movement icon"></label>,
+    <label><input type="checkbox" class="moveTypes dummyClass" value="armored" checked=""> <img src="static/images/move-armored.png" alt="armored movement icon"></label>,
+    <label><input type="checkbox" class="moveTypes dummyClass" value="cavalry" checked=""> <img src="static/images/move-cavalry.png" alt="cavalry movement icon"></label>,
+    <label><input type="checkbox" class="moveTypes dummyClass" value="flying" checked=""> <img src="static/images/move-flying.png" alt="flying movement icon"></label>  
+
   <p><label><input type="checkbox" id="spoilers"> Include spoilers</label>
-  <span class="help-text">If unchecked, pokemon that might be considered spoilers, either for story reasons or because they're officially unreleased, will be excluded.</span></p>
+  <span class="help-text">If unchecked, units that might be considered spoilers, either for story reasons or because they're officially unreleased, will be excluded.</span></p>
   
   <p><button class="reset">Reset</button></p>
   </div>
   </div>
   </div>
   
-  <p><a href="pokesite.aspx">Back to The Cave of Dragonflies</a></p>
-  
   <div id="shared-list-modal" style="display:none">
-  <button class="close shared-list-skip">x</button>
+  <button class="close shared-list-skip">×</button>
   <h2>Shared list</h2>
   
   <p>Generated by this picker tool. Create your own list or continue from this one below!</p>
@@ -607,25 +626,27 @@
   <script>
   'use strict';
   
-  /* DATA CONSTANTS */
+  /* UNIT DATA CONSTANTS */
   
   var lists = {
-      generations: [1, 2, 3, 4, 5, 6, 7, 8, 8.5, 9],
-      includeForms: ["regional", "alternate", "mega", "gigantamax", "battle", "gender", "aesthetic"],
-      minorFormTypes: ["alternate", "battle", "gender", "aesthetic"]
+      weaponTypes: ["sword", "lance", "axe", "staff", "dark", "light", "anima", "tome", "bow red", "bow blue", "bow green", "bow colorless", "dagger red", "dagger blue", "dagger green", "dagger colorless", "beast red", "beast blue", "beast green", "beast colorless", "dragon red", "dragon blue", "dragon green", "dragon colorless"],
+    //   includeForms: ["regional", "alternate", "mega", "gigantamax", "battle", "gender", "aesthetic"],
+      minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
+      moveTypes: ["infantry", "armored", "cavalry", "flying"]
   };
   
   var defaultSettings = {
       resplendent: false,
       includeForms: [],
       majorOnly: false,
-      refreshersOnly: false,
+      finalOnly: false,
       spoilers: true,
-      generations: lists.generations,
+      weaponTypes: lists.weaponTypes,
+      moveTypes: lists.moveTypes,
       maxBatchSize: 20
   };
   
-  var pokemonPicker = new picker.Picker({
+  var fehPicker = new picker.Picker({
       defaultSettings: defaultSettings,
       localStorageKey: 'favorites',
       favoritesQueryParam: 'favs',
@@ -651,78 +672,33 @@
   
           var identifier;
           var i, j;
-  
-          if (typeof state.settings.includeForms !== 'object') {
-              state.settings.includeForms = state.settings.includeForms ? lists.includeForms : [];
-          }
-  
-          // Go through all the pokemon in each array and correct legacy data format
-          for (i = 0; i < arrays.length; i++) {
-              for (j = arrays[i].length - 1; j >= 0; j--) {
-                  if (arrays[i][j].number) {
-                      // Old-style data; convert to the new style
-                      if (arrays[i] === eliminated) {
-                          arrays[i][j] = {id: getPokemonIdentifier(arrays[i][j]), eliminatedBy: arrays[i][j].eliminated_by};
-                      }
-                      else {
-                          arrays[i][j] = getPokemonIdentifier(arrays[i][j]);
-                      }
-                  }
-                  if (arrays[i][j].mon) {
-                      // Switch to the generic format
-                      arrays[i][j].id = arrays[i][j].mon;
-                      delete arrays[i][j].mon;
-                  }
-                  if (arrays[i] === eliminated && arrays[i][j].eliminated_by) {
-                      // Switch to camelCase eliminatedBy
-                      arrays[i][j].eliminatedBy = arrays[i][j].eliminated_by;
-                      delete arrays[i][j].eliminated_by;
-                  }
-                  if (arrays[i][j].id in legacyReplacements) {
-                      arrays[i][j].id = legacyReplacements[arrays[i][j].identifier];
-                  } else if (arrays[i][j] in legacyReplacements) {
-                      arrays[i][j] = legacyReplacements[arrays[i][j]];
-                  }
-              }
-          }
-          // Make legacy replacements in eliminatedBy arrays
-          // We go through both arrays backwards so that splicing the indices
-          // won't mess up subsequent indices
-          for (i = eliminated.length - 1; i >= 0; i--) {
-              for (j = eliminated[i].eliminatedBy.length - 1; j >= 0; j--) {
-                  if (eliminated[i].eliminatedBy[j] in legacyReplacements) {
-                      eliminated[i].eliminatedBy[j] = legacyReplacements[eliminated[i].eliminatedBy[j]];
-                  }
-              }
-          }
-          return state;
       },
       settingsFromFavorites: function(favorites) {
-          let settings = {
-              includeForms: [],
+          var settings = {
+            //   includeForms: [],
               majorOnly: true,
               spoilers: false
           };
-          let i, j;
-          let formTypes;
-          let formType;
+          var i, j;
+          var formTypes;
+          var formType;
   
           for (i = 0; i < favorites.length; i++) {
               // Activate forms mode if the pokemon has a form...
-              if (favorites[i].form) {
-                  formTypes = favorites[i].formType.split(",");
-                  for (j = 0; j < formTypes.length; j++) {
-                      formType = formTypes[j].split("-");
-                      if (settings.includeForms.indexOf(formType[0]) === -1) {
-                          settings.includeForms.push(formType[0]);
-                      }
+            //   if (favorites[i].form) {
+            //       formTypes = favorites[i].formType.split(",");
+            //       for (j = 0; j < formTypes.length; j++) {
+            //           formType = formTypes[j].split("-");
+            //           if (settings.includeForms.indexOf(formType[0]) === -1) {
+            //               settings.includeForms.push(formType[0]);
+            //           }
                       // Disable major only if this is a minor form.
-                      if (formType[1] === 'minor') {
-                          settings.majorOnly = false;
-                      }
-                  }
-              }
-              // Enable spoilers if the pokemon is a spoiler.
+                //       if (formType[1] === 'minor') {
+                //           settings.majorOnly = false;
+                //       }
+                //   }
+            //   }
+              // Enable spoilers if the unit is a spoiler.
               if (favorites[i].spoiler) {
                   settings.spoilers = true;
               }
@@ -733,7 +709,7 @@
           var key;
           for (key in settings) {
               if (settings.hasOwnProperty(key)) {
-                  if (!settingIncludesPokemon(item, key, settings)) {
+                  if (!settingIncludesUnits(item, key, settings)) {
                       return false;
                   }
               }
@@ -753,7 +729,7 @@
                       addedSpoilers = true;
                   }
               }
-              if (addedSpoilers && !confirm("Some pokemon marked as spoilers have been added since last time you were here. Press OK to proceed with these pokemon added. Press Cancel to turn off spoilers so that you won't see these pokemon.")) {
+              if (addedSpoilers && !confirm("Some units marked as spoilers have been added since last time you were here. Press OK to proceed with these units added. Press Cancel to turn off spoilers so that you won't see these units.")) {
                   settings.spoilers = false;
                   this.setSettings(settings);
               }
@@ -766,15 +742,15 @@
       }
   });
   
-  var pickerUI = new PickerUI(pokemonPicker, {
+  var pickerUI = new PickerUI(fehPicker, {
       elements: {
           settings: {
               resplendent: "#resplendent",
-              includeForms: ".include-forms",
-              refreshersOnly: "#refreshers",
+            //   includeForms: ".include-forms",
+              finalOnly: "#final",
               majorOnly: "#major",
-              generations: ".generations",
-            //   types: ".types",
+              weaponTypes: ".weaponTypes",
+              moveTypes: ".moveTypes",
               spoilers: "#spoilers",
               maxBatchSize: "#max-batch-size"
           },
@@ -783,7 +759,7 @@
           undo: "#undo",
           redo: "#redo",
           reset: ".reset",
-          evaluating: "#pokemon",
+          evaluating: "#units",
           favorites: "#favorites",
           sharedList: "#shared-list",
           sharedListContainer: "#shared-list-modal",
@@ -791,21 +767,21 @@
           sharedListSkip: ".shared-list-skip"
       },
       messages: {
-          mustSelect: "You must select some pokemon first! If you like them all the same, press Pass.",
-          orderedAll: 'You have ordered every available pokemon!',
-          noItems: 'There are no pokemon that fit your criteria! Set some different options and try again.'
+          mustSelect: "You must select some units first! If you like them all the same, press Pass.",
+          orderedAll: 'You have ordered every available unit!',
+          noItems: 'There are no units that fit your criteria! Set some different options and try again.'
       },
       onUpdate: function(updateType) {
-          var totalPokemon = this.picker.state.items.length;
+          var totalUnits = this.picker.state.items.length;
           var current = this.picker.state.arrays.current.length;
           var favorites = this.picker.state.arrays.favorites.length;
           var eliminated = this.picker.state.arrays.eliminated.length;
           var evaluating = this.picker.state.arrays.evaluating.length;
-          var remaining = Math.max(0, totalPokemon - favorites - eliminated - 1);
+          var remaining = Math.max(0, totalUnits - favorites - eliminated - 1);
   
           setPickerWidth();
   
-          $("#major").prop("disabled", !hasMinorForms(this.picker.state.settings.includeForms));
+        //   $("#major").prop("disabled", !hasMinorForms(this.picker.state.settings.includeForms));
   
           $("#remaining").text(remaining);
   
@@ -824,35 +800,39 @@
       wrapItem: function(item) {
           return $('<li></li>').append($('<span></span>').append(item));
       },
-        getItemImageUrl: function(unit, settings) {
-            console.log (unit.hasOwnProperty("resplendent"));
-            return "/images/" + unit.id + (settings.resplendent && unit.hasOwnProperty("resplendent") ? "-r" : "")+ ".png";
+      getItemImageUrl: function(unit, settings) {
+            return "/static/images/" + unit.id + (settings.resplendent && unit.hasOwnProperty("resplendent") ? "-r" : "")+ ".png";
         }
-
     //   getItemImageUrl: function(pokemon, settings) {
-    //       return "/sprites/gen8/home-thumb/" + (settings.shiny ? "shiny/" : "") + zeropad(pokemon.number) + (pokemon.form ? "-" + pokemon.form : "") + ".png";
+    //       return "/static/images/" + (settings.resplende ? "resplendent/" : "") + pokemon.id + (pokemon.form ? "-" + pokemon.form : "") + ".png";
     //   }
   });
   
-  $.getJSON("/static/favorite-pokemon.json?v=sv6", function(json) {
-      pokemonPicker.options.items = json.items;
-      pokemonPicker.initialize();
+  $.getJSON("/static/units.json?v=sv6", function(json) {
+      fehPicker.options.items = json.items;
+      fehPicker.initialize();
   
       pickerUI.initialize();
   
-      pickerUI.elem.settings.includeForms.on('change', function() {
-          var includeForms = pickerUI.getSetting('includeForms');
-          pickerUI.elem.settings.majorOnly.prop("disabled", !hasMinorForms(includeForms));
+    //   pickerUI.elem.settings.includeForms.on('change', function() {
+    //       var includeForms = pickerUI.getSetting('includeForms');
+    //       pickerUI.elem.settings.majorOnly.prop("disabled", !hasMinorForms(includeForms));
   
-          setSelectAll('includeForms');
+    //       setSelectAll('includeForms');
+    //   });
+  
+      pickerUI.elem.settings.weaponTypes.on('change', function() {
+          setSelectAll('weaponTypes');
+      });
+
+      pickerUI.elem.settings.moveTypes.on('change', function() {
+          setSelectAll('moveTypes');
       });
   
-      pickerUI.elem.settings.generations.on('change', function() {
-          setSelectAll('generations');
-      });
   
-      setSelectAll('includeForms');
-      setSelectAll('generations');
+    //   setSelectAll('includeForms');
+      setSelectAll('weaponTypes');
+      setSelectAll('moveTypes');
   });
   
   /* SORTABLE FAVORITES */
@@ -867,7 +847,7 @@
           pickerUI.elem.favorites.removeClass("sorting");
       },
       onUpdate: function() {
-          pokemonPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
+          fehPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
               return pickerUI.getItem(this);
           }).get());
           pickerUI.update(true, 'sort');
@@ -903,10 +883,13 @@
       }
   }
   
+  
   /* ADDITIONAL PICKER EVENT HANDLERS */
   
   function setSelectAll(setting) {
+      console.log(`setting=${setting}`);
       var value = pickerUI.getSetting(setting);
+      console.log(`value=${value}`);
       var $selectAll = $('.select-all[value="' + setting + '"]');
       if (value.length === lists[setting].length) {
           $selectAll.prop("checked", true);
@@ -918,16 +901,8 @@
   $(".select-all").on('change', function() {
       var setting = $(this).val();
       pickerUI.setSetting(setting, $(this).prop("checked") ? lists[setting] : []);
-      pokemonPicker.setSettings(pickerUI.getSettings());
+      fehPicker.setSettings(pickerUI.getSettings());
       pickerUI.update(true, 'setting');
-  });
-  
-  $("#dispute").children('a').on('click', function() {
-      var missing = prompt("Enter the name of a pokemon to check where it is in the picker's internal lists.");
-      if (missing) {
-          dispute(missing);
-      }
-      return false;
   });
   
   $("#import").on('click', function() {
@@ -940,7 +915,7 @@
           return false;
       }
   
-      if (!pokemonPicker.setState(state)) {
+      if (!fehPicker.setState(state)) {
           $("#debug-state").val("Invalid import state.")
       }
   
@@ -948,7 +923,9 @@
       return false;
   });
   
+  
   $(window).on('resize', setPickerWidth);
+  
   
   /* NON-PICKER EVENT HANDLERS */
   
@@ -992,30 +969,31 @@
       $("#darkmode").text("Light mode");
   }
   
+  
   /* UTILITY FUNCTIONS */
   
   function setPickerWidth() {
-      var evaluating = pokemonPicker.state.arrays.evaluating;
+      var evaluating = fehPicker.state.arrays.evaluating;
       pickerUI.elem.evaluating.width(evaluating.length ? getBatchWidth(evaluating.length, 5) * (pickerUI.elem.evaluating.children().width() + 6) : '100%');
   }
   
-  function settingIncludesPokemon(pokemon, setting, settings) {
+  function settingIncludesUnits(unit, setting, settings) {
       /**
        * Returns false if the pokemon should be filtered out by the given
        * setting, or true otherwise.
        */
       var value = settings[setting];
       switch (setting) {
-          case 'includeForms':
-              return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
-          case 'generations':
-              return value.indexOf(pokemon.gen) !== -1;
-        //   case 'types':
-        //       return hasType(pokemon, value);
-          case 'refreshersOnly':
-              return !value || pokemon.refresher === true;
-          case 'spoilers':
-              return value || !pokemon.spoiler;
+        //   case 'includeForms':
+        //       return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
+          case 'weaponTypes':
+              return value.indexOf(unit.weaponType) !== -1;
+        case 'moveTypes':
+              return value.indexOf(unit.moveType) !== -1; 
+        //   case 'finalOnly':
+        //       return !value || finaling3neration(pokemon, settings.weaponTypes);
+        //   case 'spoilers':
+              return value || !unit.spoiler;
           default:
               return true;
       }
@@ -1062,27 +1040,27 @@
       }
   }
   
-  function capitalize(word) {
-      /**
-       * Capitalizes the first letter of the word.
-       */
-      return word.substring(0, 1).toUpperCase() + word.substring(1);
-  }
+//   function capitalize(word) {
+//       /**
+//        * Capitalizes the first letter of the word.
+//        */
+//       return word.substring(0, 1).toUpperCase() + word.substring(1);
+//   }
   
-  function getPokemonIdentifier(pokemon) {
-      /**
-       * Returns the identifier of the given pokemon.
-       */
-      return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
-  }
+//   function getPokemonIdentifier(pokemon) {
+//       /**
+//        * Returns the identifier of the given pokemon.
+//        */
+//       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
+//   }
   
   function identifierFromName(name) {
       /**
        * Returns the identifier of the pokemon whose name is given
        * (case-insensitive).
        */
-      return pokemonPicker.forEachItem(function(identifier) {
-          if (pokemonPicker.itemMap[identifier].name.toLowerCase() === name.toLowerCase()) {
+      return fehPicker.forEachItem(function(identifier) {
+          if (fehPicker.itemMap[identifier].name.toLowerCase() === name.toLowerCase()) {
               return identifier;
           }
           else {
@@ -1091,36 +1069,36 @@
       });
   }
   
-//   function finalInGeneration(pokemon, generations) {
+//   function finaling3neration(pokemon, g3nerations) {
 //       /**
 //        * Returns true if the given pokemon object is a final evolution in
-//        * the given generation.
+//        * the given g3neration.
 //        */
-//       return pokemon.refresher === true;
+//       return pokemon.finalEvolution === true || pokemon.finalEvolution && weaponTypes.indexOf(pokemon.finalEvolution) === -1;
 //   }
   
-  function isFormIncluded(pokemon, includeForms, majorOnly) {
-      /**
-       * Returns true if the given pokemon object should be included by
-       * the given form settings.
-       */
-      if (!pokemon.form) {
-          return true;
-      }
-      const formTypes = pokemon.formType.split(",");
-      let formType;
-      let i;
-      for (i = 0; i < formTypes.length; i++) {
-          formType = formTypes[i].split("-");
-          if (majorOnly && formType[1] === 'minor') {
-              return false;
-          }
-          if (includeForms.indexOf(formType[0]) === -1) {
-              return false;
-          }
-      }
-      return true;
-  }
+//   function isFormIncluded(pokemon, includeForms, majorOnly) {
+//       /**
+//        * Returns true if the given pokemon object should be included by
+//        * the given form settings.
+//        */
+//       if (!pokemon.form) {
+//           return true;
+//       }
+//       var formTypes = pokemon.formType.split(",");
+//       var formType;
+//       var i;
+//       for (var i = 0; i < formTypes.length; i++) {
+//           formType = formTypes[i].split("-");
+//           if (majorOnly && formType[1] === 'minor') {
+//               return false;
+//           }
+//           if (includeForms.indexOf(formType[0]) === -1) {
+//               return false;
+//           }
+//       }
+//       return true;
+//   }
   
   function hasMinorForms(forms) {
       /**
@@ -1266,5 +1244,6 @@
       }).join(", ");
   }
   </script>
+  
   
   </body></html>
