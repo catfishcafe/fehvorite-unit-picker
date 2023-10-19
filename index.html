@@ -1,690 +1,1427 @@
-<html><head>
-  <meta name="viewport" content="initial-scale=1.0">
-  <meta name="flattr:id" content="9ykjj0">
-  <link href="/favicon.png" rel="shortcut icon" type="image/png">
-  <title>FEHvorite Unit Picker</title>
-  <style>
-  body {
-      background:#00e1ff;
-      color:#000;
-      font-family:verdana, sans-serif;
-      font-size:10pt;
-      margin:0;
-      padding:10px;
-  }
-  
-  a:link, a:visited {
-      color:#008;
-      font-weight:bold;
-      text-decoration:none;
-  }
-  
-  a:active, a:hover {
-      color:#ACF;
-  }
-  
-  .info {
-      font-weight:bold;
-  }
-  
-  button {
-      font-family:inherit;
-      cursor:pointer;
-      border:0;
-      border-radius:3px;
-      padding:0.3em 0.5em;
-      background:#CCC;
-      color:#000;
-  }
-  
-  button:hover, button:active, button:focus {
-      background:#DDD;
-      outline:none;
-  }
-  
-  button.disabled {
-      background:#DDD;
-      color:#888;
-      cursor:not-allowed;
-  }
-  
-  button.disabled:hover {
-      background:#DDD;
-  }
-  
-  #container {
-      position:relative;
-      margin-left:-10px;
-      margin-right:-10px;
-      padding:10px;
-      overflow:hidden;
-  }
-  
-  .tabs {
-      margin:20px 0;
-      padding:0 10px;
-      list-style-type:none;
-      border-bottom:1px solid #AAA;
-  }
-  
-  .tabs li {
-      margin:0 -1px -1px 0;
-      padding:0;
-      display:inline-block;
-      vertical-align:bottom;
-      border:1px solid #AAA;
-      background:#EEE;
-  }
-  
-  .tabs li:first-child {
-      border-top-left-radius:5px;
-  }
-  
-  .tabs li:last-child {
-      border-top-right-radius:5px;
-  }
-  
-  .tabs li.active {
-      border-top-left-radius:5px;
-      border-top-right-radius:5px;
-      background:#FFF;
-      border-bottom-color:#FFF;
-  }
-  
-  .tabs a {
-      display:block;
-      padding:5px 10px;
-      font-size:1.1em;
-      color:#000;
-  }
-  
-  .tabs li.active a {
-      font-size:1.2em;
-      padding:10px 20px 5px;
-  }
-  
-  #expand-favorites {
-      display:none;
-  }
-  
-  @media (min-width:360px) {
-      .tabs a {
-          font-size:1.3em;
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta name="flattr:id" content="9ykjj0" />
+    <link href="/favicon.png" rel="shortcut icon" type="image/png" />
+    <title>FEHvorite Unit Picker</title>
+    <style>
+      body {
+        background: #00e1ff;
+        color: #000;
+        font-family: verdana, sans-serif;
+        font-size: 10pt;
+        margin: 0;
+        padding: 10px;
       }
-  
-      .tabs li.active a {
-          font-size:1.5em;
+
+      a:link,
+      a:visited {
+        color: #008;
+        font-weight: bold;
+        text-decoration: none;
       }
-  }
-  
-  @media (min-width:1024px) {
-      /* Put the found favorites beside the picking div when the window is sufficiently large */
-      #picking {
-          float:left;
-          width:636px;
+
+      a:active,
+      a:hover {
+        color: #acf;
       }
-  
-      #secondary {
-          margin-left:646px;
+
+      .info {
+        font-weight: bold;
       }
-  
-      #secondary, #picking {
-          transition:margin-left 0.4s;
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: 0;
+        border-radius: 3px;
+        padding: 0.3em 0.5em;
+        background: #ccc;
+        color: #000;
       }
-  
-      #picking.collapsed {
-          margin-left:-100%;
-          z-index:-1;
+
+      button:hover,
+      button:active,
+      button:focus {
+        background: #ddd;
+        outline: none;
       }
-  
-      #secondary.expanded {
-          margin-left:0;
+
+      button.disabled {
+        background: #ddd;
+        color: #888;
+        cursor: not-allowed;
       }
-  
-      #expand-favorites {
-          display:inline-block;
+
+      button.disabled:hover {
+        background: #ddd;
       }
-  
+
+      #container {
+        position: relative;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 10px;
+        overflow: hidden;
+      }
+
       .tabs {
-          padding-left:0;
+        margin: 20px 0;
+        padding: 0 10px;
+        list-style-type: none;
+        border-bottom: 1px solid #aaa;
       }
-  }
-  
-  @media (min-width:1300px) {
-      /* Once we get to the point where 636px is less than half of the width of the screen, make the picking div just take up half */
-      #picking {
-          width:50%;
+
+      .tabs li {
+        margin: 0 -1px -1px 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: bottom;
+        border: 1px solid #aaa;
+        background: #eee;
       }
-  
-      #secondary {
-          margin-left:51%;
+
+      .tabs li:first-child {
+        border-top-left-radius: 5px;
       }
-  }
-  
-  #pick {
-      background:#58F;
-      color:#FFF;
-      font-size:larger;
-      font-weight:bold;
-      width:6em;
-      border-radius:5px;
-      margin-right:10px;
-  }
-  
-  #pick.disabled {
-      background:#ACF;
-  }
-  
-  #pick:hover {
-      background:#ACF;
-  }
-  
-  .item-list {
-      padding:0;
-      list-style-type:none;
-      line-height:100px;
-  }
-  
-  .item-list li {
-      margin:0;
-      display:inline-block;
-      height:106px;
-      width:106px;
-      border:3px solid transparent;
-      text-align:center;
-      position:relative;
-      vertical-align:top;
-      overflow:visible;
-  }
-  
-  .item-list li span {
-      display:block;
-      width:100px;
-      height:100px;
-      padding:3px;
-  }
-  
-  .item-list li img {
-      position:absolute;
-      top:-5px;
-      left:-3px;
-      /*
+
+      .tabs li:last-child {
+        border-top-right-radius: 5px;
+      }
+
+      .tabs li.active {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #fff;
+        border-bottom-color: #fff;
+      }
+
+      .tabs a {
+        display: block;
+        padding: 5px 10px;
+        font-size: 1.1em;
+        color: #000;
+      }
+
+      .tabs li.active a {
+        font-size: 1.2em;
+        padding: 10px 20px 5px;
+      }
+
+      #expand-favorites {
+        display: none;
+      }
+
+      @media (min-width: 360px) {
+        .tabs a {
+          font-size: 1.3em;
+        }
+
+        .tabs li.active a {
+          font-size: 1.5em;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        /* Put the found favorites beside the picking div when the window is sufficiently large */
+        #picking {
+          float: left;
+          width: 636px;
+        }
+
+        #secondary {
+          margin-left: 646px;
+        }
+
+        #secondary,
+        #picking {
+          transition: margin-left 0.4s;
+        }
+
+        #picking.collapsed {
+          margin-left: -100%;
+          z-index: -1;
+        }
+
+        #secondary.expanded {
+          margin-left: 0;
+        }
+
+        #expand-favorites {
+          display: inline-block;
+        }
+
+        .tabs {
+          padding-left: 0;
+        }
+      }
+
+      @media (min-width: 1300px) {
+        /* Once we get to the point where 636px is less than half of the width of the screen, make the picking div just take up half */
+        #picking {
+          width: 50%;
+        }
+
+        #secondary {
+          margin-left: 51%;
+        }
+      }
+
+      #pick {
+        background: #58f;
+        color: #fff;
+        font-size: larger;
+        font-weight: bold;
+        width: 6em;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      #pick.disabled {
+        background: #acf;
+      }
+
+      #pick:hover {
+        background: #acf;
+      }
+
+      .item-list {
+        padding: 0;
+        list-style-type: none;
+        line-height: 100px;
+      }
+
+      .item-list li {
+        margin: 0;
+        display: inline-block;
+        /* height: 106px;
+        width: 106px; */
+        border: 3px solid transparent;
+        text-align: center;
+        position: relative;
+        vertical-align: top;
+        overflow: visible;
+      }
+
+      .item-list li span {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        padding: 3px;
+        border-radius: 100%;
+      }
+
+      .item-list li img {
+        margin-left: auto;
+        margin-right: auto;
+        /*
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
       */
-      z-index:100;
-  }
-  
-  @media (max-width:656px) {
-      .item-list {
-          line-height:75px;
+        z-index: 100;
       }
-  
-      .item-list li {
-          height:81px;
-          width:81px;
+
+      @media (max-width: 656px) {
+        .item-list {
+          line-height: 75px;
+        }
+
+        .item-list li {
+          height: 81px;
+          width: 81px;
+        }
+
+        .item-list li span {
+          height: 75px;
+          width: 75px;
+          padding: 3px;
+        }
+
+        .item-list li img {
+          top: -2px;
+          left: -2px;
+          max-height: 112%;
+          max-width: 112%;
+        }
       }
-  
-      .item-list li span {
-          height:75px;
-          width:75px;
-          padding:3px;
+
+      @media (max-width: 456px) {
+        .item-list {
+          line-height: 48px;
+        }
+
+        .item-list li {
+          height: 54px;
+          width: 54px;
+        }
+
+        .item-list li span {
+          height: 48px;
+          width: 48px;
+          padding: 3px;
+        }
+
+        .item-list li img {
+          top: -1px;
+          left: -1px;
+          max-height: 112%;
+          max-width: 112%;
+        }
       }
-  
-      .item-list li img {
-          top:-2px;
-          left:-2px;
-          max-height:112%;
-          max-width:112%;
+
+      #units li {
+        cursor: pointer;
       }
-  }
-  
-  @media (max-width:456px) {
-      .item-list {
-          line-height:48px;
+
+      #favorites li {
+        cursor: move;
+        transition: opacity 0.2s ease-in;
       }
-  
-      .item-list li {
-          height:54px;
-          width:54px;
+
+      #favorites li.hidden {
+        opacity: 0;
       }
-  
-      .item-list li span {
-          height:48px;
-          width:48px;
-          padding:3px;
+
+      #favorites li.no-animate {
+        transition: none;
       }
-  
-      .item-list li img {
-          top:-1px;
-          left:-1px;
-          max-height:112%;
-          max-width:112%;
+
+      .item-list li:hover span {
+        background: #cdf;
       }
-  }
-  
-  #units li {
-      cursor:pointer;
-  }
-  
-  #favorites li {
-      cursor:move;
-      transition:opacity .2s ease-in;
-  }
-  
-  #favorites li.hidden {
-      opacity:0;
-  }
-  
-  #favorites li.no-animate {
-      transition:none;
-  }
-  
-  .item-list li:hover span {
-      background:#CDF;
-  }
-  
-  .item-list.sorting li:hover span {
-      background:#F7F7F7;
-  }
-  
-  #units li.selected span {
-      padding:0;
-      border:3px solid #7AC;
-  }
-  
-  #units, #buttons {
-      text-align:center;
-      margin:auto;
-  }
-  
-  #units li.notice {
-      width:auto;
-      height:auto;
-      max-width:260px;
-      margin:auto;
-      background:#F7F7F7;
-      border-radius:10px;
-      padding:30px 30px;
-      color:#000;
-      text-align:center;
-      line-height:1.4;
-      cursor:auto;
-  }
-  
-  #units li.notice span {
-      display:inline;
-      background:none;
-      width:auto;
-      height:auto;
-      padding:0;
-      border-radius:0;
-  }
-  
-  #buttons {
-      margin-top:30px;
-      position:relative;
-      z-index:3;
-  }
-  
-  #howitworks, #debug {
-      display:none;
-      overflow:hidden;
-  }
-  
-  #debug-toggle {
-      margin-top:3em;
-      font-size:smaller;
-      text-align:right;
-  }
-  
-  #debug {
-      font-size:smaller;
-  }
-  
-  #debug-state {
-      width:80%;
-  }
-  
-  #max-batch-size {
-      width:3em;
-  }
-  
-  .picker-info {
-      text-align:center;
-      font-size:smaller;
-  }
-  
-  #progress-bar {
-      display:block;
-      margin:auto;
-      height:15px;
-      width:150px;
-      margin-top:5px;
-      background:#CDF;
-      vertical-align:middle;
-      transition: transform .2s ease-out;
-  }
-  
-  #progress-bar span {
-      display:block;
-      height:100%;
-      width:0;
-      background:#58F;
-  }
-  
-  .help-text {
-      display:block;
-      font-size:smaller;
-  }
-  
-  #shared-list-modal {
-      position:absolute;
-      background:#FFF;
-      margin:60px auto;
-      top:0;
-      right:0;
-      left:0;
-      width:650px;
-      max-width:95%;
-      box-sizing:border-box;
-      padding:20px 50px 50px;
-      box-shadow:1px 1px 5px #333;
-      z-index:100;
-  }
-  
-  @media(max-width:700px) {
+
+      .item-list.sorting li:hover span {
+        background: #f7f7f7;
+      }
+
+      #units li.selected span {
+        padding: 0;
+        border: 3px solid #7ac;
+      }
+
+      #units,
+      #buttons {
+        text-align: center;
+        margin: auto;
+      }
+
+      #units li.notice {
+        width: auto;
+        height: auto;
+        max-width: 260px;
+        margin: auto;
+        background: #f7f7f7;
+        border-radius: 10px;
+        padding: 30px 30px;
+        color: #000;
+        text-align: center;
+        line-height: 1.4;
+        cursor: auto;
+      }
+
+      #units li.notice span {
+        display: inline;
+        background: none;
+        width: auto;
+        height: auto;
+        padding: 0;
+        border-radius: 0;
+      }
+
+      #buttons {
+        margin-top: 30px;
+        position: relative;
+        z-index: 3;
+      }
+
+      #howitworks,
+      #debug {
+        display: none;
+        overflow: hidden;
+      }
+
+      #debug-toggle {
+        margin-top: 3em;
+        font-size: smaller;
+        text-align: right;
+      }
+
+      #debug {
+        font-size: smaller;
+      }
+
+      #debug-state {
+        width: 80%;
+      }
+
+      #max-batch-size {
+        width: 3em;
+      }
+
+      .picker-info {
+        text-align: center;
+        font-size: smaller;
+      }
+
+      #progress-bar {
+        display: block;
+        margin: auto;
+        height: 15px;
+        width: 150px;
+        margin-top: 5px;
+        background: #cdf;
+        vertical-align: middle;
+        transition: transform 0.2s ease-out;
+      }
+
+      #progress-bar span {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #58f;
+      }
+
+      .help-text {
+        display: block;
+        font-size: smaller;
+      }
+
       #shared-list-modal {
-          padding:20px;
+        position: absolute;
+        background: #fff;
+        margin: 60px auto;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 650px;
+        max-width: 95%;
+        box-sizing: border-box;
+        padding: 20px 50px 50px;
+        box-shadow: 1px 1px 5px #333;
+        z-index: 100;
       }
-  }
-  
-  #shared-list-modal:before {
-      content:'';
-      position:fixed;
-      background:#FFF;
-      opacity:0.5;
-      top:0;
-      right:0;
-      bottom:0;
-      left:0;
-      z-index:-1;
-  }
-  
-  #shared-list-modal .item-list {
-      text-align:center;
-      margin:2em 0;
-  }
-  
-  #shared-list-modal .close {
-      position:absolute;
-      top:10px;
-      right:10px;
-      width:30px;
-      line-height:30px;
-      color:#AAA;
-      font-weight:bold;
-      text-align:center;
-      background:none;
-      padding:0;
-      font-size:larger;
-  }
-  
-  #shared-list-modal .close:hover {
-      background:#EEE;
-  }
-  
-  #shared-list-modal .buttons {
-      text-align:center;
-      line-height:3.5em;
-  }
-  
-  #shared-list-modal button {
-      padding:0.9em 2em;
-      margin:0 0.2em;
-  }
-  
-  #darkmode {
-      position:absolute;
-      top:10px;
-      right:10px;
-  }
-  </style>
-  <link rel="alternate stylesheet" title="dark" type="text/css" href="/styles/favorite-dark.css">
-  <script type="text/javascript">
-  /* STYLE SWITCHER */
-  
-  function setActiveStyleSheet(title) {
-    var i, a, main;
-    for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-      if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
-        a.disabled = true;
-        if(a.getAttribute("title") == title) a.disabled = false;
+
+      @media (max-width: 700px) {
+        #shared-list-modal {
+          padding: 20px;
+        }
       }
-    }
-    localStorage.setItem("favorite-style", title);
-  }
-  
-  function getActiveStyleSheet() {
-    var i, a;
-    for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-      if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title") && !a.disabled) return a.getAttribute("title");
-    }
-    return null;
-  }
-  
-  function getPreferredStyleSheet() {
-    var i, a;
-    for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-      if(a.getAttribute("rel").indexOf("style") != -1
-         && a.getAttribute("rel").indexOf("alt") == -1
-         && a.getAttribute("title")
-         ) return a.getAttribute("title");
-    }
-    return null;
-  }
-  
-  var style = localStorage.getItem("favorite-style");
-  var title = style;
-  setActiveStyleSheet(title);
-  </script>
+
+      #shared-list-modal:before {
+        content: "";
+        position: fixed;
+        background: #fff;
+        opacity: 0.5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      #shared-list-modal .item-list {
+        text-align: center;
+        margin: 2em 0;
+      }
+
+      #shared-list-modal .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        line-height: 30px;
+        color: #aaa;
+        font-weight: bold;
+        text-align: center;
+        background: none;
+        padding: 0;
+        font-size: larger;
+      }
+
+      #shared-list-modal .close:hover {
+        background: #eee;
+      }
+
+      #shared-list-modal .buttons {
+        text-align: center;
+        line-height: 3.5em;
+      }
+
+      #shared-list-modal button {
+        padding: 0.9em 2em;
+        margin: 0 0.2em;
+      }
+
+      #darkmode {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+    <link
+      rel="alternate stylesheet"
+      title="dark"
+      type="text/css"
+      href="/styles/favorite-dark.css"
+    />
+    <script type="text/javascript">
+      /* STYLE SWITCHER */
+
+      function setActiveStyleSheet(title) {
+        var i, a, main;
+        for (i = 0; (a = document.getElementsByTagName("link")[i]); i++) {
+          if (
+            a.getAttribute("rel").indexOf("style") != -1 &&
+            a.getAttribute("title")
+          ) {
+            a.disabled = true;
+            if (a.getAttribute("title") == title) a.disabled = false;
+          }
+        }
+        localStorage.setItem("favorite-style", title);
+      }
+
+      function getActiveStyleSheet() {
+        var i, a;
+        for (i = 0; (a = document.getElementsByTagName("link")[i]); i++) {
+          if (
+            a.getAttribute("rel").indexOf("style") != -1 &&
+            a.getAttribute("title") &&
+            !a.disabled
+          )
+            return a.getAttribute("title");
+        }
+        return null;
+      }
+
+      function getPreferredStyleSheet() {
+        var i, a;
+        for (i = 0; (a = document.getElementsByTagName("link")[i]); i++) {
+          if (
+            a.getAttribute("rel").indexOf("style") != -1 &&
+            a.getAttribute("rel").indexOf("alt") == -1 &&
+            a.getAttribute("title")
+          )
+            return a.getAttribute("title");
+        }
+        return null;
+      }
+
+      var style = localStorage.getItem("favorite-style");
+      var title = style;
+      setActiveStyleSheet(title);
+    </script>
   </head>
   <body>
-  <a href="#" id="darkmode">Light mode</a>
-  <h1>FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes units!</h1>
-  <h2>Original picker code and written descriptions from <a href="pokesite.aspx">The Cave of Dragonflies</a>
-  </h2>
+    <!-- <a href="#" id="darkmode">Light mode</a> -->
+    <h1>
+      FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes
+      units!
+    </h1>
+    <h2>
+      Original picker code and written descriptions from
+      <a href="pokesite.aspx">The Cave of Dragonflies</a>
+    </h2>
 
-  <p>For each group of units presented to you, click one or more of your favorites from that group and press the "Pick" button. Eventually, your favorite unit will start appearing under "Found Favorites". You can continue as long as you like to construct an arbitrarily long list of your favorite units.</p>
-  
-  <p>In principle, this picker is perfectly accurate, provided you pick consistently - you'll correctly get your second favorite second, even if it's pitted against your absolute favorite early on, for instance. <a href="#howitworks" class="toggle">Click here for more on how this tool works.</a> You can reorder your favorites after you've found them, but in principle you shouldn't need to.</p>
-  
-  <p>Various filtering and presentation options for the picker can be found in the "Options" tab next to "Found Favorites" below.</p>
-  
-  <p>Want to create your own favorite picker? <a href="https://github.com/antialiasis/favorite-picker">It's on GitHub with instructions to get you started.</a></p>
-  
-  <div id="howitworks">
+    <p>
+      For each group of units presented to you, click one or more of your
+      favorites from that group and press the "Pick" button. Eventually, your
+      favorite unit will start appearing under "Found Favorites". You can
+      continue as long as you like to construct an arbitrarily long list of your
+      favorite units.
+    </p>
 
-  </div>
-  
-  <div id="container">
-  
-  <div id="picking">
-  <ul id="units" class="item-list" style="opacity: 1; width: 560px;">
-  </ul>
-  
-  <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo" class="disabled">Undo</button> <button id="redo" class="disabled">Redo</button></p>
-  
-  <div class="picker-info">
-  <p>Units remaining to be eliminated before next favorite is found: <span id="remaining">1237</span></p>
-  
-  <p>Progress towards next favorite: <span id="progress-bar"><span style="width: 0%;"></span></span></p>
-  </div>
-  </div>
-  
-  <div id="secondary">
-  <ul class="tabs">
-  <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li><li class="active"><a href="#found-favorites">Found Favorites</a></li><li><a href="#options">Options</a></li>
-  </ul>
-  
-  <div id="found-favorites" style="display: block;"><p class="state-info">None yet! Your favorites will start appearing here when you've narrowed things down.</p>
-  <ol id="favorites" class="item-list"></ol>
-  
-  <p id="debug-toggle"><a href="#debug" class="toggle">Import/export state</a></p>
-  
-  <div id="debug">
-  <p>To export your picker state (in order to, for example, import it on another computer, or allow me to replicate an issue you're experiencing), copy the entire contents of the text box below and save them however you see fit - in a text file on your computer, in an e-mail to yourself, etc.</p>
-  
-  <p>To import a state, erase the entire contents of the text box and replace them with an exported state, then press the "Import state" button below.</p>
-  
-  <textarea id="debug-state" rows="5" cols="10"></textarea>
-  <p><button id="import">Import state</button></p>
-  </div>
-  </div>
-  
-  <div id="options" style="display: none;">
-  <p><label><input type="checkbox" id="resplendent"> resplendent mode</label>
-  <span class="help-text">If checked, all displayed sprites will be resplendent.</span></p>
-  
-  <p><label>Maximum batch size: <input type="number" id="max-batch-size" value="20" min="2" max="20" step="1"></label>
-  <span class="help-text">The maximum number of units shown at a time. When there are few units left in a round, you'll see fewer than this. Reducing the maximum batch size may make it easier to pick, but it will also take longer to get through each round.</span></p>
-  
-  <!-- <p>Include forms:
-  <label>(<input type="checkbox" id="forms-all" class="select-all" value="includeForms"> Select all)</label>
-  <label><input type="checkbox" class="include-forms" value="regional"> regional variants</label>,
-  <label><input type="checkbox" class="include-forms" value="alternate"> other alternate forms</label>,
-  <label><input type="checkbox" class="include-forms" value="mega"> Mega Evolutions</label>,
-  <label><input type="checkbox" class="include-forms" value="gigantamax"> Gigantamax forms</label>,
-  <label><input type="checkbox" class="include-forms" value="battle"> other battle transformations</label>,
-  <label><input type="checkbox" class="include-forms" value="aesthetic"> aesthetic variants</label>,
-  <label><input type="checkbox" class="include-forms" value="gender"> gender differences</label>
-   -->
-  <!-- <p id="major-only"><label><input type="checkbox" id="major"> Major forms only</label>
-  <span class="help-text">If checked, only forms marked as "major" (aesthetically significant, as judged somewhat arbitrarily by me) will be included - for instance, no barely-visible gender differences or partial color variations.</span></p>
-  
-  <p><label><input type="checkbox" id="final"> Final evolutions only</label>
-  <span class="help-text">If checked, only final evolutions will be included.</span></p>
-   -->
-  <p>Weapon types to include:</p><p>
-  <label>(<input type="checkbox" id="weaponTypes-all" class="select-all" value="weaponTypes"> Select all)</label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="sword" checked=""> <img src="static/images/weapon-melee-sword.png" alt="sword icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="lance" checked=""> <img src="static/images/weapon-melee-lance.png" alt="lance icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="axe" checked=""> <img src="static/images/weapon-melee-axe.png" alt="axe icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="staff" checked=""> <img src="static/images/weapon-staff.png" alt="staff icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dark" checked=""> <img src="static/images/weapon-tome-red.png" alt="red tome icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="light" checked=""> <img src="static/images/weapon-tome-blue.png" alt="blue tome icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="anima" checked=""> <img src="static/images/weapon-tome-green.png" alt="green icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="tome" checked=""> <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow red" checked=""> <img src="static/images/weapon-bow-red.png" alt="red bowicon"></label>,
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow blue" checked=""> <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow green" checked=""> <img src="static/images/weapon-bow-green.png" alt="green bow icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="bow colorless" checked=""> <img src="static/images/weapon-bow-colorless.png" alt="colorless bow icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger red" checked=""> <img src="static/images/weapon-dagger-red.png" alt="red dagger icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger blue" checked=""> <img src="static/images/weapon-dagger-blue.png" alt="blue dagger icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger green" checked=""> <img src="static/images/weapon-dagger-green.png" alt="green dagger icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dagger colorless" checked=""> <img src="static/images/weapon-dagger-colorless.png" alt="colorless dagger icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast red" checked=""> <img src="static/images/weapon-beast-red.png" alt="red beast icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast blue" checked=""> <img src="static/images/weapon-beast-blue.png" alt="blue beast icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast green" checked=""> <img src="static/images/weapon-beast-green.png" alt="green beast icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="beast colorless" checked=""> <img src="static/images/weapon-beast-colorless.png" alt="colorless beast icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon red" checked=""> <img src="static/images/weapon-dragon-red.png" alt="red dragon icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon blue" checked=""> <img src="static/images/weapon-dragon-blue.png" alt="blue dragon icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon green" checked=""> <img src="static/images/weapon-dragon-green.png" alt="green dragon icon"></label>
-  <label><input type="checkbox" class="weaponTypes dummyClass" value="dragon colorless" checked=""> <img src="static/images/weapon-dragon-colorless.png" alt="colorless dragon icon"></label>
+    <p>
+      In principle, this picker is perfectly accurate, provided you pick
+      consistently - you'll correctly get your second favorite second, even if
+      it's pitted against your absolute favorite early on, for instance.
+      <a href="#howitworks" class="toggle"
+        >Click here for more on how this tool works.</a
+      >
+      You can reorder your favorites after you've found them, but in principle
+      you shouldn't need to.
+    </p>
 
-  <p>Movement types to include:</p><p>
-    <label>(<input type="checkbox" id="moveTypes-all" class="select-all" value="moveTypes"> Select all)</label>
-    <label><input type="checkbox" class="moveTypes dummyClass" value="infantry" checked=""> <img src="static/images/move-infantry.png" alt="infantry movement icon"></label>,
-    <label><input type="checkbox" class="moveTypes dummyClass" value="armored" checked=""> <img src="static/images/move-armored.png" alt="armored movement icon"></label>,
-    <label><input type="checkbox" class="moveTypes dummyClass" value="cavalry" checked=""> <img src="static/images/move-cavalry.png" alt="cavalry movement icon"></label>,
-    <label><input type="checkbox" class="moveTypes dummyClass" value="flying" checked=""> <img src="static/images/move-flying.png" alt="flying movement icon"></label>  
+    <p>
+      Various filtering and presentation options for the picker can be found in
+      the "Options" tab next to "Found Favorites" below.
+    </p>
 
-  <p><label><input type="checkbox" id="spoilers"> Include spoilers</label>
-  <span class="help-text">If unchecked, units that might be considered spoilers, either for story reasons or because they're officially unreleased, will be excluded.</span></p>
-  
-  <p><button class="reset">Reset</button></p>
-  </div>
-  </div>
-  </div>
-  
-  <div id="shared-list-modal" style="display:none">
-  <button class="close shared-list-skip">×</button>
-  <h2>Shared list</h2>
-  
-  <p>Generated by this picker tool. Create your own list or continue from this one below!</p>
-  
-  <ol id="shared-list" class="item-list">
-  </ol>
-  
-  <p class="buttons"><button id="shared-list-continue">Continue from this list</button> <button class="shared-list-skip">Make my own list</button></p>
-  </div>
-  <script src="picker/jquery-1.10.2.min.js"></script>
-  <script src="picker/picker.js?v=1"></script>
-  <script src="picker/picker-ui.js"></script>
-  <script src="picker/Sortable.min.js"></script>
-  <script>
-  'use strict';
-  
-  /* UNIT DATA CONSTANTS */
-  
-  var lists = {
-      weaponTypes: ["sword", "lance", "axe", "staff", "dark", "light", "anima", "tome", "bow red", "bow blue", "bow green", "bow colorless", "dagger red", "dagger blue", "dagger green", "dagger colorless", "beast red", "beast blue", "beast green", "beast colorless", "dragon red", "dragon blue", "dragon green", "dragon colorless"],
-    //   includeForms: ["regional", "alternate", "mega", "gigantamax", "battle", "gender", "aesthetic"],
-      minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
-      moveTypes: ["infantry", "armored", "cavalry", "flying"]
-  };
-  
-  var defaultSettings = {
-      resplendent: false,
-      includeForms: [],
-      majorOnly: false,
-      finalOnly: false,
-      spoilers: true,
-      weaponTypes: lists.weaponTypes,
-      moveTypes: lists.moveTypes,
-      maxBatchSize: 20
-  };
-  
-  var fehPicker = new picker.Picker({
-      defaultSettings: defaultSettings,
-      localStorageKey: 'favorites',
-      favoritesQueryParam: 'favs',
-      shortcodeLength: 2,
-      modifyState: function(state) {
+    <p>
+      Want to create your own favorite picker?
+      <a href="https://github.com/antialiasis/favorite-picker"
+        >It's on GitHub with instructions to get you started.</a
+      >
+    </p>
+
+    <div id="howitworks"></div>
+
+    <div id="container">
+      <div id="picking">
+        <ul id="units" class="item-list" style="opacity: 1; width: 560px"></ul>
+
+        <p id="buttons">
+          <button id="pick">Pick</button> <button id="pass">Pass</button>
+          <button id="undo" class="disabled">Undo</button>
+          <button id="redo" class="disabled">Redo</button>
+        </p>
+
+        <div class="picker-info">
+          <p>
+            Units remaining to be eliminated before next favorite is found:
+            <span id="remaining">1237</span>
+          </p>
+
+          <p>
+            Progress towards next favorite:
+            <span id="progress-bar"><span style="width: 0%"></span></span>
+          </p>
+          <p><button class="reset">Reset</button></p>
+        </div>
+      </div>
+
+      <div id="secondary">
+        <ul class="tabs">
+          <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li>
+          <li class="active"><a href="#found-favorites">Found Favorites</a></li>
+          <li><a href="#options">Options</a></li>
+          <li><a href="description">Description</a></li>
+        </ul>
+
+        <div id="found-favorites" style="display: block">
+          <p class="state-info">
+            None yet! Your favorites will start appearing here when you've
+            narrowed things down.
+          </p>
+          <ol id="favorites" class="item-list"></ol>
+
+          <p id="debug-toggle">
+            <a href="#debug" class="toggle">Import/export state</a>
+          </p>
+
+          <div id="debug">
+            <p>
+              To export your picker state (in order to, for example, import it
+              on another computer, or allow me to replicate an issue you're
+              experiencing), copy the entire contents of the text box below and
+              save them however you see fit - in a text file on your computer,
+              in an e-mail to yourself, etc.
+            </p>
+
+            <p>
+              To import a state, erase the entire contents of the text box and
+              replace them with an exported state, then press the "Import state"
+              button below.
+            </p>
+
+            <textarea id="debug-state" rows="5" cols="10"></textarea>
+            <p><button id="import">Import state</button></p>
+          </div>
+        </div>
+
+        <div id="options" style="display: none">
+          <p>
+            <label
+              ><input type="checkbox" id="resplendent" /> resplendent
+              mode</label
+            >
+            <span class="help-text"
+              >If checked, any units with a resplendent version will display
+              their resplendent artwork.</span
+            >
+          </p>
+
+          <p>
+            <label
+              >Maximum batch size:
+              <input
+                type="number"
+                id="max-batch-size"
+                value="20"
+                min="2"
+                max="20"
+                step="1"
+            /></label>
+            <span class="help-text"
+              >The maximum number of units shown at a time. When there are few
+              units left in a round, you'll see fewer than this. Reducing the
+              maximum batch size may make it easier to pick, but it will also
+              take longer to get through each round.</span
+            >
+          </p>
+
+          <p>Weapon types to include:</p>
+          <p>
+            <label
+              >(<input
+                type="checkbox"
+                id="weaponTypes-all"
+                class="select-all"
+                value="weaponTypes"
+              />
+              Select all)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="sword"
+                checked="" />
+              <img src="static/images/weapon-melee-sword.png" alt="sword icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="lance"
+                checked="" />
+              <img src="static/images/weapon-melee-lance.png" alt="lance icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="axe"
+                checked="" />
+              <img src="static/images/weapon-melee-axe.png" alt="axe icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="staff"
+                checked="" />
+              <img src="static/images/weapon-staff.png" alt="staff icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dark"
+                checked="" />
+              <img src="static/images/weapon-tome-red.png" alt="red tome icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="light"
+                checked="" />
+              <img
+                src="static/images/weapon-tome-blue.png"
+                alt="blue tome icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="anima"
+                checked="" />
+              <img src="static/images/weapon-tome-green.png" alt="green icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="tome"
+                checked="" />
+              <img
+                src="static/images/weapon-tome-colorless.png"
+                alt="colorless tome icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="bow red"
+                checked="" />
+              <img src="static/images/weapon-bow-red.png" alt="red bowicon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="bow blue"
+                checked="" />
+              <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="bow green"
+                checked="" />
+              <img
+                src="static/images/weapon-bow-green.png"
+                alt="green bow icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="bow colorless"
+                checked="" />
+              <img
+                src="static/images/weapon-bow-colorless.png"
+                alt="colorless bow icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dagger red"
+                checked="" />
+              <img
+                src="static/images/weapon-dagger-red.png"
+                alt="red dagger icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dagger blue"
+                checked="" />
+              <img
+                src="static/images/weapon-dagger-blue.png"
+                alt="blue dagger icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dagger green"
+                checked="" />
+              <img
+                src="static/images/weapon-dagger-green.png"
+                alt="green dagger icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dagger colorless"
+                checked="" />
+              <img
+                src="static/images/weapon-dagger-colorless.png"
+                alt="colorless dagger icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="beast red"
+                checked="" />
+              <img
+                src="static/images/weapon-beast-red.png"
+                alt="red beast icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="beast blue"
+                checked="" />
+              <img
+                src="static/images/weapon-beast-blue.png"
+                alt="blue beast icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="beast green"
+                checked="" />
+              <img
+                src="static/images/weapon-beast-green.png"
+                alt="green beast icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="beast colorless"
+                checked="" />
+              <img
+                src="static/images/weapon-beast-colorless.png"
+                alt="colorless beast icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dragon red"
+                checked="" />
+              <img
+                src="static/images/weapon-dragon-red.png"
+                alt="red dragon icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dragon blue"
+                checked="" />
+              <img
+                src="static/images/weapon-dragon-blue.png"
+                alt="blue dragon icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dragon green"
+                checked="" />
+              <img
+                src="static/images/weapon-dragon-green.png"
+                alt="green dragon icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="weaponTypes dummyClass"
+                value="dragon colorless"
+                checked="" />
+              <img
+                src="static/images/weapon-dragon-colorless.png"
+                alt="colorless dragon icon"
+            /></label>
+          </p>
+
+          <p>Movement types to include:</p>
+          <p>
+            <label
+              >(<input
+                type="checkbox"
+                id="moveTypes-all"
+                class="select-all"
+                value="moveTypes"
+              />
+              Select all)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="moveTypes dummyClass"
+                value="infantry"
+                checked="" />
+              <img
+                src="static/images/move-infantry.png"
+                alt="infantry movement icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="moveTypes dummyClass"
+                value="armored"
+                checked="" />
+              <img
+                src="static/images/move-armored.png"
+                alt="armored movement icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="moveTypes dummyClass"
+                value="cavalry"
+                checked="" />
+              <img
+                src="static/images/move-cavalry.png"
+                alt="cavalry movement icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="moveTypes dummyClass"
+                value="flying"
+                checked="" />
+              <img
+                src="static/images/move-flying.png"
+                alt="flying movement icon"
+            /></label>
+          </p>
+
+          <p>Games to include:</p>
+          <p>
+            <label
+              >(<input
+                type="checkbox"
+                id="games-all"
+                class="select-all"
+                value="games"
+              />
+              Select all)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="shadow dragon"
+                checked="" />
+              <img
+                src="static/images/games-shadow-dragon.png"
+                alt="Shadow Dragon icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="new mystery"
+                checked="" />
+              <img
+                src="static/images/games-new-mystery.png"
+                height="30px"
+                alt="New Mystery of the Emblem icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="valencia"
+                checked="" />
+              <img
+                src="static/images/games-valencia.png"
+                alt="Echoes: Shadows of Valencia icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="genealogy"
+                checked="" />
+              <img
+                src="static/images/games-genealogy.png"
+                alt="Genealogy of the Holy War icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="thracia"
+                checked="" />
+              <img src="static/images/games-thracia.png" alt="Thracia 776 icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="binding blade"
+                checked="" />
+              <img
+                src="static/images/games-binding-blade.png"
+                alt="Binding Blade icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="blazing blade"
+                checked="" />
+              <img
+                src="static/images/games-blazing-blade.png"
+                alt="Blazing Blade icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="sacred stones"
+                checked="" />
+              <img
+                src="static/images/games-sacred-stones.png"
+                alt="Sacred Stones icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="path of radiance"
+                checked="" />
+              <img
+                src="static/images/games-path-of-radiance.png"
+                alt="Path of Radiance icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="radiant dawn"
+                checked="" />
+              <img
+                src="static/images/games-radiant-dawn.png"
+                alt="Radiant Dawn icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="awakening"
+                checked="" />
+              <img src="static/images/games-awakening.png" alt="Awakening icon"
+            /></label>
+            <label
+              ><input type="checkbox" class="games" value="fates" checked="" />
+              <img src="static/images/games-fates.png" alt="Fates icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="three houses"
+                checked="" />
+              <img
+                src="static/images/games-three-houses.png"
+                alt="Three Houses icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="three hopes"
+                checked="" />
+              <img
+                src="static/images/games-three-hopes.png"
+                height="30px"
+                alt="Warriors: Three Hopes icon"
+            /></label>
+            <label
+              ><input type="checkbox" class="games" value="heroes" checked="" />
+              <img src="static/images/games-heroes.png" alt="Heroes icon"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games"
+                value="warriors"
+                checked="" />
+              <img
+                src="static/images/games-warriors.png"
+                height="28px"
+                alt="Warriors icon"
+            /></label>
+            <label
+              ><input type="checkbox" class="games" value="tms" checked="" />
+              <img
+                src="static/images/games-tms.png"
+                alt="Tokyo Mirage Sessions #FE icon"
+            /></label>
+            <span class="help-text"
+              >A unit's game is decided here the same way that it is in Heroes,
+              so if a character is from more than one game, i.e. the Whitewings,
+              the Greil mercenaries, etc., they are only counted as being from
+              whichever game Heroes designated.</span
+            >
+          </p>
+
+          <p>
+            For right now, duo units are only classified under the lead
+            character's game.
+          </p>
+
+          <p>Types of units to include:</p>
+          <p>
+            <label
+              >(<input
+                type="checkbox"
+                id="baseOrNot-all"
+                class="select-all"
+                value="baseOrNot"
+              />
+              Select all)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="base"
+                checked=""
+              />
+              Base</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="fallen"
+                checked=""
+              />
+              Fallen</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="brave"
+                checked=""
+              />
+              Brave</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="legendary"
+                checked=""
+              />
+              Legendary</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="ascended"
+                checked=""
+              />
+              Ascended</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="baseOrNot"
+                value="attuned"
+                checked=""
+              />
+              Attuned</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="special"
+                checked=""
+              />
+              Special</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="baseOrNot"
+                value="misc"
+                checked=""
+              />
+              Misc.</label
+            >
+          </p>
+
+          <p>Types of characters to include:</p>
+          <p>
+            <label
+              >(<input
+                type="checkbox"
+                id="storyRoles-all"
+                class="select-all"
+                value="storyRoles"
+              />
+              Select all)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="storyRoles"
+                value="mc"
+                checked=""
+              />
+              Protagonists/Player avatars</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="storyRoles"
+                value="pc"
+                checked=""
+              />
+              Other PCs</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="storyRoles"
+                value="npc"
+                checked=""
+              />
+              NPCs</label
+            >
+          </p>
+
+          <p>
+            <label
+              ><input type="checkbox" id="refreshers" /> Refreshers only</label
+            >
+            <span class="help-text"
+              >If checked, only units who can grant other units another turn
+              with assist skills (dance/sing/chant/play/etc.) will be included.
+              (Units who can grant other units another action with duo skills
+              are not included.)</span
+            >
+          </p>
+
+          <p>Include NPCs</p>
+
+          <p>
+            <label
+              ><input type="checkbox" id="grails" /> Grail units only</label
+            >
+            <span class="help-text"
+              >If checked, only units from Grand Hero Battles and Tempest Trials
+              will appear.</span
+            >
+          </p>
+
+          <p>
+            <label
+              ><input type="checkbox" id="spoilers" /> Include spoilers</label
+            >
+            <span class="help-text"
+              >If unchecked, units that might be considered spoilers, either for
+              story reasons or because they're officially unreleased, will be
+              excluded.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="shared-list-modal" style="display: none">
+      <button class="close shared-list-skip">×</button>
+      <h2>Shared list</h2>
+
+      <p>
+        Generated by this picker tool. Create your own list or continue from
+        this one below!
+      </p>
+
+      <ol id="shared-list" class="item-list"></ol>
+
+      <p class="buttons">
+        <button id="shared-list-continue">Continue from this list</button>
+        <button class="shared-list-skip">Make my own list</button>
+      </p>
+    </div>
+    <script src="picker/jquery-1.10.2.min.js"></script>
+    <script src="picker/picker.js?v=1"></script>
+    <script src="picker/picker-ui.js"></script>
+    <script src="picker/Sortable.min.js"></script>
+    <script>
+      "use strict";
+
+      /* UNIT DATA CONSTANTS */
+
+      var lists = {
+        weaponTypes: [
+          "sword",
+          "lance",
+          "axe",
+          "staff",
+          "dark",
+          "light",
+          "anima",
+          "tome",
+          "bow red",
+          "bow blue",
+          "bow green",
+          "bow colorless",
+          "dagger red",
+          "dagger blue",
+          "dagger green",
+          "dagger colorless",
+          "beast red",
+          "beast blue",
+          "beast green",
+          "beast colorless",
+          "dragon red",
+          "dragon blue",
+          "dragon green",
+          "dragon colorless",
+        ],
+        games: [
+          "shadow dragon",
+          "new mystery",
+          "valencia",
+          "genealogy",
+          "thracia",
+          "binding blade",
+          "blazing blade",
+          "sacred stones",
+          "path of radiance",
+          "radiant dawn",
+          "awakening",
+          "fates",
+          "three houses",
+          "three hopes",
+          "heroes",
+          "warriors",
+          "tms",
+        ],
+        minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
+        moveTypes: ["infantry", "armored", "cavalry", "flying"],
+        storyRoles: ["mc", "pc", "npc"],
+        baseOrNot: [
+          "base",
+          "fallen",
+          "brave",
+          "legendary",
+          "ascended",
+          "attuned",
+          "special",
+          "misc",
+        ],
+      };
+
+      var defaultSettings = {
+        resplendent: false,
+        includeForms: [],
+        majorOnly: false,
+        refreshersOnly: false,
+        grailsOnly: false,
+        finalOnly: false,
+        spoilers: true,
+        weaponTypes: lists.weaponTypes,
+        moveTypes: lists.moveTypes,
+        storyRoles: lists.storyRoles,
+        baseOrNot: lists.baseOrNot,
+        games: lists.games,
+        maxBatchSize: 20,
+      };
+
+      var fehPicker = new picker.Picker({
+        defaultSettings: defaultSettings,
+        localStorageKey: "favorites",
+        favoritesQueryParam: "favs",
+        shortcodeLength: 2,
+        modifyState: function (state) {
           var legacyReplacements = {
-              '306f': '306mega',
-              '71810-percent': '718tenpercent',
-              '890gigantamax': '890eternamax'
+            "306f": "306mega",
+            "71810-percent": "718tenpercent",
+            "890gigantamax": "890eternamax",
           };
-  
+
           if (state.found_favorites) {
-              state.favorites = state.found_favorites;
-              delete state.found_favorites;
+            state.favorites = state.found_favorites;
+            delete state.found_favorites;
           }
-  
+
           var survived = state.survived;
           var eliminated = state.eliminated;
           var evaluating = state.evaluating;
           var current = state.current;
           var favorites = state.favorites;
           var arrays = [favorites, survived, eliminated, current, evaluating];
-  
+
           var identifier;
           var i, j;
-      },
-      settingsFromFavorites: function(favorites) {
+        },
+        settingsFromFavorites: function (favorites) {
           var settings = {
             //   includeForms: [],
-              majorOnly: true,
-              spoilers: false
+            majorOnly: true,
+            spoilers: false,
           };
           var i, j;
           var formTypes;
           var formType;
-  
+
           for (i = 0; i < favorites.length; i++) {
-              // Activate forms mode if the pokemon has a form...
+            // Activate forms mode if the pokemon has a form...
             //   if (favorites[i].form) {
             //       formTypes = favorites[i].formType.split(",");
             //       for (j = 0; j < formTypes.length; j++) {
@@ -692,67 +1429,79 @@
             //           if (settings.includeForms.indexOf(formType[0]) === -1) {
             //               settings.includeForms.push(formType[0]);
             //           }
-                      // Disable major only if this is a minor form.
-                //       if (formType[1] === 'minor') {
-                //           settings.majorOnly = false;
-                //       }
-                //   }
+            // Disable major only if this is a minor form.
+            //       if (formType[1] === 'minor') {
+            //           settings.majorOnly = false;
+            //       }
             //   }
-              // Enable spoilers if the unit is a spoiler.
-              if (favorites[i].spoiler) {
-                  settings.spoilers = true;
-              }
+            //   }
+            // Enable spoilers if the unit is a spoiler.
+            if (favorites[i].spoiler) {
+              settings.spoilers = true;
+            }
           }
           return settings;
-      },
-      shouldIncludeItem: function(item, settings) {
+        },
+        shouldIncludeItem: function (item, settings) {
           var key;
           for (key in settings) {
-              if (settings.hasOwnProperty(key)) {
-                  if (!settingIncludesUnits(item, key, settings)) {
-                      return false;
-                  }
+            if (settings.hasOwnProperty(key)) {
+              if (!settingIncludesUnits(item, key, settings)) {
+                return false;
               }
+            }
           }
           return true;
-      },
-      onLoadState: function(missingItems, extraItems) {
+        },
+        onLoadState: function (missingItems, extraItems) {
           var addedSpoilers = false;
           var i;
-  
+
           var settings = this.getSettings();
-  
+
           if (missingItems.length && settings.spoilers) {
-              for (i = 0; i < missingItems.length; i++) {
-                  if (this.itemMap[missingItems[i]].spoiler) {
-                      // We've added a spoiler
-                      addedSpoilers = true;
-                  }
+            for (i = 0; i < missingItems.length; i++) {
+              if (this.itemMap[missingItems[i]].spoiler) {
+                // We've added a spoiler
+                addedSpoilers = true;
               }
-              if (addedSpoilers && !confirm("Some units marked as spoilers have been added since last time you were here. Press OK to proceed with these units added. Press Cancel to turn off spoilers so that you won't see these units.")) {
-                  settings.spoilers = false;
-                  this.setSettings(settings);
-              }
+            }
+            if (
+              addedSpoilers &&
+              !confirm(
+                "Some units marked as spoilers have been added since last time you were here. Press OK to proceed with these units added. Press Cancel to turn off spoilers so that you won't see these units."
+              )
+            ) {
+              settings.spoilers = false;
+              this.setSettings(settings);
+            }
           }
-          $(function() {
-              var $welcome = $('<p class="info">Welcome back! Your previous state has been loaded. If you would like to start from scratch, please click this button: </p>').append(pickerUI.makeResetButton());
-              $("h1").next(".info").remove();
-              $("h1").after($welcome);
+          $(function () {
+            var $welcome = $(
+              '<p class="info">Welcome back! Your previous state has been loaded. If you would like to start from scratch, please click this button: </p>'
+            ).append(pickerUI.makeResetButton());
+            $("h2").next(".info").remove();
+            $("h2").after($welcome);
           });
-      }
-  });
-  
-  var pickerUI = new PickerUI(fehPicker, {
-      elements: {
+        },
+      });
+
+      var pickerUI = new PickerUI(fehPicker, {
+        elements: {
           settings: {
-              resplendent: "#resplendent",
+            resplendent: "#resplendent",
             //   includeForms: ".include-forms",
-              finalOnly: "#final",
-              majorOnly: "#major",
-              weaponTypes: ".weaponTypes",
-              moveTypes: ".moveTypes",
-              spoilers: "#spoilers",
-              maxBatchSize: "#max-batch-size"
+            finalOnly: "#final",
+            majorOnly: "#major",
+            refreshersOnly: "#refreshers",
+            grailsOnly: "#grails",
+            weaponTypes: ".weaponTypes",
+            moveTypes: ".moveTypes",
+            storyRoles: ".storyRoles",
+            games: ".games",
+            baseOrNot: ".baseOrNot",
+            spoilers: "#spoilers",
+            maxBatchSize: "#max-batch-size",
           },
           pick: "#pick",
           pass: "#pass",
@@ -764,486 +1513,587 @@
           sharedList: "#shared-list",
           sharedListContainer: "#shared-list-modal",
           sharedListContinue: "#shared-list-continue",
-          sharedListSkip: ".shared-list-skip"
-      },
-      messages: {
-          mustSelect: "You must select some units first! If you like them all the same, press Pass.",
-          orderedAll: 'You have ordered every available unit!',
-          noItems: 'There are no units that fit your criteria! Set some different options and try again.'
-      },
-      onUpdate: function(updateType) {
+          sharedListSkip: ".shared-list-skip",
+        },
+        messages: {
+          mustSelect:
+            "You must select some units first! If you like them all the same, press Pass.",
+          orderedAll: "You have ordered every available unit!",
+          noItems:
+            "There are no units that fit your criteria! Set some different options and try again.",
+        },
+        onUpdate: function (updateType) {
           var totalUnits = this.picker.state.items.length;
           var current = this.picker.state.arrays.current.length;
           var favorites = this.picker.state.arrays.favorites.length;
           var eliminated = this.picker.state.arrays.eliminated.length;
           var evaluating = this.picker.state.arrays.evaluating.length;
           var remaining = Math.max(0, totalUnits - favorites - eliminated - 1);
-  
+
           setPickerWidth();
-  
-        //   $("#major").prop("disabled", !hasMinorForms(this.picker.state.settings.includeForms));
-  
+
+          //   $("#major").prop("disabled", !hasMinorForms(this.picker.state.settings.includeForms));
+
           $("#remaining").text(remaining);
-  
-          updateProgressBar((1 - (remaining / this.picker.state.roundSize)) * 100, updateType);
-  
+
+          updateProgressBar(
+            (1 - remaining / this.picker.state.roundSize) * 100,
+            updateType
+          );
+
           $("#found-favorites").find("p.state-info").remove();
-  
+
           if (favorites === 0) {
-              $("#found-favorites").prepend('<p class="state-info">None yet! Your favorites will start appearing here when you\'ve narrowed things down.</p>');
+            $("#found-favorites").prepend(
+              '<p class="state-info">None yet! Your favorites will start appearing here when you\'ve narrowed things down.</p>'
+            );
           } else {
-              $("#dispute").after('<p class="state-info"><a href="/favorite-list' + this.picker.getShortcodeLink() + (this.picker.state.settings.resplendent ? '&resplendent=1' : '') + '">Shareable link to your current favorites list.</a> Note that that page won\'t automatically update as you go; you\'ll have to share a new link when you\'ve found more favorites.</p>');
+            $("#dispute").after(
+              '<p class="state-info"><a href="/favorite-list' +
+                this.picker.getShortcodeLink() +
+                (this.picker.state.settings.resplendent
+                  ? "&resplendent=1"
+                  : "") +
+                "\">Shareable link to your current favorites list.</a> Note that that page won't automatically update as you go; you'll have to share a new link when you've found more favorites.</p>"
+            );
           }
-  
-          $("#debug-state").val(JSON ? JSON.stringify(this.picker.state.getState()) : "Your browser does not support native JSON serialization! Unfortunately, at the moment you cannot use the import/export feature.");
-      },
-      wrapItem: function(item) {
-          return $('<li></li>').append($('<span></span>').append(item));
-      },
-      getItemImageUrl: function(unit, settings) {
-            return "/static/images/" + unit.id + (settings.resplendent && unit.hasOwnProperty("resplendent") ? "-r" : "")+ ".png";
-        }
-    //   getItemImageUrl: function(pokemon, settings) {
-    //       return "/static/images/" + (settings.resplende ? "resplendent/" : "") + pokemon.id + (pokemon.form ? "-" + pokemon.form : "") + ".png";
-    //   }
-  });
-  
-  $.getJSON("/static/units.json?v=sv6", function(json) {
-      fehPicker.options.items = json.items;
-      fehPicker.initialize();
-  
-      pickerUI.initialize();
-  
-    //   pickerUI.elem.settings.includeForms.on('change', function() {
-    //       var includeForms = pickerUI.getSetting('includeForms');
-    //       pickerUI.elem.settings.majorOnly.prop("disabled", !hasMinorForms(includeForms));
-  
-    //       setSelectAll('includeForms');
-    //   });
-  
-      pickerUI.elem.settings.weaponTypes.on('change', function() {
-          setSelectAll('weaponTypes');
+
+          $("#debug-state").val(
+            JSON
+              ? JSON.stringify(this.picker.state.getState())
+              : "Your browser does not support native JSON serialization! Unfortunately, at the moment you cannot use the import/export feature."
+          );
+        },
+        wrapItem: function (item) {
+          return $("<li></li>").append($("<span></span>").append(item));
+        },
+        getItemImageUrl: function (unit, settings) {
+          return (
+            "/static/images/" +
+            unit.id +
+            (settings.resplendent && unit.hasOwnProperty("resplendent")
+              ? "-r"
+              : "") +
+            ".png"
+          );
+        },
+        //   getItemImageUrl: function(pokemon, settings) {
+        //       return "/static/images/" + (settings.resplende ? "resplendent/" : "") + pokemon.id + (pokemon.form ? "-" + pokemon.form : "") + ".png";
+        //   }
       });
 
-      pickerUI.elem.settings.moveTypes.on('change', function() {
-          setSelectAll('moveTypes');
+      $.getJSON("/static/units.json?v=sv6", function (json) {
+        fehPicker.options.items = json.items;
+        fehPicker.initialize();
+
+        pickerUI.initialize();
+
+        //   pickerUI.elem.settings.includeForms.on('change', function() {
+        //       var includeForms = pickerUI.getSetting('includeForms');
+        //       pickerUI.elem.settings.majorOnly.prop("disabled", !hasMinorForms(includeForms));
+
+        //       setSelectAll('includeForms');
+        //   });
+
+        pickerUI.elem.settings.weaponTypes.on("change", function () {
+          setSelectAll("weaponTypes");
+        });
+
+        pickerUI.elem.settings.moveTypes.on("change", function () {
+          setSelectAll("moveTypes");
+        });
+
+        pickerUI.elem.settings.games.on("change", function () {
+          setSelectAll("games");
+        });
+
+        pickerUI.elem.settings.storyRoles.on("change", function () {
+          setSelectAll("storyRoles");
+        });
+
+        pickerUI.elem.settings.baseOrNot.on("change", function () {
+          setSelectAll("baseOrNot");
+        });
+
+        //   setSelectAll('includeForms');
+        setSelectAll("weaponTypes");
+        setSelectAll("moveTypes");
+        setSelectAll("games");
+        setSelectAll("storyRoles");
+        setSelectAll("baseOrNot");
       });
-  
-  
-    //   setSelectAll('includeForms');
-      setSelectAll('weaponTypes');
-      setSelectAll('moveTypes');
-  });
-  
-  /* SORTABLE FAVORITES */
-  
-  var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
-      draggable: '.item',
-      animation: 100,
-      onStart: function() {
+
+      /* SORTABLE FAVORITES */
+
+      var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
+        draggable: ".item",
+        animation: 100,
+        onStart: function () {
           pickerUI.elem.favorites.addClass("sorting");
-      },
-      onEnd: function() {
+        },
+        onEnd: function () {
           pickerUI.elem.favorites.removeClass("sorting");
-      },
-      onUpdate: function() {
-          fehPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
-              return pickerUI.getItem(this);
-          }).get());
-          pickerUI.update(true, 'sort');
-      }
-  });
-  
-  /* PROGRESS BAR */
-  
-  function updateProgressBar(value, updateType) {
-      var $progressBar = $("#progress-bar span");
-      var $favorite;
-  
-      if (['pick', 'undo', 'redo'].indexOf(updateType) !== -1) {
-          if (!value && updateType !== 'undo') {
-              // We just found a favorite!
-              $favorite = pickerUI.elem.favorites.children('li').last().addClass("no-animate hidden");
-              $progressBar.animate({ width: '100%' }, 400, function() {
-                  $progressBar.parent().css({ transform: 'scale(1.1)'});
-                  setTimeout(function() {
-                      $progressBar.parent().css({ transform: 'scale(1)'});
-                      $progressBar.width(0);
-                      $favorite.removeClass("no-animate hidden");
-                  }, 200);
-              });
+        },
+        onUpdate: function () {
+          fehPicker.setFavorites(
+            pickerUI.elem.favorites
+              .children()
+              .map(function () {
+                return pickerUI.getItem(this);
+              })
+              .get()
+          );
+          pickerUI.update(true, "sort");
+        },
+      });
+
+      /* PROGRESS BAR */
+
+      function updateProgressBar(value, updateType) {
+        var $progressBar = $("#progress-bar span");
+        var $favorite;
+
+        if (["pick", "undo", "redo"].indexOf(updateType) !== -1) {
+          if (!value && updateType !== "undo") {
+            // We just found a favorite!
+            $favorite = pickerUI.elem.favorites
+              .children("li")
+              .last()
+              .addClass("no-animate hidden");
+            $progressBar.animate({ width: "100%" }, 400, function () {
+              $progressBar.parent().css({ transform: "scale(1.1)" });
+              setTimeout(function () {
+                $progressBar.parent().css({ transform: "scale(1)" });
+                $progressBar.width(0);
+                $favorite.removeClass("no-animate hidden");
+              }, 200);
+            });
           } else {
-              if (!$progressBar.width() && updateType === 'undo') {
-                  $progressBar.width("100%")
-              }
-              $progressBar.animate({ width: value + '%' }, 400);
+            if (!$progressBar.width() && updateType === "undo") {
+              $progressBar.width("100%");
+            }
+            $progressBar.animate({ width: value + "%" }, 400);
           }
-      } else {
-          $progressBar.width(value + '%');
+        } else {
+          $progressBar.width(value + "%");
+        }
       }
-  }
-  
-  
-  /* ADDITIONAL PICKER EVENT HANDLERS */
-  
-  function setSelectAll(setting) {
-      console.log(`setting=${setting}`);
-      var value = pickerUI.getSetting(setting);
-      console.log(`value=${value}`);
-      var $selectAll = $('.select-all[value="' + setting + '"]');
-      if (value.length === lists[setting].length) {
+
+      /* ADDITIONAL PICKER EVENT HANDLERS */
+
+      function setSelectAll(setting) {
+        console.log(`setting=${setting}`);
+        var value = pickerUI.getSetting(setting);
+        console.log(`value=${value}`);
+        var $selectAll = $('.select-all[value="' + setting + '"]');
+        if (value.length === lists[setting].length) {
           $selectAll.prop("checked", true);
-      } else {
+        } else {
           $selectAll.prop("checked", false);
+        }
       }
-  }
-  
-  $(".select-all").on('change', function() {
-      var setting = $(this).val();
-      pickerUI.setSetting(setting, $(this).prop("checked") ? lists[setting] : []);
-      fehPicker.setSettings(pickerUI.getSettings());
-      pickerUI.update(true, 'setting');
-  });
-  
-  $("#import").on('click', function() {
-      var state;
-  
-      try {
+
+      $(".select-all").on("change", function () {
+        var setting = $(this).val();
+        pickerUI.setSetting(
+          setting,
+          $(this).prop("checked") ? lists[setting] : []
+        );
+        fehPicker.setSettings(pickerUI.getSettings());
+        pickerUI.update(true, "setting");
+      });
+
+      $("#import").on("click", function () {
+        var state;
+
+        try {
           state = JSON.parse($("#debug-state").val().trim());
-      } catch (e) {
-          $("#debug-state").val("Invalid import state.")
+        } catch (e) {
+          $("#debug-state").val("Invalid import state.");
           return false;
-      }
-  
-      if (!fehPicker.setState(state)) {
-          $("#debug-state").val("Invalid import state.")
-      }
-  
-      pickerUI.update(false, 'import')
-      return false;
-  });
-  
-  
-  $(window).on('resize', setPickerWidth);
-  
-  
-  /* NON-PICKER EVENT HANDLERS */
-  
-  $(".toggle").on('click', function() {
-      $($(this).attr("href")).slideToggle();
-      return false;
-  });
-  
-  $(".tabs").each(function() {
-      var $tabs = $(this);
-      $tabs.find("a:not(#expand-favorites a)").on('click', function() {
-          $($tabs.children(".active").removeClass("active").children("a").attr("href")).hide();
-          $(this).parent().addClass("active");
-          $($(this).attr("href")).show();
-          return false;
-      }).each(function () {
-          $($(this).attr("href")).hide();
-      }).first().click();
-  });
-  
-  $("#expand-favorites a").on('click', function() {
-      $(this).html($("#secondary").hasClass("expanded") ? "&lsaquo;" : "&rsaquo;");
-      $(this).attr("title", $("#secondary").hasClass("expanded") ? "Expand list" : "Show picker");
-      $("#picking").toggleClass("collapsed");
-      $("#secondary").toggleClass("expanded");
-      return false;
-  });
-  
-  $("#darkmode").on('click', function() {
-      if (getActiveStyleSheet() === 'dark') {
+        }
+
+        if (!fehPicker.setState(state)) {
+          $("#debug-state").val("Invalid import state.");
+        }
+
+        pickerUI.update(false, "import");
+        return false;
+      });
+
+      $(window).on("resize", setPickerWidth);
+
+      /* NON-PICKER EVENT HANDLERS */
+
+      $(".toggle").on("click", function () {
+        $($(this).attr("href")).slideToggle();
+        return false;
+      });
+
+      $(".tabs").each(function () {
+        var $tabs = $(this);
+        $tabs
+          .find("a:not(#expand-favorites a)")
+          .on("click", function () {
+            $(
+              $tabs
+                .children(".active")
+                .removeClass("active")
+                .children("a")
+                .attr("href")
+            ).hide();
+            $(this).parent().addClass("active");
+            $($(this).attr("href")).show();
+            return false;
+          })
+          .each(function () {
+            $($(this).attr("href")).hide();
+          })
+          .first()
+          .click();
+      });
+
+      $("#expand-favorites a").on("click", function () {
+        $(this).html(
+          $("#secondary").hasClass("expanded") ? "&lsaquo;" : "&rsaquo;"
+        );
+        $(this).attr(
+          "title",
+          $("#secondary").hasClass("expanded") ? "Expand list" : "Show picker"
+        );
+        $("#picking").toggleClass("collapsed");
+        $("#secondary").toggleClass("expanded");
+        return false;
+      });
+
+      $("#darkmode").on("click", function () {
+        if (getActiveStyleSheet() === "dark") {
           setActiveStyleSheet(null);
           $(this).text("Dark mode");
-      } else {
-          setActiveStyleSheet('dark');
+        } else {
+          setActiveStyleSheet("dark");
           $(this).text("Light mode");
+        }
+        return false;
+      });
+
+      if (getActiveStyleSheet() === "dark") {
+        $("#darkmode").text("Light mode");
       }
-      return false;
-  });
-  
-  if (getActiveStyleSheet() === 'dark') {
-      $("#darkmode").text("Light mode");
-  }
-  
-  
-  /* UTILITY FUNCTIONS */
-  
-  function setPickerWidth() {
-      var evaluating = fehPicker.state.arrays.evaluating;
-      pickerUI.elem.evaluating.width(evaluating.length ? getBatchWidth(evaluating.length, 5) * (pickerUI.elem.evaluating.children().width() + 6) : '100%');
-  }
-  
-  function settingIncludesUnits(unit, setting, settings) {
-      /**
-       * Returns false if the pokemon should be filtered out by the given
-       * setting, or true otherwise.
-       */
-      var value = settings[setting];
-      switch (setting) {
-        //   case 'includeForms':
-        //       return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
-          case 'weaponTypes':
-              return value.indexOf(unit.weaponType) !== -1;
-        case 'moveTypes':
-              return value.indexOf(unit.moveType) !== -1; 
-        //   case 'finalOnly':
-        //       return !value || finaling3neration(pokemon, settings.weaponTypes);
-        //   case 'spoilers':
-              return value || !unit.spoiler;
+
+      /* UTILITY FUNCTIONS */
+
+      function setPickerWidth() {
+        var evaluating = fehPicker.state.arrays.evaluating;
+        pickerUI.elem.evaluating.width(
+          evaluating.length
+            ? getBatchWidth(evaluating.length, 5) *
+                (pickerUI.elem.evaluating.children().width() + 6)
+            : "100%"
+        );
+      }
+
+      function settingIncludesUnits(unit, setting, settings) {
+        /**
+         * Returns false if the pokemon should be filtered out by the given
+         * setting, or true otherwise.
+         */
+        var value = settings[setting];
+        switch (setting) {
+          //   case 'includeForms':
+          //       return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
+          case "weaponTypes":
+            return value.indexOf(unit.weaponType) !== -1;
+          case "moveTypes":
+            return value.indexOf(unit.moveType) !== -1;
+          case "games":
+            return value.indexOf(unit.game) !== -1;
+          case "storyRoles":
+            return value.indexOf(unit.storyRole) !== -1;
+          case "baseOrNot":
+            return value.indexOf(unit.baseOrNot) !== -1;
+          case "refreshersOnly":
+            return !value || unit.refresher === true;
+          case "grailsOnly":
+            return !value || unit.grails === "ghb" || unit.grails === "tt";
+          case "spoilers":
+            return value || !unit.spoiler;
           default:
-              return true;
+            return true;
+        }
       }
-  }
-  
-  function getBatchWidth(batchSize, maxWidth) {
-      /**
-       * Calculate how many sprites wide the display area for the pokemon
-       * should be, for the given batch size.
-       * We want the closest thing possible to a square, but prefer perfect
-       * rectangles to imperfect squares.
-       */
-      // First, factor the batch size.
-      var root = Math.sqrt(batchSize);
-      var i, factor = 1;
-      for (i = 2; i <= root; i++) {
+
+      function getBatchWidth(batchSize, maxWidth) {
+        /**
+         * Calculate how many sprites wide the display area for the pokemon
+         * should be, for the given batch size.
+         * We want the closest thing possible to a square, but prefer perfect
+         * rectangles to imperfect squares.
+         */
+        // First, factor the batch size.
+        var root = Math.sqrt(batchSize);
+        var i,
+          factor = 1;
+        for (i = 2; i <= root; i++) {
           // The highest number up to i that batchSize is divisible by is factor.
           if (batchSize % i === 0) {
-              factor = i;
+            factor = i;
           }
-      }
-      // If this would lead to the width being more than three times greater than the height, use the same batch width as the number above.
-      if (3 * factor < batchSize / factor) {
+        }
+        // If this would lead to the width being more than three times greater than the height, use the same batch width as the number above.
+        if (3 * factor < batchSize / factor) {
           return getBatchWidth(batchSize + 1, maxWidth);
-      }
-      else {
+        } else {
           return Math.min(5, batchSize / factor);
+        }
       }
-  }
-  
-  function prettyJoin(array, word) {
-      /**
-       * Joins the array items together in a human way: "a, b and c"
-       *
-       * word can optionally be set to use a different word than 'and' for
-       * the final item.
-       */
-      if (!word) word = ' and ';
-      if (array.length === 1) {
+
+      function prettyJoin(array, word) {
+        /**
+         * Joins the array items together in a human way: "a, b and c"
+         *
+         * word can optionally be set to use a different word than 'and' for
+         * the final item.
+         */
+        if (!word) word = " and ";
+        if (array.length === 1) {
           return array[0];
+        } else {
+          return (
+            array.slice(0, array.length - 1).join(", ") +
+            word +
+            array[array.length - 1]
+          );
+        }
       }
-      else {
-          return array.slice(0, array.length - 1).join(', ') + word + array[array.length - 1];
+
+      //   function capitalize(word) {
+      //       /**
+      //        * Capitalizes the first letter of the word.
+      //        */
+      //       return word.substring(0, 1).toUpperCase() + word.substring(1);
+      //   }
+
+      //   function getPokemonIdentifier(pokemon) {
+      //       /**
+      //        * Returns the identifier of the given pokemon.
+      //        */
+      //       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
+      //   }
+
+      function identifierFromName(name) {
+        /**
+         * Returns the identifier of the pokemon whose name is given
+         * (case-insensitive).
+         */
+        return fehPicker.forEachItem(function (identifier) {
+          if (
+            fehPicker.itemMap[identifier].name.toLowerCase() ===
+            name.toLowerCase()
+          ) {
+            return identifier;
+          } else {
+            return false;
+          }
+        });
       }
-  }
-  
-//   function capitalize(word) {
-//       /**
-//        * Capitalizes the first letter of the word.
-//        */
-//       return word.substring(0, 1).toUpperCase() + word.substring(1);
-//   }
-  
-//   function getPokemonIdentifier(pokemon) {
-//       /**
-//        * Returns the identifier of the given pokemon.
-//        */
-//       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
-//   }
-  
-  function identifierFromName(name) {
-      /**
-       * Returns the identifier of the pokemon whose name is given
-       * (case-insensitive).
-       */
-      return fehPicker.forEachItem(function(identifier) {
-          if (fehPicker.itemMap[identifier].name.toLowerCase() === name.toLowerCase()) {
-              return identifier;
-          }
-          else {
-              return false;
-          }
-      });
-  }
-  
-//   function finaling3neration(pokemon, g3nerations) {
-//       /**
-//        * Returns true if the given pokemon object is a final evolution in
-//        * the given g3neration.
-//        */
-//       return pokemon.finalEvolution === true || pokemon.finalEvolution && weaponTypes.indexOf(pokemon.finalEvolution) === -1;
-//   }
-  
-//   function isFormIncluded(pokemon, includeForms, majorOnly) {
-//       /**
-//        * Returns true if the given pokemon object should be included by
-//        * the given form settings.
-//        */
-//       if (!pokemon.form) {
-//           return true;
-//       }
-//       var formTypes = pokemon.formType.split(",");
-//       var formType;
-//       var i;
-//       for (var i = 0; i < formTypes.length; i++) {
-//           formType = formTypes[i].split("-");
-//           if (majorOnly && formType[1] === 'minor') {
-//               return false;
-//           }
-//           if (includeForms.indexOf(formType[0]) === -1) {
-//               return false;
-//           }
-//       }
-//       return true;
-//   }
-  
-  function hasMinorForms(forms) {
-      /**
-       * Returns true if any of the given forms can be minor.
-       */
-      for (var i = 0; i < lists.minorFormTypes.length; i++) {
+
+      //   function finaling3neration(pokemon, g3nerations) {
+      //       /**
+      //        * Returns true if the given pokemon object is a final evolution in
+      //        * the given g3neration.
+      //        */
+      //       return pokemon.finalEvolution === true || pokemon.finalEvolution && weaponTypes.indexOf(pokemon.finalEvolution) === -1;
+      //   }
+
+      //   function isFormIncluded(pokemon, includeForms, majorOnly) {
+      //       /**
+      //        * Returns true if the given pokemon object should be included by
+      //        * the given form settings.
+      //        */
+      //       if (!pokemon.form) {
+      //           return true;
+      //       }
+      //       var formTypes = pokemon.formType.split(",");
+      //       var formType;
+      //       var i;
+      //       for (var i = 0; i < formTypes.length; i++) {
+      //           formType = formTypes[i].split("-");
+      //           if (majorOnly && formType[1] === 'minor') {
+      //               return false;
+      //           }
+      //           if (includeForms.indexOf(formType[0]) === -1) {
+      //               return false;
+      //           }
+      //       }
+      //       return true;
+      //   }
+
+      function hasMinorForms(forms) {
+        /**
+         * Returns true if any of the given forms can be minor.
+         */
+        for (var i = 0; i < lists.minorFormTypes.length; i++) {
           if (forms.indexOf(lists.minorFormTypes[i]) !== -1) {
-              return true;
+            return true;
           }
+        }
+        return false;
       }
-      return false;
-  }
-  
-  /* CONSOLE TESTS */
-  
-  function createShortcode(num) {
-      var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
-      return alphabet[Math.floor(num / 64)] + alphabet[num % 64];
-  }
-  
-  function testShortcodes() {
-      var firstForm = null;
-      for (var i = 0; i < items.length; i++) {
+
+      /* CONSOLE TESTS */
+
+      function createShortcode(num) {
+        var alphabet =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+        return alphabet[Math.floor(num / 64)] + alphabet[num % 64];
+      }
+
+      function testShortcodes() {
+        var firstForm = null;
+        for (var i = 0; i < items.length; i++) {
           if (firstForm === null && items[i].form) {
-              firstForm = i;
+            firstForm = i;
           }
-          var expectedShortcode = createShortcode(firstForm !== null ? i - firstForm + 2500 : i);
+          var expectedShortcode = createShortcode(
+            firstForm !== null ? i - firstForm + 2500 : i
+          );
           if (expectedShortcode !== items[i].shortcode) {
-              console.log('Unexpected shortcode! Expected:', expectedShortcode, items[i]);
+            console.log(
+              "Unexpected shortcode! Expected:",
+              expectedShortcode,
+              items[i]
+            );
           }
+        }
       }
-  }
-  
-  function testFormTypes() {
-      var formTypes;
-      var formTypeMap = {};
-      var i, j;
-      for (i = 0; i < items.length; i++) {
+
+      function testFormTypes() {
+        var formTypes;
+        var formTypeMap = {};
+        var i, j;
+        for (i = 0; i < items.length; i++) {
           if (!items[i].form) {
-              continue;
+            continue;
           }
           formTypes = items[i].formType.split(",");
           for (j = 0; j < formTypes.length; j++) {
-              formTypeMap[formTypes[j]] = true;
+            formTypeMap[formTypes[j]] = true;
           }
+        }
+
+        console.log(Object.keys(formTypeMap).sort());
       }
-  
-      console.log(Object.keys(formTypeMap).sort());
-  }
-  
-  // Some fun simulation: How many pokemon are you going to get for the second "run", i.e. how many will you need to eliminate to find your second favorite after finding your first?
-  // The pickedMin and pickedMax arguments determine how many pokemon you'll generally pick from a batch of many.
-  function simulateFirstPickerRound(pickedMin, pickedMax) {
-      var simulatedPicker = new picker.Picker({
-          items: Array.from(Array(1008).keys()).map(function(i) { return { id: i }; })
-      });
-  
-      simulatedPicker.initialize();
-  
-      var picks = 0;
-  
-      while (simulatedPicker.state.arrays.favorites.length === 0) {
+
+      // Some fun simulation: How many pokemon are you going to get for the second "run", i.e. how many will you need to eliminate to find your second favorite after finding your first?
+      // The pickedMin and pickedMax arguments determine how many pokemon you'll generally pick from a batch of many.
+      function simulateFirstPickerRound(pickedMin, pickedMax) {
+        var simulatedPicker = new picker.Picker({
+          items: Array.from(Array(1008).keys()).map(function (i) {
+            return { id: i };
+          }),
+        });
+
+        simulatedPicker.initialize();
+
+        var picks = 0;
+
+        while (simulatedPicker.state.arrays.favorites.length === 0) {
           var evaluating = simulatedPicker.state.arrays.evaluating;
           var min = Math.min(pickedMin || 1, evaluating.length / 2);
           var max = Math.min(pickedMax || 1, evaluating.length / 2);
           if (evaluating.length <= 5) {
-              min = 1;
+            min = 1;
           }
           var topN = min + Math.random() * Math.max(0, max - min);
           var picked = [];
           evaluating.sort();
           simulatedPicker.pick(evaluating.slice(0, topN));
           picks++;
+        }
+
+        return (
+          simulatedPicker.state.arrays.current.length +
+          simulatedPicker.state.arrays.evaluating.length
+        );
       }
-  
-      return simulatedPicker.state.arrays.current.length + simulatedPicker.state.arrays.evaluating.length;
-  }
-  
-  function runFirstRoundStats(pickedMin, pickedMax, numTests = 50) {
-      var results = [];
-      var sum = 0;
-      for (var i = 0; i < numTests; i++) {
+
+      function runFirstRoundStats(pickedMin, pickedMax, numTests = 50) {
+        var results = [];
+        var sum = 0;
+        for (var i = 0; i < numTests; i++) {
           var result = simulateFirstPickerRound(pickedMin, pickedMax);
           results.push(result);
           sum += result;
+        }
+        console.log(
+          "Average second run:",
+          sum / results.length,
+          ", max:",
+          Math.max.apply(null, results),
+          ", min:",
+          Math.min.apply(null, results)
+        );
       }
-      console.log("Average second run:", sum / results.length, ", max:", Math.max.apply(null, results), ", min:", Math.min.apply(null, results));
-  }
-  
-  function combineRuns(levels) {
-      let curRun = null;
-      let prev = null;
-      let result = [];
-      levels.forEach(function(level) {
+
+      function combineRuns(levels) {
+        let curRun = null;
+        let prev = null;
+        let result = [];
+        levels.forEach(function (level) {
           if (prev && level === prev + 1) {
-              if (curRun) {
-                  curRun.push(level);
-              } else {
-                  curRun = [prev, level];
-              }
+            if (curRun) {
+              curRun.push(level);
+            } else {
+              curRun = [prev, level];
+            }
           } else if (curRun) {
-              if (curRun.length > 2) {
-                  result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
-              } else {
-                  result.push.apply(result, curRun)
-              }
-              curRun = null;
+            if (curRun.length > 2) {
+              result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
+            } else {
+              result.push.apply(result, curRun);
+            }
+            curRun = null;
           } else if (prev) {
-              result.push(prev);
+            result.push(prev);
           }
           prev = level;
-      });
-      if (curRun) {
+        });
+        if (curRun) {
           if (curRun.length > 2) {
-              result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
+            result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
           } else {
-              result.push.apply(result, curRun)
+            result.push.apply(result, curRun);
           }
-      } else {
+        } else {
           result.push(prev);
+        }
+        return result;
       }
-      return result;
-  }
-  
-  function combineRunsReduce(levels) {
-      return levels.reduce((accumulator, currentValue) => {
-          if (accumulator.length < 1) return [[currentValue]];
-  
-          const lastRange = accumulator[accumulator.length - 1];
-          const lastValue = lastRange[lastRange.length - 1];
-          if (currentValue === lastValue + 1) {
+
+      function combineRunsReduce(levels) {
+        return levels
+          .reduce((accumulator, currentValue) => {
+            if (accumulator.length < 1) return [[currentValue]];
+
+            const lastRange = accumulator[accumulator.length - 1];
+            const lastValue = lastRange[lastRange.length - 1];
+            if (currentValue === lastValue + 1) {
               lastRange.push(currentValue);
-          } else {
+            } else {
               accumulator.push([currentValue]);
-          }
-          return accumulator;
-      }, []).map(range => {
-          if (range.length > 2) {
+            }
+            return accumulator;
+          }, [])
+          .map((range) => {
+            if (range.length > 2) {
               return range[0] + "-" + range[range.length - 1];
-          } else {
+            } else {
               return range.join(", ");
-          }
-      }).join(", ");
-  }
-  </script>
-  
-  
-  </body></html>
+            }
+          })
+          .join(", ");
+      }
+    </script>
+  </body>
+</html>
