@@ -568,6 +568,7 @@
     if (!this.setState(savedState)) {
       if (savedState) {
         console.warn("Ignoring invalid saved state");
+        console.log(savedState);
       }
       this.state.initialize(defaultSettings);
       this.pushHistory();
