@@ -336,7 +336,9 @@
       }
 
       #howitworks,
-      #debug {
+      #debug,
+      #game-toggle
+       {
         display: none;
         overflow: hidden;
       }
@@ -1090,19 +1092,18 @@
                 src="static/images/games-tms.png"
                 alt="Tokyo Mirage Sessions #FE icon"
             /></label>
-            <span class="help-text"
-              >A unit's game is decided here the same way that it is in Heroes,
-              so if a character is from more than one game, i.e. the Whitewings,
+            <span class="help-text">
+              <a href="#game-toggle" class="toggle">(About Games)</a>
+              <div id="game-toggle" >
+
+              A unit's game is mostly decided here the same way that it is in Heroes.
+              So, if a character is from more than one game, i.e. the Whitewings,
               the Greil mercenaries, etc., they are only counted as being from
-              whichever game Heroes designated.</span
-            >
+              whichever game Heroes designated. The exception is all the Archanea games/remakes, which I've split between Shadow Dragon / first half of Mystery of the Emblem VS. New Mystery / second half of Mystery. Kris is the icon for that even though it includes just ocs from Mystery of the Emblem (it was just easier to use Kris since otherwise Marth is the main character again).
+              ⚠️ For right now, duo units are only classified under the lead
+              character's game. ⚠️ The Warriors option is only aspirational and likely to remain so eternally.
+            </div></span>
           </p>
-
-          <p>
-            For right now, duo units are only classified under the lead
-            character's game.
-          </p>
-
           <p>Types of units to include:</p>
           <p>
             <label
