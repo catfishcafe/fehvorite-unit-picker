@@ -466,13 +466,12 @@
          * returns a plain text list item.
          */
         var itemContent;
-        var itemName;
-        itemName = item.name || item.id;
+        var itemName = `${item.name}: ${item.epithet}`
         if (this.options.getItemElem) {
             return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
         }
         if (item.image || this.options.getItemImageUrl) {
-            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" alt="' + itemName + '" title="' + itemName + '" loading="eager">');
+            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px" alt="' + itemName + '" title="' + itemName + '" loading="eager">');
         }
         else {
             itemContent = $('<span>' + itemName + '</span>');
