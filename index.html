@@ -460,7 +460,17 @@
         top: 10px;
         right: 10px;
       }
+
+      .hideCheckbox {
+        display: none;
+      }
+
+      .orb {
+        height: 38px;
+      }
     </style>
+
+
 
     <link
       rel="alternate stylesheet"
@@ -531,37 +541,17 @@
     </h2>
 
     <p>
-      For each group of units presented to you, click one or more of your
-      favorites from that group and press the "Pick" button. Eventually, your
-      favorite unit will start appearing under "Found Favorites". You can
-      continue as long as you like to construct an arbitrarily long list of your
-      favorite units.
-    </p>
-
-    <p>
-      In principle, this picker is perfectly accurate, provided you pick
-      consistently - you'll correctly get your second favorite second, even if
-      it's pitted against your absolute favorite early on, for instance.
-      <a href="#howitworks" class="toggle"
-        >Click here for more on how this tool works.</a
+      <label
+        ><input type="checkbox" id="resplendent" /> resplendent
+        mode</label
       >
-      You can reorder your favorites after you've found them, but in principle
-      you shouldn't need to.
-    </p>
-
-    <p>
-      Various filtering and presentation options for the picker can be found in
-      the "Options" tab next to "Found Favorites" below.
-    </p>
-
-    <p>
-      Want to create your own favorite picker?
-      <a href="https://github.com/antialiasis/favorite-picker"
-        >It's on GitHub with instructions to get you started.</a
+      <span class="help-text"
+        >If checked, any units with a resplendent version will display
+        their resplendent artwork.</span
       >
     </p>
 
-    <div id="howitworks"></div>
+    <!-- <div id="howitworks"></div> -->
 
     <div id="container">
       <div id="picking">
@@ -592,7 +582,7 @@
           <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li>
           <li class="active"><a href="#found-favorites">Found Favorites</a></li>
           <li><a href="#options">Options</a></li>
-          <li><a href="description">Description</a></li>
+          <li><a href="#explanation">Picker Explanation</a></li>
         </ul>
 
         <div id="found-favorites" style="display: block">
@@ -625,34 +615,26 @@
             <p><button id="import">Import state</button></p>
           </div>
         </div>
+        <!-- end found favorites -->
 
+        <!-- start options -->
         <div id="options" style="display: none">
-          <p>
-            <label
-              ><input type="checkbox" id="resplendent" /> resplendent
-              mode</label
-            >
-            <span class="help-text"
-              >If checked, any units with a resplendent version will display
-              their resplendent artwork.</span
-            >
-          </p>
 
           <p>Weapon types to include:</p>
           <p>
             <label
-              >(<input
+              ><input
                 type="checkbox"
                 id="weaponTypes-all"
-                class="select-all"
+                class="select-all hideCheckbox"
                 value="weaponTypes"
               />
-              Select all)</label
+              <img src="static/images/orb.png" class="orb"></label
             >
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="sword"
                 checked="" />
               <img src="static/images/weapon-melee-sword.png" alt="sword icon"
@@ -660,7 +642,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="lance"
                 checked="" />
               <img src="static/images/weapon-melee-lance.png" alt="lance icon"
@@ -668,7 +650,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="axe"
                 checked="" />
               <img src="static/images/weapon-melee-axe.png" alt="axe icon"
@@ -676,7 +658,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="staff"
                 checked="" />
               <img src="static/images/weapon-staff.png" alt="staff icon"
@@ -684,7 +666,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dark"
                 checked="" />
               <img src="static/images/weapon-tome-red.png" alt="red tome icon"
@@ -692,7 +674,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="light"
                 checked="" />
               <img
@@ -702,7 +684,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="anima"
                 checked="" />
               <img src="static/images/weapon-tome-green.png" alt="green icon"
@@ -710,7 +692,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="tome"
                 checked="" />
               <img
@@ -720,7 +702,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="bow red"
                 checked="" />
               <img src="static/images/weapon-bow-red.png" alt="red bowicon"
@@ -728,7 +710,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="bow blue"
                 checked="" />
               <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"
@@ -736,7 +718,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="bow green"
                 checked="" />
               <img
@@ -746,7 +728,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="bow colorless"
                 checked="" />
               <img
@@ -756,7 +738,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dagger red"
                 checked="" />
               <img
@@ -766,7 +748,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dagger blue"
                 checked="" />
               <img
@@ -776,7 +758,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dagger green"
                 checked="" />
               <img
@@ -786,7 +768,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dagger colorless"
                 checked="" />
               <img
@@ -796,7 +778,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="beast red"
                 checked="" />
               <img
@@ -806,7 +788,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="beast blue"
                 checked="" />
               <img
@@ -816,7 +798,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="beast green"
                 checked="" />
               <img
@@ -826,7 +808,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="beast colorless"
                 checked="" />
               <img
@@ -836,7 +818,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dragon red"
                 checked="" />
               <img
@@ -846,7 +828,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dragon blue"
                 checked="" />
               <img
@@ -856,7 +838,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dragon green"
                 checked="" />
               <img
@@ -866,7 +848,7 @@
             <label
               ><input
                 type="checkbox"
-                class="weaponTypes dummyClass"
+                class="weaponTypes hideCheckbox"
                 value="dragon colorless"
                 checked="" />
               <img
@@ -889,7 +871,7 @@
             <label
               ><input
                 type="checkbox"
-                class="moveTypes dummyClass"
+                class="moveTypes hideCheckbox"
                 value="infantry"
                 checked="" />
               <img
@@ -899,7 +881,7 @@
             <label
               ><input
                 type="checkbox"
-                class="moveTypes dummyClass"
+                class="moveTypes hideCheckbox"
                 value="armored"
                 checked="" />
               <img
@@ -909,7 +891,7 @@
             <label
               ><input
                 type="checkbox"
-                class="moveTypes dummyClass"
+                class="moveTypes hideCheckbox"
                 value="cavalry"
                 checked="" />
               <img
@@ -919,7 +901,7 @@
             <label
               ><input
                 type="checkbox"
-                class="moveTypes dummyClass"
+                class="moveTypes hideCheckbox"
                 value="flying"
                 checked="" />
               <img
@@ -942,28 +924,30 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="shadow dragon"
                 checked="" />
               <img
                 src="static/images/games-shadow-dragon.png"
                 alt="Shadow Dragon icon"
+                title="Shadow Dragon / Mystery pt. 1"
             /></label>
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="new mystery"
                 checked="" />
               <img
                 src="static/images/games-new-mystery.png"
                 height="30px"
                 alt="New Mystery of the Emblem icon"
+                title="New Mystery / Mystery pt. 2"
             /></label>
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="valencia"
                 checked="" />
               <img
@@ -973,7 +957,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="genealogy"
                 checked="" />
               <img
@@ -983,7 +967,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="thracia"
                 checked="" />
               <img src="static/images/games-thracia.png" alt="Thracia 776 icon"
@@ -991,7 +975,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="binding blade"
                 checked="" />
               <img
@@ -1001,7 +985,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="blazing blade"
                 checked="" />
               <img
@@ -1011,7 +995,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="sacred stones"
                 checked="" />
               <img
@@ -1021,7 +1005,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="path of radiance"
                 checked="" />
               <img
@@ -1031,7 +1015,7 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="radiant dawn"
                 checked="" />
               <img
@@ -1041,53 +1025,56 @@
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="awakening"
                 checked="" />
               <img src="static/images/games-awakening.png" alt="Awakening icon"
             /></label>
             <label
-              ><input type="checkbox" class="games" value="fates" checked="" />
+              ><input type="checkbox" class="games hideCheckbox" value="fates" checked="" />
               <img src="static/images/games-fates.png" alt="Fates icon"
             /></label>
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="three houses"
                 checked="" />
               <img
                 src="static/images/games-three-houses.png"
                 alt="Three Houses icon"
+                title="Three Houses"
             /></label>
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="three hopes"
                 checked="" />
               <img
                 src="static/images/games-three-hopes.png"
                 height="30px"
                 alt="Warriors: Three Hopes icon"
+                title="Warriors: Three Hopes"
             /></label>
             <label
-              ><input type="checkbox" class="games" value="heroes" checked="" />
+              ><input type="checkbox" class="games hideCheckbox" value="heroes" checked="" />
               <img src="static/images/games-heroes.png" alt="Heroes icon"
             /></label>
             <label
               ><input
                 type="checkbox"
-                class="games"
+                class="games hideCheckbox"
                 value="warriors"
                 checked="" />
               <img
                 src="static/images/games-warriors.png"
                 height="28px"
                 alt="Warriors icon"
+                title="Warriors"
             /></label>
             <label
-              ><input type="checkbox" class="games" value="tms" checked="" />
+              ><input type="checkbox" class="games hideCheckbox" value="tms" checked="" />
               <img
                 src="static/images/games-tms.png"
                 alt="Tokyo Mirage Sessions #FE icon"
@@ -1109,16 +1096,16 @@
             <label
               >(<input
                 type="checkbox"
-                id="baseOrNot-all"
+                id="variety-all"
                 class="select-all"
-                value="baseOrNot"
+                value="variety"
               />
               Select all)</label
             >
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="base"
                 checked=""
               />
@@ -1127,7 +1114,7 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="fallen"
                 checked=""
               />
@@ -1136,7 +1123,7 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="brave"
                 checked=""
               />
@@ -1145,7 +1132,7 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="legendary"
                 checked=""
               />
@@ -1154,16 +1141,32 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
+                value="mythic"
+                checked=""
+              />
+              Mythic</label
+            >
+            <label>
+              <input
+                type="checkbox"
+                class="variety"
                 value="ascended"
                 checked=""
               />
               Ascended</label
             >
-            <label>
-              <input
+            <input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
+                value="rearmed"
+                checked=""
+              />
+              Rearmed</label
+            >
+            <input
+                type="checkbox"
+                class="variety"
                 value="attuned"
                 checked=""
               />
@@ -1172,7 +1175,7 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="special"
                 checked=""
               />
@@ -1181,7 +1184,7 @@
             <label
               ><input
                 type="checkbox"
-                class="baseOrNot"
+                class="variety"
                 value="misc"
                 checked=""
               />
@@ -1241,7 +1244,16 @@
             >
           </p>
 
-          <p>Include NPCs</p>
+          <p>
+            <label
+              ><input type="checkbox" id="exclude" /> Exclude secondary types for bases</label
+            >
+            <span class="help-text"
+              >
+              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; this means that some units counted as base units have other characteristics: Fjorm: Princess of Ice is counted as base/legendary, Eir: Merciful Death is counted as base/mythic, Alfred: Floral protector is counted as base/rearmed, etc. Therefore, if you have only "base" checked in the "types of units to include" section, these units will still show up. Check this box if you would like to EXCLUDE all legendary/mythic/rearmed units. (Note: Checking this will exclude override the other checkboxes that include them.)
+              </span
+            >
+          </p>
 
           <p>
             <label
@@ -1279,9 +1291,45 @@
                   take longer to get through each round.</span
                 >
               </p>
-              <!-- end options -->
           </p>
         </div>
+        <!-- end options -->
+        <!-- start explanation -->
+        <div id="explanation" >
+          <p>
+            For each group of units presented to you, click one or more of your
+            favorites from that group and press the "Pick" button. Eventually, your
+            favorite unit will start appearing under "Found Favorites". You can
+            continue as long as you like to construct an arbitrarily long list of your
+            favorite units.
+          </p>
+      
+          <p>
+            In principle, this picker is perfectly accurate, provided you pick
+            consistently - you'll correctly get your second favorite second, even if
+            it's pitted against your absolute favorite early on, for instance.
+            <a href="#howitworks" class="toggle"
+              >Click here for more on how this tool works.</a
+            >
+            You can reorder your favorites after you've found them, but in principle
+            you shouldn't need to.
+          </p>
+      
+          <p>
+            Various filtering and presentation options for the picker can be found in
+            the "Options" tab.
+          </p>
+      
+          <p>
+            Want to create your own favorite picker?
+            <a href="https://github.com/antialiasis/favorite-picker"
+              >It's on GitHub with instructions to get you started.</a
+            >
+          </p>
+        </div>
+        <!-- end explanation -->
+
+
       </div>
     </div>
 
@@ -1360,12 +1408,14 @@
         minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
         moveTypes: ["infantry", "armored", "cavalry", "flying"],
         storyRoles: ["mc", "pc", "npc"],
-        baseOrNot: [
+        variety: [
           "base",
           "fallen",
           "brave",
           "legendary",
+          "mythic",
           "ascended",
+          "rearmed",
           "attuned",
           "special",
           "misc",
@@ -1378,12 +1428,12 @@
         majorOnly: false,
         refreshersOnly: false,
         grailsOnly: false,
-        finalOnly: false,
+        exclude: false,
         spoilers: true,
         weaponTypes: lists.weaponTypes,
         moveTypes: lists.moveTypes,
         storyRoles: lists.storyRoles,
-        baseOrNot: lists.baseOrNot,
+        variety: lists.variety,
         games: lists.games,
         maxBatchSize: 20,
       };
@@ -1421,16 +1471,17 @@
           if (!state.settings) {
             // Backwards-compatibility: old states since before settings became a sub-object
             state.settings = {
-                shiny: state.shiny,
+                resplendent: state.resplendent,
                 includeForms: state.include_forms ? lists.includeForms : [],
                 spoilers: state.spoilers,
                 // finalOnly: state.final_only,
                 // We want major only checked by default for users who weren't including forms before, so as to make it the default in forms mode
                 majorOnly: state.major_only === undefined && !state.include_forms ? true : state.major_only || true,
                 // Default to all generations/types checked.
-                // generations: state.generations || lists.generations,
                 weaponTypes: state.weaponTypes || lists.weaponTypes,
-                types: state.types || lists.types,
+                moveTypes: state.moveTypes || lists.moveTypes,
+                games: state.games || lists.games,
+                variety: state.variety || lists.variety,
                 maxBatchSize: state.max_batch_size || defaultSettings.maxBatchSize
             };
         } else {
@@ -1580,11 +1631,12 @@
             majorOnly: "#major",
             refreshersOnly: "#refreshers",
             grailsOnly: "#grails",
+            exclude: "#exclude",
             weaponTypes: ".weaponTypes",
             moveTypes: ".moveTypes",
             storyRoles: ".storyRoles",
             games: ".games",
-            baseOrNot: ".baseOrNot",
+            variety: ".variety",
             spoilers: "#spoilers",
             maxBatchSize: "#max-batch-size",
           },
@@ -1699,8 +1751,8 @@
           setSelectAll("storyRoles");
         });
 
-        pickerUI.elem.settings.baseOrNot.on("change", function () {
-          setSelectAll("baseOrNot");
+        pickerUI.elem.settings.variety.on("change", function () {
+          setSelectAll("variety");
         });
 
         //   setSelectAll('includeForms');
@@ -1708,7 +1760,7 @@
         setSelectAll("moveTypes");
         setSelectAll("games");
         setSelectAll("storyRoles");
-        setSelectAll("baseOrNot");
+        setSelectAll("variety");
       });
 
       /* SORTABLE FAVORITES */
@@ -1882,6 +1934,9 @@
       }
 
       function settingIncludesUnits(unit, setting, settings) {
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>')
+        console.log(unit.variety)
+        console.log(setting)
         /**
          * Returns false if the pokemon should be filtered out by the given
          * setting, or true otherwise.
@@ -1898,12 +1953,14 @@
             return value.indexOf(unit.game) !== -1;
           case "storyRoles":
             return value.indexOf(unit.storyRole) !== -1;
-          case "baseOrNot":
-            return value.indexOf(unit.baseOrNot) !== -1;
+          case "variety":
+            return value.indexOf(unit.variety) !== -1 || value.indexOf(unit.special) !== -1;
           case "refreshersOnly":
             return !value || unit.refresher === true;
           case "grailsOnly":
             return !value || unit.grails === "ghb" || unit.grails === "tt";
+          case "exclude":
+            return !value || unit.special === "base";
           case "spoilers":
             return value || !unit.spoiler;
           default:
