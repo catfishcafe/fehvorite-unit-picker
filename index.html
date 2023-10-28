@@ -1230,6 +1230,15 @@
               />
               NPCs</label
             >
+            <label
+              ><input
+                type="checkbox"
+                class="storyRoles"
+                value="lore"
+                checked=""
+              />
+              lore</label
+            >
           </p>
 
           <p>
@@ -1250,7 +1259,7 @@
             >
             <span class="help-text"
               >
-              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; this means that some units counted as base units have other characteristics: Fjorm: Princess of Ice is counted as base/legendary, Eir: Merciful Death is counted as base/mythic, Alfred: Floral protector is counted as base/rearmed, etc. Therefore, if you have only "base" checked in the "types of units to include" section, these units will still show up. Check this box if you would like to EXCLUDE all legendary/mythic/rearmed units. (Note: Checking this will exclude override the other checkboxes that include them.)
+              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; this means that some units counted as base units have other characteristics: Fjorm: Princess of Ice is counted as base/legendary, Duma: God of Strength is counted as base/mythic, Alfred: Floral protector is counted as base/rearmed, etc. Therefore, if you have only "base" checked in the "types of units to include" section, these units will still show up. Check this box if you would like to EXCLUDE all legendary/mythic/rearmed units. (Note: Checking this will exclude override the other checkboxes that include them.)
               </span
             >
           </p>
@@ -1407,7 +1416,7 @@
         ],
         minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
         moveTypes: ["infantry", "armored", "cavalry", "flying"],
-        storyRoles: ["mc", "pc", "npc"],
+        storyRoles: ["mc", "pc", "npc", "lore"],
         variety: [
           "base",
           "fallen",
@@ -1504,34 +1513,34 @@
         }
 
         // Go through all the Pokémon in each array and correct legacy data format
-        for (i = 0; i < arrays.length; i++) {
-            for (j = arrays[i].length - 1; j >= 0; j--) {
-                if (arrays[i][j].number) {
-                    // Old-style data; convert to the new style
-                    if (arrays[i] === eliminated) {
-                        arrays[i][j] = {id: getPokemonIdentifier(arrays[i][j]), eliminatedBy: arrays[i][j].eliminated_by};
-                    }
-                    else {
-                        arrays[i][j] = getPokemonIdentifier(arrays[i][j]);
-                    }
-                }
-                if (arrays[i][j].mon) {
-                    // Switch to the generic format
-                    arrays[i][j].id = arrays[i][j].mon;
-                    delete arrays[i][j].mon;
-                }
-                if (arrays[i] === eliminated && arrays[i][j].eliminated_by) {
-                    // Switch to camelCase eliminatedBy
-                    arrays[i][j].eliminatedBy = arrays[i][j].eliminated_by;
-                    delete arrays[i][j].eliminated_by;
-                }
-                if (arrays[i][j].id in legacyReplacements) {
-                    arrays[i][j].id = legacyReplacements[arrays[i][j].identifier];
-                } else if (arrays[i][j] in legacyReplacements) {
-                    arrays[i][j] = legacyReplacements[arrays[i][j]];
-                }
-            }
-        }
+        // for (i = 0; i < arrays.length; i++) {
+        //     for (j = arrays[i].length - 1; j >= 0; j--) {
+        //         if (arrays[i][j].number) {
+        //             // Old-style data; convert to the new style
+        //             if (arrays[i] === eliminated) {
+        //                 arrays[i][j] = {id: getPokemonIdentifier(arrays[i][j]), eliminatedBy: arrays[i][j].eliminated_by};
+        //             }
+        //             else {
+        //                 arrays[i][j] = getPokemonIdentifier(arrays[i][j]);
+        //             }
+        //         }
+        //         if (arrays[i][j].mon) {
+        //             // Switch to the generic format
+        //             arrays[i][j].id = arrays[i][j].mon;
+        //             delete arrays[i][j].mon;
+        //         }
+        //         if (arrays[i] === eliminated && arrays[i][j].eliminated_by) {
+        //             // Switch to camelCase eliminatedBy
+        //             arrays[i][j].eliminatedBy = arrays[i][j].eliminated_by;
+        //             delete arrays[i][j].eliminated_by;
+        //         }
+        //         if (arrays[i][j].id in legacyReplacements) {
+        //             arrays[i][j].id = legacyReplacements[arrays[i][j].identifier];
+        //         } else if (arrays[i][j] in legacyReplacements) {
+        //             arrays[i][j] = legacyReplacements[arrays[i][j]];
+        //         }
+        //     }
+        // }
         // Make legacy replacements in eliminatedBy arrays
         // We go through both arrays backwards so that splicing the indices
         // won't mess up subsequent indices
@@ -1579,8 +1588,6 @@
         shouldIncludeItem: function (item, settings) {
           var key;
           for (key in settings) {
-            // console.log('a settings object from shouldIncludeItem:')
-            // console.log(settings)
             if (settings.hasOwnProperty(key)) {
               if (!settingIncludesUnits(item, key, settings)) {
                 return false;
@@ -1720,9 +1727,6 @@
       });
 
       $.getJSON("/static/units.json?v=sv6", function (json) {
-        console.log(json);
-        console.log('here are json.items from within $.getJSON');
-        console.log(json.items);
         fehPicker.options.items = json.items;
         fehPicker.initialize();
 
@@ -1950,7 +1954,7 @@
           case "moveTypes":
             return value.indexOf(unit.moveType) !== -1;
           case "games":
-            return value.indexOf(unit.game) !== -1;
+            return value.indexOf(unit.game) !== -1 || value.indexOf(unit.game2) !== -1;
           case "storyRoles":
             return value.indexOf(unit.storyRole) !== -1;
           case "variety":
@@ -1970,7 +1974,7 @@
 
       function getBatchWidth(batchSize, maxWidth) {
         /**
-         * Calculate how many sprites wide the display area for the pokemon
+         * Calculate how many sprites wide the display area for the unit
          * should be, for the given batch size.
          * We want the closest thing possible to a square, but prefer perfect
          * rectangles to imperfect squares.
@@ -2026,22 +2030,22 @@
       //       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
       //   }
 
-      function identifierFromName(name) {
-        /**
-         * Returns the identifier of the pokemon whose name is given
-         * (case-insensitive).
-         */
-        return fehPicker.forEachItem(function (identifier) {
-          if (
-            fehPicker.itemMap[identifier].name.toLowerCase() ===
-            name.toLowerCase()
-          ) {
-            return identifier;
-          } else {
-            return false;
-          }
-        });
-      }
+      // function identifierFromName(name) {
+      //   /**
+      //    * Returns the identifier of the pokemon whose name is given
+      //    * (case-insensitive).
+      //    */
+      //   return fehPicker.forEachItem(function (identifier) {
+      //     if (
+      //       fehPicker.itemMap[identifier].name.toLowerCase() ===
+      //       name.toLowerCase()
+      //     ) {
+      //       return identifier;
+      //     } else {
+      //       return false;
+      //     }
+      //   });
+      // }
 
       //   function finaling3neration(pokemon, g3nerations) {
       //       /**
