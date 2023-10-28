@@ -461,6 +461,11 @@
         right: 10px;
       }
 
+      #testId {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+      }
+
       .hideCheckbox {
         display: none;
       }
@@ -527,10 +532,36 @@
       setActiveStyleSheet(title);
     </script>
 
-  </head>
+<script>
+  //getting the checkboxless-checkboxes to change images depending on checked or unchecked
+  //based on https://stackoverflow.com/questions/5395235/change-text-of-corresponding-label-when-checkbox-is-checked-unchecked
+  function displayCheckedStatus(checkboxId, labelId) {
+    const checkBox = document.getElementById(checkboxId);
+    const labelIdVar = document.getElementById(labelId);
+      if (!checkBox.checked) {
+        labelIdVar.innerHTML = `<img src="static/images/weapon-${checkBox.id}-unchecked.png" alt="${checkBox.id} checkbox" class=""/>`;
+    } else {
+      labelIdVar.innerHTML = `<img src="static/images/weapon-${checkBox.id}.png" alt="${checkBox.id} checkbox" class=""/>`;
+    }}
+</script>
 
+  </head>
   <body>
-    <a href="#" id="darkmode">Light mode</a>
+
+    <p>
+      <input type="checkbox" class="checkit" name="anima" id="tome-green" value="1" onclick="displayCheckedStatus('tome-green','animaId');" />
+      <label for="anima" name="yesnos" id="animaId">No</label>
+    </p>
+
+    <p>
+      <input type="checkbox" class="checkit" name="dark" id="tome-red" value="2" onclick="displayCheckedStatus('tome-red','darkId');" />
+      <label for="dark" name="somethingelse" id="darkId">No</label>
+    </p>
+
+
+
+
+    <a href="#" id="darkmode"></a>
     <h1>
       FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes
       units!
@@ -539,7 +570,6 @@
       Original picker code and written descriptions from
       <a href="pokesite.aspx">The Cave of Dragonflies</a>
     </h2>
-
     <p>
       <label
         ><input type="checkbox" id="resplendent" /> resplendent
@@ -637,7 +667,7 @@
                 class="weaponTypes hideCheckbox"
                 value="sword"
                 checked="" />
-              <img src="static/images/weapon-melee-sword.png" alt="sword icon"
+              <img src="static/images/weapon-melee-sword.png" alt="sword icon" class=""
             /></label>
             <label
               ><input
@@ -1938,9 +1968,6 @@
       }
 
       function settingIncludesUnits(unit, setting, settings) {
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>')
-        console.log(unit.variety)
-        console.log(setting)
         /**
          * Returns false if the pokemon should be filtered out by the given
          * setting, or true otherwise.
