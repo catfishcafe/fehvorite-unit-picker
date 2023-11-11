@@ -389,6 +389,10 @@
         font-size: smaller;
       }
 
+      .hide-help {
+        display: none;
+      }
+
       #shared-list-modal {
         position: absolute;
         background: #fff;
@@ -466,16 +470,14 @@
     filter: alpha(opacity=40); /* msie */
       }
 
-      .hideCheckbox {
+      /* .hideCheckbox {
         display: none;
-      }
+      } */
 
       .orb {
         height: 38px;
       }
     </style>
-
-
 
     <link
       rel="alternate stylesheet"
@@ -531,37 +533,24 @@
       var title = style;
       setActiveStyleSheet(title);
     </script>
-
-<script>
-  //getting the checkboxless-checkboxes to change images depending on checked or unchecked
-  //based on https://stackoverflow.com/questions/5395235/change-text-of-corresponding-label-when-checkbox-is-checked-unchecked
-  function displayCheckedStatus(checkboxId, labelId) {
-    const checkBox = document.getElementById(checkboxId);
-    const labelIdVar = document.getElementById(labelId);
-      if (!checkBox.checked) {
-        labelIdVar.innerHTML = `<img src="static/images/weapon-${checkBox.id}-unchecked.png" alt="${checkBox.id} checkbox" class=""/>`;
-    } else {
-      labelIdVar.innerHTML = `<img src="static/images/weapon-${checkBox.id}.png" alt="${checkBox.id} checkbox" class=""/>`;
-    }}
-</script>
+    <!-- <script>
+      //getting the checkboxless-checkboxes to change images depending on checked or unchecked
+      //based on https://stackoverflow.com/questions/5395235/change-text-of-corresponding-label-when-checkbox-is-checked-unchecked
+      //current working for individual checkboxes but not with the setSelectAll function
+      function displayCheckedStatus(checkboxId, labelId) {
+        const checkBox = document.getElementById(checkboxId);
+        const labelIdVar = document.getElementById(labelId);
+        console.log(checkBox.checked);
+          if (!checkBox.checked) {
+            labelIdVar.innerHTML= `<img src="static/images/${checkBox.id}-unchecked.png" alt="${checkBox.id} checkbox" class="optionsCheckboxImg"/>`;
+        } else {
+          labelIdVar.innerHTML= `<img src="static/images/${checkBox.id}.png" alt="${checkBox.id} checkbox" class="optionsCheckboxImg"/>`;
+        }}
+    </script> -->
 
   </head>
   <body>
-
-    <p>
-      <input type="checkbox" class="checkit" name="anima" id="tome-green" value="1" onclick="displayCheckedStatus('tome-green','animaId');" />
-      <label for="anima" name="yesnos" id="animaId">No</label>
-    </p>
-
-    <p>
-      <input type="checkbox" class="checkit" name="dark" id="tome-red" value="2" onclick="displayCheckedStatus('tome-red','darkId');" />
-      <label for="dark" name="somethingelse" id="darkId">No</label>
-    </p>
-
-
-
-
-    <a href="#" id="darkmode"></a>
+    <a href="#" id="darkmode">Light mode</a>
     <h1>
       FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes
       units!
@@ -652,174 +641,234 @@
 
           <p>Weapon types to include:</p>
           <p>
-            <label
-              ><input
+            <label>
+              <input
                 type="checkbox"
                 id="weaponTypes-all"
                 class="select-all hideCheckbox"
                 value="weaponTypes"
               />
-              <img src="static/images/orb.png" class="orb"></label
-            >
-            <label
-              ><input
+              <img src="static/images/select-all-select-all.png" class="orb"></label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-melee-sword"
                 value="sword"
+                onload="displayCheckedStatus('weapon-melee-sword','swordId');"
+                onchange="displayCheckedStatus('weapon-melee-sword','swordId');"
                 checked="" />
-              <img src="static/images/weapon-melee-sword.png" alt="sword icon" class=""
-            /></label>
+              <span id="swordId">
+                <img src="static/images/weapon-melee-sword.png" alt="sword icon" class=""/>
+              </span>
+            </label>
             <label
               ><input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-melee-lance"
                 value="lance"
+                onclick="displayCheckedStatus('weapon-melee-lance','lanceId');"
                 checked="" />
-              <img src="static/images/weapon-melee-lance.png" alt="lance icon"
-            /></label>
-            <label
-              ><input
+              <span id="lanceId">
+                <img src="static/images/weapon-melee-lance.png" alt="lance icon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-melee-axe"
                 value="axe"
+                onclick="displayCheckedStatus('weapon-melee-axe','axeId');"
                 checked="" />
-              <img src="static/images/weapon-melee-axe.png" alt="axe icon"
-            /></label>
+              <span id=axeId>
+                <img src="static/images/weapon-melee-axe.png" alt="axe icon"/>
+              </span>
+            </label>
             <label
               ><input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-staff"
                 value="staff"
+                onclick="displayCheckedStatus('weapon-staff','staffId');"
                 checked="" />
-              <img src="static/images/weapon-staff.png" alt="staff icon"
-            /></label>
-            <label
-              ><input
+              <span id="staffId">
+                <img src="static/images/weapon-staff.png" alt="staff icon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id ="weapon-tome-red"
                 value="dark"
+                onclick="displayCheckedStatus('weapon-tome-red','darkId');"
                 checked="" />
-              <img src="static/images/weapon-tome-red.png" alt="red tome icon"
-            /></label>
-            <label
-              ><input
+              <span id="darkId"><img src="static/images/weapon-tome-red.png" alt="red tome icon"
+            /></span></label>
+            <label>
+              <input type="checkbox" class="weaponTypes hideCheckbox" id="weapon-tome-blue" value="light" onclick="displayCheckedStatus('weapon-tome-blue','lightId');" checked="" />
+              <span id="lightId">
+                <img src="static/images/weapon-tome-blue.png" alt="blue tome icon"/>
+              </span>
+            </label>
+            <label>
+              <input type="checkbox"
+              class="weaponTypes hideCheckbox"
+              id="weapon-tome-green"
+              value="anima"
+              onclick="displayCheckedStatus('weapon-tome-green','animaId');"
+              checked="" />
+              <span id="animaId">
+                <img src="static/images/weapon-tome-green.png" alt="green tome icon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
-                value="light"
-                checked="" />
-              <img
-                src="static/images/weapon-tome-blue.png"
-                alt="blue tome icon"
-            /></label>
-            <label
-              ><input
-                type="checkbox"
-                class="weaponTypes hideCheckbox"
-                value="anima"
-                checked="" />
-              <img src="static/images/weapon-tome-green.png" alt="green icon"
-            /></label>
-            <label
-              ><input
-                type="checkbox"
-                class="weaponTypes hideCheckbox"
+                id="weapon-tome-colorless"
                 value="tome"
+                onclick="displayCheckedStatus('weapon-tome-colorless','tomeId');"
                 checked="" />
-              <img
-                src="static/images/weapon-tome-colorless.png"
-                alt="colorless tome icon"
-            /></label>
-            <label
-              ><input
+              <span id="tomeId">
+                <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-bow-red"
                 value="bow red"
+                onclick="displayCheckedStatus('weapon-bow-red','bowRedId');"
                 checked="" />
-              <img src="static/images/weapon-bow-red.png" alt="red bowicon"
-            /></label>
-            <label
-              ><input
+              <span id="bowRedId">
+                <img src="static/images/weapon-bow-red.png" alt="red bowicon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-bow-blue"
                 value="bow blue"
+                onclick="displayCheckedStatus('weapon-bow-blue','bowBlueId');"
                 checked="" />
-              <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"
-            /></label>
-            <label
-              ><input
+              <span id="bowBlueId">
+                <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-bow-green"
                 value="bow green"
+                onclick="displayCheckedStatus('weapon-bow-green','bowGreenId');"
                 checked="" />
-              <img
-                src="static/images/weapon-bow-green.png"
-                alt="green bow icon"
-            /></label>
-            <label
-              ><input
+              <span id="bowGreenId">
+                <img src="static/images/weapon-bow-green.png" alt="green bow icon"/>
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-bow-colorless"
                 value="bow colorless"
+                onclick="displayCheckedStatus('weapon-bow-colorless','bowColorlessId');"
                 checked="" />
-              <img
-                src="static/images/weapon-bow-colorless.png"
-                alt="colorless bow icon"
-            /></label>
-            <label
-              ><input
+              <span id="bowColorlessId">
+                <img
+                  src="static/images/weapon-bow-colorless.png"
+                  alt="colorless bow icon"
+                />
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-dagger-red"
                 value="dagger red"
+                onclick="displayCheckedStatus('weapon-dagger-red','daggerRedId');"
                 checked="" />
-              <img
-                src="static/images/weapon-dagger-red.png"
-                alt="red dagger icon"
-            /></label>
+              <span id="daggerRedId">
+                <img
+                  src="static/images/weapon-dagger-red.png"
+                  alt="red dagger icon"
+                />
+              </span>
+            </label>
             <label
               ><input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-dagger-blue"
                 value="dagger blue"
+                onclick="displayCheckedStatus('weapon-dagger-blue','daggerBlueId');"
                 checked="" />
-              <img
-                src="static/images/weapon-dagger-blue.png"
-                alt="blue dagger icon"
-            /></label>
+              <span id="daggerBlueId">
+                <img
+                  src="static/images/weapon-dagger-blue.png"
+                  alt="blue dagger icon"
+                />
+              </span>
+            </label>
             <label
               ><input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="dagger green"
+                id="weapon-dagger-green"
+                onclick="displayCheckedStatus('weapon-dagger-green','daggerGreenId');"
                 checked="" />
-              <img
-                src="static/images/weapon-dagger-green.png"
-                alt="green dagger icon"
-            /></label>
-            <label
-              ><input
+                <span id="daggerGreenId">
+                  <img
+                    src="static/images/weapon-dagger-green.png"
+                    alt="green dagger icon"
+                  />
+                </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-dagger-colorless"
                 value="dagger colorless"
+                onclick="displayCheckedStatus('weapon-dagger-colorless','daggerColorlessId');"
                 checked="" />
-              <img
-                src="static/images/weapon-dagger-colorless.png"
-                alt="colorless dagger icon"
-            /></label>
-            <label
-              ><input
+              <span id="daggerColorlessId">
+                <img
+                  src="static/images/weapon-dagger-colorless.png"
+                  alt="colorless dagger icon"
+                />
+              </span>
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
+                id="weapon-beast-red"
                 value="beast red"
+                onclick="displayCheckedStatus('weapon-beast-red','BeastRedId');"
                 checked="" />
-              <img
+              <span id="beastRedId">
+                <img
                 src="static/images/weapon-beast-red.png"
                 alt="red beast icon"
-            /></label>
+                />
+              </span>
+            </label>
             <label
               ><input
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="beast blue"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-beast-blue.png"
@@ -830,6 +879,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="beast green"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-beast-green.png"
@@ -840,6 +890,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="beast colorless"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-beast-colorless.png"
@@ -850,6 +901,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="dragon red"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-dragon-red.png"
@@ -860,6 +912,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="dragon blue"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-dragon-blue.png"
@@ -870,6 +923,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="dragon green"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-dragon-green.png"
@@ -880,6 +934,7 @@
                 type="checkbox"
                 class="weaponTypes hideCheckbox"
                 value="dragon colorless"
+                onclick="displayCheckedStatus('weapon-','Id');"
                 checked="" />
               <img
                 src="static/images/weapon-dragon-colorless.png"
@@ -1079,13 +1134,25 @@
               ><input
                 type="checkbox"
                 class="games hideCheckbox"
-                value="three hopes"
+                value="fewth"
                 checked="" />
               <img
                 src="static/images/games-three-hopes.png"
                 height="30px"
                 alt="Warriors: Three Hopes icon"
                 title="Warriors: Three Hopes"
+            /></label>
+            <label
+              ><input
+                type="checkbox"
+                class="games hideCheckbox"
+                value="engage"
+                checked="" />
+              <img
+                src="static/images/games-engage.png"
+                height="30px"
+                alt="Engage icon"
+                title="Engage"
             /></label>
             <label
               ><input type="checkbox" class="games hideCheckbox" value="heroes" checked="" />
@@ -1123,17 +1190,17 @@
           </p>
           <p>Types of units to include:</p>
           <p>
-            <label
-              >(<input
+            <label>
+              (<input
                 type="checkbox"
                 id="variety-all"
                 class="select-all"
                 value="variety"
               />
-              Select all)</label
-            >
-            <label
-              ><input
+              Select all)
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="variety"
                 value="base"
@@ -1141,24 +1208,24 @@
               />
               Base</label
             >
-            <label
-              ><input
+            <label>
+              <input
                 type="checkbox"
                 class="variety"
                 value="fallen"
                 checked=""
               />
-              Fallen</label
-            >
-            <label
-              ><input
+              Fallen
+            </label>
+            <label>
+              <input
                 type="checkbox"
                 class="variety"
                 value="brave"
                 checked=""
               />
-              Brave</label
-            >
+              Brave
+            </label>
             <label
               ><input
                 type="checkbox"
@@ -1175,8 +1242,8 @@
                 value="mythic"
                 checked=""
               />
-              Mythic</label
-            >
+              Mythic
+            </label>
             <label>
               <input
                 type="checkbox"
@@ -1184,24 +1251,24 @@
                 value="ascended"
                 checked=""
               />
-              Ascended</label
-            >
+              Ascended
+            </label>
             <input
-                type="checkbox"
-                class="variety"
-                value="rearmed"
-                checked=""
-              />
+              type="checkbox"
+              class="variety"
+              value="rearmed"
+              checked=""
+            />
               Rearmed</label
             >
             <input
-                type="checkbox"
-                class="variety"
-                value="attuned"
-                checked=""
-              />
-              Attuned</label
-            >
+              type="checkbox"
+              class="variety"
+              value="attuned"
+              checked=""
+            />
+              Attuned
+            </label>
             <label
               ><input
                 type="checkbox"
@@ -1231,8 +1298,8 @@
                 class="select-all"
                 value="storyRoles"
               />
-              Select all)</label
-            >
+              Select all)
+            </label>
             <label
               ><input
                 type="checkbox"
@@ -1240,8 +1307,8 @@
                 value="mc"
                 checked=""
               />
-              Protagonists/Player avatars</label
-            >
+              Protagonists/Player avatars
+            </label>
             <label
               ><input
                 type="checkbox"
@@ -1271,44 +1338,133 @@
             >
           </p>
 
+          <!-- <p>Types of specials to include:</p>
           <p>
-            <label
-              ><input type="checkbox" id="refreshers" /> Refreshers only</label
-            >
-            <span class="help-text"
-              >If checked, only units who can grant other units another turn
-              with assist skills (dance/sing/chant/play/etc.) will be included.
-              (Units who can grant other units another action with duo skills
-              are not included.)</span
-            >
+            <label>
+              (<input type="checkbox" id="specials-all" class="select-all" value="specials"/>
+              Select all)
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="spring" checked=""/>
+              Spring
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="summer" checked=""/>
+              Summer
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="autumn" checked=""/>
+              Autumn
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="winter" checked=""/>
+              Winter
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="new year" checked=""/>
+              New Year
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="devoted" checked=""/>
+              Day of Devotion
+            </label>
+            <label>
+              <input type="checkbox" class="specials" value="wedding" checked=""/>
+              Wedding
+            </label> -->
+
+          <p>Versions to include:</p>
+          <p>
+            <label>
+              (<input type="checkbox" id="versions-all" class="select-all" value="versions"/>
+              Select all)
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="1" checked=""/>
+              1
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="2" checked=""/>
+              2
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="3" checked=""/>
+              3
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="4" checked=""/>
+              4
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="5" checked=""/>
+              5
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="6" checked=""/>
+              6
+            </label>
+            <label>
+              <input type="checkbox" class="versions" value="7" checked=""/>
+              7
+            </label>
+          <!-- working here -->
+
+          <p>
+            <label>
+              <input type="checkbox" id="refreshers" /> Refreshers only</label>
+            <span class="help-text hide-help"
+              >Check to see only units who can grant other units another turn
+              with assist skills (dance/sing/chant/play/etc.). (Units who can
+              only grant other units another action with duo skills are not 
+              included.)
+            </span>
+          </p>
+
+          <p>
+            <label>
+              <input type="checkbox" id="duos" /> Duos only</label>
+            <span class="help-text hide-help"
+              >Check to see only units classified as duo or harmonized.
+            </span>
           </p>
 
           <p>
             <label
-              ><input type="checkbox" id="exclude" /> Exclude secondary types for bases</label
-            >
-            <span class="help-text"
-              >
-              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; this means that some units counted as base units have other characteristics: Fjorm: Princess of Ice is counted as base/legendary, Duma: God of Strength is counted as base/mythic, Alfred: Floral protector is counted as base/rearmed, etc. Therefore, if you have only "base" checked in the "types of units to include" section, these units will still show up. Check this box if you would like to EXCLUDE all legendary/mythic/rearmed units. (Note: Checking this will exclude override the other checkboxes that include them.)
-              </span
-            >
+              ><input type="checkbox" id="altHell" />Alt Hell</label>
+            <span class="help-text hide-help">
+              Check to see only units whose character doesn't have a base unit yet
+            </span>
           </p>
 
           <p>
             <label
-              ><input type="checkbox" id="grails" /> Grail units only</label
-            >
-            <span class="help-text"
+              ><input type="checkbox" id="exclude" /> Exclude secondary types for bases</label>
+            <span class="help-text hide-help">
+              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; 
+              this means that some units counted as base units have other characteristics: 
+              Fjorm: Princess of Ice is counted as base/legendary, 
+              Duma: God of Strength is counted as base/mythic, 
+              Alfred: Floral Protector is counted as base/rearmed, etc. 
+              Therefore, if you have only "base" checked in the "types of units to include" section, 
+              these units will still show up. 
+              Check this box if you would like to EXCLUDE all legendary/mythic/rearmed units. 
+              (Note: Checking this will override the other checkboxes that include them.)
+            </span>
+          </p>
+
+          <p>
+            <label
+              ><input type="checkbox" id="grails" /> Grail units only</label>
+            <span class="help-text hide-help"
               >If checked, only units from Grand Hero Battles and Tempest Trials
-              will appear.</span
-            >
+              will appear.
+            </span>
           </p>
 
           <p>
             <label
-              ><input type="checkbox" id="spoilers" /> Include spoilers</label
-            >
-            <span class="help-text"
+              ><input type="checkbox" id="spoilers" /> Include spoilers</label>
+            <span class="help-text hide-help"
               >If unchecked, units that might be considered spoilers, either for
               story reasons or because they're officially unreleased, will be
               excluded.</span>
@@ -1439,7 +1595,8 @@
           "awakening",
           "fates",
           "three houses",
-          "three hopes",
+          "fewth",
+          "engage",
           "heroes",
           "warriors",
           "tms",
@@ -1447,7 +1604,20 @@
         minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
         moveTypes: ["infantry", "armored", "cavalry", "flying"],
         storyRoles: ["mc", "pc", "npc", "lore"],
-        variety: [
+        Specials: [
+          "spring", 
+          "summer", 
+          "autumn", 
+          "winter", 
+          "new year", 
+          "devoted", 
+          "cultural festival",
+          "hotspring", 
+          "ninja", 
+          "pirate/bandit", 
+          "wedding"],
+          versions: ["1", "2", "3", "4", "5", "6", "7"],
+          variety: [
           "base",
           "fallen",
           "brave",
@@ -1466,12 +1636,16 @@
         includeForms: [],
         majorOnly: false,
         refreshersOnly: false,
+        duosOnly: false,
+        altHell: false,
         grailsOnly: false,
         exclude: false,
         spoilers: true,
         weaponTypes: lists.weaponTypes,
         moveTypes: lists.moveTypes,
         storyRoles: lists.storyRoles,
+        // specials: lists.specials,
+        versions: lists.versions,
         variety: lists.variety,
         games: lists.games,
         maxBatchSize: 20,
@@ -1667,11 +1841,15 @@
             finalOnly: "#final",
             majorOnly: "#major",
             refreshersOnly: "#refreshers",
+            duosOnly: "#duos",
+            altHell: "#altHell",
             grailsOnly: "#grails",
             exclude: "#exclude",
             weaponTypes: ".weaponTypes",
             moveTypes: ".moveTypes",
             storyRoles: ".storyRoles",
+            // specials: ".specials",
+            versions: ".versions",
             games: ".games",
             variety: ".variety",
             spoilers: "#spoilers",
@@ -1785,6 +1963,14 @@
           setSelectAll("storyRoles");
         });
 
+        // pickerUI.elem.settings.specials.on("change", function () {
+        //   setSelectAll("specials");
+        // });
+
+        pickerUI.elem.settings.versions.on("change", function () {
+          setSelectAll("versions");
+        });
+
         pickerUI.elem.settings.variety.on("change", function () {
           setSelectAll("variety");
         });
@@ -1794,6 +1980,8 @@
         setSelectAll("moveTypes");
         setSelectAll("games");
         setSelectAll("storyRoles");
+        // setSelectAll("specials");
+        setSelectAll("versions");
         setSelectAll("variety");
       });
 
@@ -1856,23 +2044,18 @@
       /* ADDITIONAL PICKER EVENT HANDLERS */
 
       function setSelectAll(setting) {
-        // console.log(`setting=${setting}`);
-        var value = pickerUI.getSetting(setting);
-        // console.log(`value=${value}`);
-        var $selectAll = $('.select-all[value="' + setting + '"]');
-        if (value.length === lists[setting].length) {
-          $selectAll.prop("checked", true);
-        } else {
-          $selectAll.prop("checked", false);
-        }
+        const value = pickerUI.getSetting(setting);
+        const selectAll = $('.select-all[value="' + setting + '"]');
+        const newValue = value.length === lists[setting].length;
+        // console.log(`setSelectAll('${setting}'): calling selectAll.prop("checked", ${newValue})`);
+        selectAll.prop("checked", newValue);
       }
 
       $(".select-all").on("change", function () {
-        var setting = $(this).val();
-        pickerUI.setSetting(
-          setting,
-          $(this).prop("checked") ? lists[setting] : []
-        );
+        const setting = $(this).val();
+        const values = $(this).prop("checked") ? lists[setting] : [];
+        console.log(`.select-all.on('change'): setting=${setting}, values=${values}`);
+        pickerUI.setSetting(setting, values);
         fehPicker.setSettings(pickerUI.getSettings());
         pickerUI.update(true, "setting");
       });
@@ -1984,10 +2167,18 @@
             return value.indexOf(unit.game) !== -1 || value.indexOf(unit.game2) !== -1;
           case "storyRoles":
             return value.indexOf(unit.storyRole) !== -1;
+          // case "specials":
+          //   return value.indexOf(unit.special) !== -1;
+          case "versions":
+            return value.indexOf(unit.version) !== -1;
           case "variety":
             return value.indexOf(unit.variety) !== -1 || value.indexOf(unit.special) !== -1;
           case "refreshersOnly":
             return !value || unit.refresher === true;
+          case "duosOnly":
+            return !value || unit.duo === "duo" || unit.duo === "harmonized";
+          case "altHell":
+            return !value || unit.altHell === true;
           case "grailsOnly":
             return !value || unit.grails === "ghb" || unit.grails === "tt";
           case "exclude":
@@ -2270,6 +2461,7 @@
           })
           .join(", ");
       }
+
     </script>
   </body>
 </html>

@@ -8,7 +8,23 @@
       "special": "",
       "weaponType": "",
       "moveType": "",
-      "dateAdded": "addDate",
-      "version": 2,
-      "shortcode": "D"
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P"
     },
+
+    spring
+summer
+autumn
+winter
+
+devoted
+new year
+wedding
+cultural festival
+pirate/bandits
+picnic/teatime
+ninja
+hotspring
+child
+performers
