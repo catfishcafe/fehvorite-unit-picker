@@ -559,16 +559,6 @@
       Original picker code and written descriptions from
       <a href="pokesite.aspx">The Cave of Dragonflies</a>
     </h2>
-    <p>
-      <label
-        ><input type="checkbox" id="resplendent" /> resplendent
-        mode</label
-      >
-      <span class="help-text"
-        >If checked, any units with a resplendent version will display
-        their resplendent artwork.</span
-      >
-    </p>
 
     <!-- <div id="howitworks"></div> -->
 
@@ -639,6 +629,17 @@
         <!-- start options -->
         <div id="options" style="display: none">
 
+          <p>
+            <label
+              ><input type="checkbox" id="resplendent" /> resplendent
+              mode</label
+            >
+            <span class="help-text"
+              >If checked, any units with a resplendent version will display
+              their resplendent artwork.</span
+            >
+          </p>
+
           <p>Weapon types to include:</p>
           <p>
             <label>
@@ -648,7 +649,7 @@
                 class="select-all hideCheckbox"
                 value="weaponTypes"
               />
-              <img src="static/images/select-all-select-all.png" class="orb"></label>
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label>
             <label>
               <input
                 type="checkbox"
@@ -659,7 +660,7 @@
                 onchange="displayCheckedStatus('weapon-melee-sword','swordId');"
                 checked="" />
               <span id="swordId">
-                <img src="static/images/weapon-melee-sword.png" alt="sword icon" class=""/>
+                <img src="static/images/weapon-melee-sword.png" alt="sword icon" title="sword" class=""/>
               </span>
             </label>
             <label
@@ -671,7 +672,7 @@
                 onclick="displayCheckedStatus('weapon-melee-lance','lanceId');"
                 checked="" />
               <span id="lanceId">
-                <img src="static/images/weapon-melee-lance.png" alt="lance icon"/>
+                <img src="static/images/weapon-melee-lance.png" alt="lance icon" title="lance"/>
               </span>
             </label>
             <label>
@@ -683,7 +684,7 @@
                 onclick="displayCheckedStatus('weapon-melee-axe','axeId');"
                 checked="" />
               <span id=axeId>
-                <img src="static/images/weapon-melee-axe.png" alt="axe icon"/>
+                <img src="static/images/weapon-melee-axe.png" alt="axe icon" title="axe"/>
               </span>
             </label>
             <label
@@ -695,7 +696,7 @@
                 onclick="displayCheckedStatus('weapon-staff','staffId');"
                 checked="" />
               <span id="staffId">
-                <img src="static/images/weapon-staff.png" alt="staff icon"/>
+                <img src="static/images/weapon-staff.png" alt="staff icon" title="staff"/>
               </span>
             </label>
             <label>
@@ -706,7 +707,7 @@
                 value="dark"
                 onclick="displayCheckedStatus('weapon-tome-red','darkId');"
                 checked="" />
-              <span id="darkId"><img src="static/images/weapon-tome-red.png" alt="red tome icon"
+              <span id="darkId"><img src="static/images/weapon-tome-red.png" alt="red tome icon" title="red tome"
             /></span></label>
             <label>
               <input type="checkbox" class="weaponTypes hideCheckbox" id="weapon-tome-blue" value="light" onclick="displayCheckedStatus('weapon-tome-blue','lightId');" checked="" />
@@ -722,7 +723,7 @@
               onclick="displayCheckedStatus('weapon-tome-green','animaId');"
               checked="" />
               <span id="animaId">
-                <img src="static/images/weapon-tome-green.png" alt="green tome icon"/>
+                <img src="static/images/weapon-tome-green.png" alt="green tome icon" title="green tome"/>
               </span>
             </label>
             <label>
@@ -734,7 +735,7 @@
                 onclick="displayCheckedStatus('weapon-tome-colorless','tomeId');"
                 checked="" />
               <span id="tomeId">
-                <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon"/>
+                <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon" title="colorless tome"/>
               </span>
             </label>
             <label>
@@ -746,7 +747,7 @@
                 onclick="displayCheckedStatus('weapon-bow-red','bowRedId');"
                 checked="" />
               <span id="bowRedId">
-                <img src="static/images/weapon-bow-red.png" alt="red bowicon"/>
+                <img src="static/images/weapon-bow-red.png" alt="red bow icon" title="red bow"/>
               </span>
             </label>
             <label>
@@ -758,7 +759,7 @@
                 onclick="displayCheckedStatus('weapon-bow-blue','bowBlueId');"
                 checked="" />
               <span id="bowBlueId">
-                <img src="static/images/weapon-bow-blue.png" alt="blue bowicon"/>
+                <img src="static/images/weapon-bow-blue.png" alt="blue bow icon" title="blue bow"/>
               </span>
             </label>
             <label>
@@ -770,7 +771,7 @@
                 onclick="displayCheckedStatus('weapon-bow-green','bowGreenId');"
                 checked="" />
               <span id="bowGreenId">
-                <img src="static/images/weapon-bow-green.png" alt="green bow icon"/>
+                <img src="static/images/weapon-bow-green.png" alt="green bow icon" title="green bow"/>
               </span>
             </label>
             <label>
@@ -785,6 +786,7 @@
                 <img
                   src="static/images/weapon-bow-colorless.png"
                   alt="colorless bow icon"
+                  title="colorless bow"
                 />
               </span>
             </label>
@@ -800,6 +802,7 @@
                 <img
                   src="static/images/weapon-dagger-red.png"
                   alt="red dagger icon"
+                  title="red dagger"
                 />
               </span>
             </label>
@@ -815,6 +818,7 @@
                 <img
                   src="static/images/weapon-dagger-blue.png"
                   alt="blue dagger icon"
+                  title="blue dagger"
                 />
               </span>
             </label>
@@ -830,6 +834,7 @@
                   <img
                     src="static/images/weapon-dagger-green.png"
                     alt="green dagger icon"
+                    title="green dagger"
                   />
                 </span>
             </label>
@@ -845,6 +850,7 @@
                 <img
                   src="static/images/weapon-dagger-colorless.png"
                   alt="colorless dagger icon"
+                  title="colorless dagger"
                 />
               </span>
             </label>
@@ -860,6 +866,7 @@
                 <img
                 src="static/images/weapon-beast-red.png"
                 alt="red beast icon"
+                title="red beast"
                 />
               </span>
             </label>
@@ -873,6 +880,7 @@
               <img
                 src="static/images/weapon-beast-blue.png"
                 alt="blue beast icon"
+                title="blue beast"
             /></label>
             <label
               ><input
@@ -884,6 +892,7 @@
               <img
                 src="static/images/weapon-beast-green.png"
                 alt="green beast icon"
+                title="green beast"
             /></label>
             <label
               ><input
@@ -895,6 +904,7 @@
               <img
                 src="static/images/weapon-beast-colorless.png"
                 alt="colorless beast icon"
+                title="colorless beast"
             /></label>
             <label
               ><input
@@ -906,6 +916,7 @@
               <img
                 src="static/images/weapon-dragon-red.png"
                 alt="red dragon icon"
+                title="red dragon"
             /></label>
             <label
               ><input
@@ -917,6 +928,7 @@
               <img
                 src="static/images/weapon-dragon-blue.png"
                 alt="blue dragon icon"
+                title="blue dragon"
             /></label>
             <label
               ><input
@@ -928,6 +940,7 @@
               <img
                 src="static/images/weapon-dragon-green.png"
                 alt="green dragon icon"
+                title="green dragon"
             /></label>
             <label
               ><input
@@ -939,19 +952,20 @@
               <img
                 src="static/images/weapon-dragon-colorless.png"
                 alt="colorless dragon icon"
+                title="colorless dragon"
             /></label>
           </p>
 
           <p>Movement types to include:</p>
           <p>
             <label
-              >(<input
+              ><input
                 type="checkbox"
                 id="moveTypes-all"
                 class="select-all"
                 value="moveTypes"
               />
-              Select all)</label
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
             >
             <label
               ><input
@@ -962,6 +976,7 @@
               <img
                 src="static/images/move-infantry.png"
                 alt="infantry movement icon"
+                title="infantry"
             /></label>
             <label
               ><input
@@ -972,6 +987,7 @@
               <img
                 src="static/images/move-armored.png"
                 alt="armored movement icon"
+                title="armored"
             /></label>
             <label
               ><input
@@ -982,6 +998,7 @@
               <img
                 src="static/images/move-cavalry.png"
                 alt="cavalry movement icon"
+                title="cavalry"
             /></label>
             <label
               ><input
@@ -992,19 +1009,20 @@
               <img
                 src="static/images/move-flying.png"
                 alt="flying movement icon"
+                title="flying"
             /></label>
           </p>
 
           <p>Games to include:</p>
           <p>
             <label
-              >(<input
+              ><input
                 type="checkbox"
                 id="games-all"
                 class="select-all"
                 value="games"
               />
-              Select all)</label
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
             >
             <label
               ><input
@@ -1016,7 +1034,7 @@
                 src="static/images/games-shadow-dragon.png"
                 alt="Shadow Dragon icon"
                 title="Shadow Dragon / Mystery pt. 1"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1028,7 +1046,7 @@
                 height="30px"
                 alt="New Mystery of the Emblem icon"
                 title="New Mystery / Mystery pt. 2"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1038,7 +1056,8 @@
               <img
                 src="static/images/games-valencia.png"
                 alt="Echoes: Shadows of Valencia icon"
-            /></label>
+                title="Echoes: Shadows of Valencia / Gaiden"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1048,15 +1067,16 @@
               <img
                 src="static/images/games-genealogy.png"
                 alt="Genealogy of the Holy War icon"
-            /></label>
+                title="Genealogy of the Holy War"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
                 class="games hideCheckbox"
                 value="thracia"
                 checked="" />
-              <img src="static/images/games-thracia.png" alt="Thracia 776 icon"
-            /></label>
+              <img src="static/images/games-thracia.png" alt="Thracia 776 icon" title="Thracia 776"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1066,7 +1086,8 @@
               <img
                 src="static/images/games-binding-blade.png"
                 alt="Binding Blade icon"
-            /></label>
+                title="Binding Blade"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1076,7 +1097,8 @@
               <img
                 src="static/images/games-blazing-blade.png"
                 alt="Blazing Blade icon"
-            /></label>
+                title="Blazing Blade"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1086,7 +1108,8 @@
               <img
                 src="static/images/games-sacred-stones.png"
                 alt="Sacred Stones icon"
-            /></label>
+                title="Sacred Stones"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1096,7 +1119,8 @@
               <img
                 src="static/images/games-path-of-radiance.png"
                 alt="Path of Radiance icon"
-            /></label>
+                title="Path of Radiance"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1106,19 +1130,20 @@
               <img
                 src="static/images/games-radiant-dawn.png"
                 alt="Radiant Dawn icon"
-            /></label>
+                title="Radiant Dawn"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
                 class="games hideCheckbox"
                 value="awakening"
                 checked="" />
-              <img src="static/images/games-awakening.png" alt="Awakening icon"
-            /></label>
+              <img src="static/images/games-awakening.png" alt="Awakening icon" title="Awakening"
+            /><span class="label-text"></span></label>
             <label
               ><input type="checkbox" class="games hideCheckbox" value="fates" checked="" />
-              <img src="static/images/games-fates.png" alt="Fates icon"
-            /></label>
+              <img src="static/images/games-fates.png" alt="Fates icon" title="Fates"
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1129,7 +1154,7 @@
                 src="static/images/games-three-houses.png"
                 alt="Three Houses icon"
                 title="Three Houses"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1141,7 +1166,7 @@
                 height="30px"
                 alt="Warriors: Three Hopes icon"
                 title="Warriors: Three Hopes"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1153,11 +1178,11 @@
                 height="30px"
                 alt="Engage icon"
                 title="Engage"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input type="checkbox" class="games hideCheckbox" value="heroes" checked="" />
               <img src="static/images/games-heroes.png" alt="Heroes icon"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input
                 type="checkbox"
@@ -1169,21 +1194,23 @@
                 height="28px"
                 alt="Warriors icon"
                 title="Warriors"
-            /></label>
+            /><span class="label-text"></span></label>
             <label
               ><input type="checkbox" class="games hideCheckbox" value="tms" checked="" />
               <img
                 src="static/images/games-tms.png"
                 alt="Tokyo Mirage Sessions #FE icon"
+                title="Tokyo Mirage Sessions #FE"
             /></label>
             <span class="help-text">
               <a href="#game-toggle" class="toggle">(About Games)</a>
               <div id="game-toggle" >
-
               A unit's game is mostly decided here the same way that it is in Heroes.
               So, if a character is from more than one game, i.e. the Whitewings,
               the Greil mercenaries, etc., they are only counted as being from
-              whichever game Heroes designated. The exception is all the Archanea games/remakes, which I've split between Shadow Dragon / first half of Mystery of the Emblem VS. New Mystery / second half of Mystery. Kris is the icon for that even though it includes just ocs from Mystery of the Emblem (it was just easier to use Kris since otherwise Marth is the main character again).
+              whichever game Heroes designated. With the Archanea games, I've separated out 
+              the characters that are ONLY from the second half of Mystery of the Emblem / from New Mystery of
+              the Emblem, but if you want to see all the Archanea units, just check both boxes.
               ⚠️ For right now, duo units are only classified under the lead
               character's game. ⚠️ The Warriors option is only aspirational and likely to remain so eternally.
             </div></span>
@@ -1191,13 +1218,13 @@
           <p>Types of units to include:</p>
           <p>
             <label>
-              (<input
+              <input
                 type="checkbox"
                 id="variety-all"
                 class="select-all"
                 value="variety"
               />
-              Select all)
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label>
               <input
@@ -1292,13 +1319,13 @@
           <p>Types of characters to include:</p>
           <p>
             <label
-              >(<input
+              ><input
                 type="checkbox"
                 id="storyRoles-all"
                 class="select-all"
                 value="storyRoles"
               />
-              Select all)
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label
               ><input
@@ -1376,8 +1403,8 @@
           <p>Versions to include:</p>
           <p>
             <label>
-              (<input type="checkbox" id="versions-all" class="select-all" value="versions"/>
-              Select all)
+              <input type="checkbox" id="versions-all" class="select-all" value="versions"/>
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label>
               <input type="checkbox" class="versions" value="1" checked=""/>
@@ -1432,7 +1459,7 @@
             <label
               ><input type="checkbox" id="altHell" />Alt Hell</label>
             <span class="help-text hide-help">
-              Check to see only units whose character doesn't have a base unit yet
+              Check to see only units whose character doesn't have a base unit yet.
             </span>
           </p>
 
@@ -1440,8 +1467,8 @@
             <label
               ><input type="checkbox" id="exclude" /> Exclude secondary types for bases</label>
             <span class="help-text hide-help">
-              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon"; 
-              this means that some units counted as base units have other characteristics: 
+              In this picker, "base" is defined as "unit who debuted in their default outfit with default weapon". 
+              This means that some units counted as base units have other characteristics: 
               Fjorm: Princess of Ice is counted as base/legendary, 
               Duma: God of Strength is counted as base/mythic, 
               Alfred: Floral Protector is counted as base/rearmed, etc. 
@@ -1465,20 +1492,19 @@
             <label
               ><input type="checkbox" id="resplendentsOnly" /> Resplendents Only</label>
             <span class="help-text hide-help"
-              >If checked, only units from Grand Hero Battles and Tempest Trials
-              will appear.
+              >If checked, only units with a resplendent version will appear. Note that this is different than "resplendent mode."
             </span>
           </p>
 
-
-          <p>
+          <!-- <p>
             <label
               ><input type="checkbox" id="spoilers" /> Include spoilers</label>
             <span class="help-text hide-help"
               >If unchecked, units that might be considered spoilers, either for
               story reasons or because they're officially unreleased, will be
               excluded.</span>
-              <p>
+              <p> -->
+
                 <label
                   >Maximum batch size:
                   <input

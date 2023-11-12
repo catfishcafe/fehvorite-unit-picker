@@ -9,8 +9,8 @@
       "weaponType": "",
       "moveType": "",
       "placeholderAttribute": "placeholderValue",
-      "version": "7",
-      "shortcode": "P"
+      "version": "6",
+      "shortcode": "N"
     },
 
     spring
