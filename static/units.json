@@ -82,7 +82,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "AF"
     },
     {
@@ -212,7 +212,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "AO"
     },
     {
@@ -241,7 +241,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "AQ"
     },
     {
@@ -301,7 +301,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "binary": "f",
       "shortcode": "AU"
     },
@@ -345,7 +345,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "AX"
     },
     {
@@ -360,7 +360,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "AY"
     },
     {
@@ -390,7 +390,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Aa"
     },
     {
@@ -405,7 +405,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Ab"
     },
     {
@@ -434,7 +434,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "nifl",
       "shortcode": "Ad"
     },
     {
@@ -478,7 +478,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Ag"
     },
     {
@@ -493,7 +493,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Ah"
     },
     {
@@ -564,7 +564,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Am"
     },
     {
@@ -649,7 +649,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "As"
     },
     {
@@ -664,7 +664,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "At"
     },
     {
@@ -707,7 +707,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Aw"
     },
     {
@@ -751,7 +751,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Az"
     },
     {
@@ -766,7 +766,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A0"
     },
     {
@@ -781,7 +781,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "nifl",
       "shortcode": "A1"
     },
     {
@@ -825,7 +825,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "nifl",
       "shortcode": "A4"
     },
     {
@@ -840,7 +840,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A5"
     },
     {
@@ -855,7 +855,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A6"
     },
     {
@@ -870,7 +870,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A7"
     },
     {
@@ -885,7 +885,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A8"
     },
     {
@@ -900,7 +900,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A9"
     },
     {
@@ -929,7 +929,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "A_"
     },
     {
@@ -973,7 +973,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BC"
     },
     {
@@ -1047,7 +1047,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "nifl",
       "shortcode": "BH"
     },
     {
@@ -1119,7 +1119,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BM"
     },
     {
@@ -1148,7 +1148,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BO"
     },
     {
@@ -1163,7 +1163,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "embla",
+      "resplendent": true,
       "shortcode": "BP"
     },
     {
@@ -1178,7 +1178,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BQ"
     },
     {
@@ -1264,7 +1264,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BW"
     },
     {
@@ -1307,7 +1307,7 @@
       "moveType": "",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "BZ"
     },
     {
@@ -1337,7 +1337,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "ljosalfar",
       "shortcode": "Bb"
     },
     {
@@ -1352,7 +1352,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bc"
     },
     {
@@ -1414,7 +1414,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bg"
     },
     {
@@ -1443,7 +1443,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bi"
     },
     {
@@ -1488,7 +1488,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bl"
     },
     {
@@ -1504,7 +1504,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "1",
       "grails": "ghb",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bm"
     },
     {
@@ -1519,7 +1519,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bn"
     },
     {
@@ -1693,7 +1693,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Bz"
     },
     {
@@ -1722,7 +1722,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "B1"
     },
     {
@@ -1737,7 +1737,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "B2"
     },
     {
@@ -1766,7 +1766,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "B4"
     },
     {
@@ -1850,6 +1850,7 @@
       "weaponType": "dark",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
+      "resplendent": true,
       "version": "1",
       "shortcode": "B-"
     },
@@ -2151,7 +2152,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "CT"
     },
     {
@@ -2208,7 +2209,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "CX"
     },
     {
@@ -2223,7 +2224,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "CY"
     },
     {
@@ -2315,7 +2316,7 @@
     {
       "id": "amelia-base",
       "name": "Amelia",
-      "epithet": "Rose of the war",
+      "epithet": "Rose of the War",
       "game": "sacred stones",
       "storyRole": "pc",
       "variety": "base",
@@ -2324,7 +2325,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cf"
     },
     {
@@ -2339,7 +2340,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "askr",
       "shortcode": "Cg"
     },
     {
@@ -2367,6 +2368,7 @@
       "weaponType": "lance",
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
+      "resplendent": true,
       "version": "1",
       "shortcode": "Ci"
     },
@@ -2397,7 +2399,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": "nidavellir",
       "shortcode": "Ck"
     },
     {
@@ -2412,7 +2414,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cl"
     },
     {
@@ -2427,7 +2429,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cm"
     },
     {
@@ -2442,7 +2444,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cn"
     },
     {
@@ -2457,7 +2459,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Co"
     },
     {
@@ -2472,7 +2474,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cp"
     },
     {
@@ -2577,7 +2579,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cw"
     },
     {
@@ -2592,7 +2594,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cx"
     },
     {
@@ -2607,7 +2609,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Cy"
     },
     {
@@ -2750,7 +2752,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "C8"
     },
     {
@@ -2979,7 +2981,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "DM"
     },
     {
@@ -3051,6 +3053,7 @@
       "weaponType": "light",
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
+      "resplendent": true,
       "version": "2",
       "shortcode": "DR"
     },
@@ -3280,7 +3283,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Dh"
     },
     {
@@ -3394,7 +3397,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent":"placeholder",
+      "resplendent": "nifl",
       "shortcode": "Dp"
     },
     {
@@ -3581,7 +3584,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "D2"
     },
     {
@@ -3698,7 +3701,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": "hel",
       "shortcode": "D-"
     },
     {
@@ -4079,7 +4082,7 @@
       "name": "Veronica",
       "epithet": "Brave Princess",
       "game": "heroes",
-      "storyRole": "npc",
+      "storyRole": "mc",
       "variety": "brave",
       "special": "brave",
       "weaponType": "staff",
@@ -4201,7 +4204,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Eh"
     },
     {
@@ -4216,7 +4219,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Ei"
     },
     {
@@ -4428,7 +4431,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "resplendent": "placeholder",
+      "resplendent": true,
       "shortcode": "Ex"
     },
     {
@@ -4529,6 +4532,7 @@
       "weaponType": "axe",
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
+      "resplendent": true,
       "version": "2",
       "shortcode": "E4"
     },
@@ -4762,7 +4766,7 @@
       "shortcode": "FJ"
     },
     {
-      "id": "tibarn-base",
+      "id": "tibarn-fe10-base",
       "name": "Tibarn",
       "epithet": "Lord of the Air",
       "game": "radiant dawn",
@@ -5150,7 +5154,7 @@
       "name": "Veronica",
       "epithet": "Spring Princess",
       "game": "heroes",
-      "storyRole": "npc",
+      "storyRole": "mc",
       "variety": "special",
       "special": "spring",
       "weaponType": "anima",
@@ -5190,7 +5194,7 @@
       "shortcode": "Fn"
     },
     {
-      "id": "gaineghis-base",
+      "id": "caineghis-fe10-base",
       "name": "Caineghis",
       "epithet": "Gallia's Lion King",
       "game": "radiant dawn",
@@ -5218,7 +5222,7 @@
       "shortcode": "Fp"
     },
     {
-      "id": "mordecai-base",
+      "id": "mordecai-fe10-base",
       "name": "Mordecai",
       "epithet": "Kindhearted Tiger",
       "game": "radiant dawn",
@@ -5246,7 +5250,7 @@
       "shortcode": "Fr"
     },
     {
-      "id": "haar-base",
+      "id": "haar-fe10-base",
       "name": "Haar",
       "epithet": "Black Tempest",
       "game": "radiant dawn",
@@ -5644,7 +5648,7 @@
       "shortcode": "GH"
     },
     {
-      "id": "eliwood-legenary",
+      "id": "eliwood-legendary",
       "name": "Eliwood",
       "epithet": "Blazing Knight",
       "game": "blazing blade",
@@ -5686,7 +5690,7 @@
       "shortcode": "GK"
     },
     {
-      "id": "ursula-s-swimming",
+      "id": "ursula-s-summer",
       "name": "Urusula",
       "epithet": "Clear-Bleu Crow",
       "game": "blazing blade",
@@ -6434,7 +6438,7 @@
       "shortcode": "G-"
     },
     {
-      "id": "echinda-base",
+      "id": "echidna-base",
       "name": "Echidna",
       "epithet": "Unyielding Idealist",
       "game": "binding blade",
@@ -7925,7 +7929,7 @@
       "shortcode": "Il"
     },
     {
-      "id": "tibarn-s-pirate",
+      "id": "tibarn-fe10-s-pirate",
       "name": "Tibarn",
       "epithet": "Shipless Pirate",
       "game": "radiant dawn",
@@ -7943,7 +7947,7 @@
       "name": "Veronica",
       "epithet": "Harmonic Pirates",
       "game": "heroes",
-      "storyRole": "npc",
+      "storyRole": "mc",
       "variety": "special",
       "special": "performer",
       "weaponType": "axe",
@@ -8234,7 +8238,7 @@
       "shortcode": "I6"
     },
     {
-      "id": "robin-f-autumn",
+      "id": "robin-f-s-autumn",
       "name": "Robin",
       "epithet": "Fall Vessel",
       "game": "awakening",
@@ -8425,7 +8429,7 @@
       "shortcode": "JH"
     },
     {
-      "id": "zihark-s-ninja",
+      "id": "zihark-fe09-s-ninja",
       "name": "Zihark",
       "epithet": "Ninja Blademaster",
       "game": "path of radiance",
@@ -9027,7 +9031,7 @@
       "name": "Veronica",
       "epithet": "Bestowed Love",
       "game": "heroes",
-      "storyRole": "npc",
+      "storyRole": "mc",
       "variety": "special",
       "special": "devoted",
       "weaponType": "light",
@@ -9992,7 +9996,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "Kw"
+      "shortcode": "Kz"
     },
     {
       "id": "vika-s-pirate",
@@ -10007,7 +10011,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "altHell": true,
-      "shortcode": "Kx"
+      "shortcode": "K0"
     },
     {
       "id": "lifis-s-pirate",
@@ -10022,7 +10026,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "grails": "tt",
-      "shortcode": "Ky"
+      "shortcode": "K1"
     },
     {
       "id": "eirika-brave",
@@ -10036,7 +10040,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "Kz"
+      "shortcode": "K2"
     },
     {
       "id": "gatekeeper-brave",
@@ -10051,7 +10055,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "altHell": true,
-      "shortcode": "K0"
+      "shortcode": "K3"
     },
     {
       "id": "marianne-brave",
@@ -10065,7 +10069,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K1"
+      "shortcode": "K4"
     },
     {
       "id": "marth-brave",
@@ -10079,7 +10083,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K2"
+      "shortcode": "K5"
     },
     {
       "id": "pelleas-base",
@@ -10094,7 +10098,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "grails": "ghb",
-      "shortcode": "K3"
+      "shortcode": "K6"
     },
     {
       "id": "micaiah-legendary",
@@ -10108,7 +10112,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K4"
+      "shortcode": "K7"
     },
     {
       "id": "julia-s-scion",
@@ -10122,7 +10126,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K5"
+      "shortcode": "K8"
     },
     {
       "id": "larcei-s-scion",
@@ -10136,7 +10140,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K6"
+      "shortcode": "K9"
     },
     {
       "id": "leif-s-scion",
@@ -10153,7 +10157,7 @@
       "duo": "harmonized",
       "cheerleader": "Seliph",
       "cheerleaderGame": "genealogy",
-      "shortcode": "K7"
+      "shortcode": "K-"
     },
     {
       "id": "lewyn-s-scion",
@@ -10167,7 +10171,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K8"
+      "shortcode": "K_"
     },
     {
       "id": "nanna-s-scion",
@@ -10182,7 +10186,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "grails": "tt",
-      "shortcode": "K9"
+      "shortcode": "LA"
     },
     {
       "id": "balthus-base",
@@ -10196,7 +10200,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K-"
+      "shortcode": "LB"
     },
     {
       "id": "constance-base",
@@ -10210,7 +10214,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "K_"
+      "shortcode": "LC"
     },
     {
       "id": "hapi-base",
@@ -10224,10 +10228,38 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "LA"
+      "shortcode": "LD"
     },
     {
-      "id": "aelfric-baes",
+      "id": "muspell-base",
+      "name": "Múspell",
+      "epithet": "Flame God",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "dragon red",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "LE"
+    },
+    {
+      "id": "yuri-base",
+      "name": "Yuri",
+      "epithet": "Ashen Valiant",
+      "game": "three houses",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "dagger colorless",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "LF"
+    },
+    {
+      "id": "aelfric-base",
       "name": "Aelfric",
       "epithet": "Custodian Monk",
       "game": "three houses",
@@ -10238,7 +10270,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "LB"
+      "shortcode": "LG"
     },
     {
       "id": "otr-base",
@@ -10252,10 +10284,10 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "LC"
+      "shortcode": "LH"
     },
     {
-      "id": "kurthnaga-s-autumn",
+      "id": "kurthnaga-fe10-s-autumn",
       "name": "Kurthnaga",
       "epithet": "Autumn Goldoan",
       "game": "radiant dawn",
@@ -10267,7 +10299,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "altHell": true,
-      "shortcode": "LD"
+      "shortcode": "LI"
     },
     {
       "id": "rhea-s-autumn",
@@ -10281,7 +10313,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "LE"
+      "shortcode": "LJ"
     },
     {
       "id": "robin-m-s-autumn",
@@ -10295,7 +10327,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
-      "shortcode": "LF"
+      "shortcode": "LK"
     },
     {
       "id": "sophia-s-autumn",
@@ -10310,7 +10342,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "grails": "tt",
-      "shortcode": "LG"
+      "shortcode": "LL"
     },
     {
       "id": "sothis-s-autumn",
@@ -10326,7 +10358,7 @@
       "version": "5",
       "duo": "duo",
       "cheerleader": "Byleth",
-      "shortcode": "LH"
+      "shortcode": "LM"
     },
     {
       "id": "fjorm-kaika",
@@ -10430,7 +10462,7 @@
     {
       "id": "corrin-m-s-ninja",
       "name": "Corrin",
-      "epithet": "Ninja Act",
+      "epithet": "Daylight Ninja Act",
       "game": "fates",
       "storyRole": "mc",
       "variety": "special",
@@ -10487,7 +10519,7 @@
       "shortcode": "LX"
     },
     {
-      "id": "shinon-fe10-ninja",
+      "id": "shinon-fe10-s-ninja",
       "name": "Shinon",
       "epithet": "Sharptongue Ninja",
       "game": "radiant dawn",
@@ -11560,7 +11592,7 @@
       "shortcode": "Mh"
     },
     {
-      "id": "muarim-fallen",
+      "id": "muarim-fe10-fallen",
       "name": "Muarim",
       "epithet": "Raw Instsinct",
       "game": "radiant dawn",
@@ -11793,6 +11825,467 @@
       "shortcode": "Mx"
     },
     {
+      "id": "elincia-fe10-s-summer",
+      "name": "Elincia",
+      "epithet": "Seaside Queen",
+      "game": "radiant dawn",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "bow blue",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "tt",
+      "shortcode": "My"
+    },
+    {
+      "id": "micaiah-s-summer",
+      "name": "Micaiah",
+      "epithet": "Wavecrest Maiden",
+      "game": "radiant dawn",
+      "storyRole": "mc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "tome",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Mz"
+    },
+    {
+      "id": "xander-legendary",
+      "name": "Xander",
+      "epithet": "Gallant King",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "legendary",
+      "special": "legendary",
+      "weaponType": "axe",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M0"
+    },
+    {
+      "id": "eirika-s-summer",
+      "name": "Eirika",
+      "epithet": "beach Restorer",
+      "game": "sacred stones",
+      "storyRole": "mc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "tome",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M1"
+    },
+    {
+      "id": "lyon-s-summer",
+      "name": "Lyon",
+      "epithet": "Sunlit Prince",
+      "game": "sacred stones",
+      "storyRole": "npc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M2"
+    },
+    {
+      "id": "nifl-s-summer",
+      "name": "Nifl",
+      "epithet": "Tropical Ice God",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "dragon colorless",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M3"
+    },
+    {
+      "id": "seth-s-summer",
+      "name": "Seth",
+      "epithet": "Silver-Sea Knight",
+      "game": "sacred stones",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "axe",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M4"
+    },
+    {
+      "id": "thorr-s-summer",
+      "name": "Thórr",
+      "epithet": "Sun-Kissed Gods",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "summer",
+      "weaponType": "light",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "duo",
+      "cheerleader": "Loki",
+      "shortcode": "M5"
+    },
+    {
+      "id": "atlas-base",
+      "name": "Atlas",
+      "epithet": "Forest Muscle",
+      "game": "valencia",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M6"
+    },
+    {
+      "id": "celica-kaika",
+      "name": "Celica",
+      "epithet": "Valentia's Hope",
+      "game": "valencia",
+      "storyRole": "mc",
+      "variety": "kaika",
+      "special": "kaika",
+      "weaponType": "tome",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M7"
+    },
+    {
+      "id": "est-fe02-base",
+      "name": "Est",
+      "epithet": "Sweet Baby Sis",
+      "game": "valencia",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M8"
+    },
+    {
+      "id": "kamui-base",
+      "name": "Kamui",
+      "epithet": "Wandering Blade",
+      "game": "valencia",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M9"
+    },
+    {
+      "id": "ymir-base",
+      "name": "Ymir",
+      "epithet": "Life-Mother",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "dragon green",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "M-"
+    },
+    {
+      "id": "brigand-boss-base",
+      "name": "Brigand Boss",
+      "epithet": "Known Criminal",
+      "game": "valencia",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "ghb",
+      "shortcode": "M_"
+    },
+    {
+      "id": "askr-base",
+      "name": "Askr",
+      "epithet": "God of Openness",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "mythic",
+      "weaponType": "beast colorless",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NA"
+    },
+    {
+      "id": "cath-s-bandit",
+      "name": "Cath",
+      "epithet": "Caper Captain",
+      "game": "binding blade",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "pirate/bandit",
+      "weaponType": "light",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NB"
+    },
+    {
+      "id": "leila-s-bandit",
+      "name": "Leila",
+      "epithet": "Keen Lookout",
+      "game": "blazing blade",
+      "storyRole": "npc",
+      "variety": "special",
+      "special": "pirate/bandit",
+      "weaponType": "dark",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NC"
+    },
+    {
+      "id": "nina-s-bandit",
+      "name": "Nina",
+      "epithet": "Shadowy Figures",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "pirate/bandit",
+      "weaponType": "dagger colorless",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "duo",
+      "cheerleader": "Kagero",
+      "shortcode": "ND"
+    },
+    {
+      "id": "rickard-s-bandit",
+      "name": "Rickard",
+      "epithet": "Carefree Culprit",
+      "game": "shadow dragon",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "pirate/bandit",
+      "weaponType": "sword",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "tt",
+      "altHell": true,
+      "shortcode": "NE"
+    },
+    {
+      "id": "sothe-fe10-s-bandit",
+      "name": "Sothe",
+      "epithet": "Rushing Dawn",
+      "game": "radiant dawn",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "pirate/bandit",
+      "weaponType": "dagger green",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NF"
+    },
+    {
+      "id": "byleth-f-brave",
+      "name": "Byleth",
+      "epithet": "Sublime Light",
+      "game": "three houses",
+      "storyRole": "mc",
+      "variety": "brave",
+      "special": "brave",
+      "weaponType": "tome",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NG"
+    },
+    {
+      "id": "chrom-brave",
+      "name": "Chrom",
+      "epithet": "Fated Honor",
+      "game": "awakening",
+      "storyRole": "mc",
+      "variety": "brave",
+      "special": "brave",
+      "weaponType": "lance",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NH"
+    },
+    {
+      "id": "seliph-brave",
+      "name": "Seliph",
+      "epithet": "Enduring Legacy",
+      "game": "genealogy",
+      "storyRole": "mc",
+      "variety": "brave",
+      "special": "brave",
+      "weaponType": "sword",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NI"
+    },
+    {
+      "id": "tiki-fe13-brave",
+      "name": "Tiki",
+      "epithet": "Fated Divinity",
+      "game": "awakening",
+      "storyRole": "pc",
+      "variety": "brave",
+      "special": "brave",
+      "weaponType": "dragon green",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NJ"
+    },
+    {
+      "id": "jeralt-base",
+      "name": "Jeralt",
+      "epithet": "Blade Breaker",
+      "game": "three houses",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "ghb",
+      "shortcode": "NK"
+    },
+    {
+      "id": "deirdre-legendary",
+      "name": "Deirdre",
+      "epithet": "Fated Saint",
+      "game": "genealogy",
+      "storyRole": "pc",
+      "variety": "legendary",
+      "special": "legendary",
+      "weaponType": "light",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NL"
+    },
+    {
+      "id": "lyn-s-cultural-festival",
+      "name": "Lyn",
+      "epithet": "Blazing Whirlwind",
+      "game": "blazing blade",
+      "storyRole": "mc",
+      "variety": "special",
+      "special": "cultural festival",
+      "weaponType": "lance",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NM"
+    },
+    {
+      "id": "mordecai-fe10-s-cultural-festival",
+      "name": "Mordecai",
+      "epithet": "Gentle Firetender",
+      "game": "radiant dawn",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "cultural festival",
+      "weaponType": "beast green",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "tt",
+      "shortcode": "NN"
+    },
+    {
+      "id": "muspell-s-cultural-festival",
+      "name": "Múspell",
+      "epithet": "Raging Inferno",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "cultural festival",
+      "weaponType": "dragon colorless",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NO"
+    },
+    {
+      "id": "rinkah-s-cultural-festival",
+      "name": "Rinkah",
+      "epithet": "Consuming Flame",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "cultural festival",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NP"
+    },
+    {
+      "id": "tana-s-cultural-festival",
+      "name": "Tana",
+      "epithet": "Soothing Warmth",
+      "game": "sacred stones",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "cultural festival",
+      "weaponType": "dagger green",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "harmonized",
+      "cheerleader": "Peony",
+      "cheerleaderGame": "heroes",
+      "shortcode": "NQ"
+    },
+    {
+      "id": "hilda-fe16-kaika",
+      "name": "Hilda",
+      "epithet": "Helping Hand",
+      "game": "fewth",
+      "storyRole": "pc",
+      "variety": "kaika",
+      "special": "kaika",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NR"
+    },
+    {
       "id": "lif-rearmed",
       "name": "Líf",
       "epithet": "Arcane Blade",
@@ -11807,33 +12300,60 @@
       "shortcode": "NS"
     },
     {
-      "id": "nils-s-autumn",
-      "name": "Nils",
-      "epithet": "Wandering Star",
-      "game": "blazing blade",
+      "id": "monica-base",
+      "name": "Monica",
+      "epithet": "Favored Vassal",
+      "game": "fewth",
       "storyRole": "pc",
-      "variety": "special",
-      "special": "autumn",
-      "weaponType": "dragon green",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "light",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "6",
-      "refresher": true,
-      "shortcode": "Nc"
+      "shortcode": "NT"
     },
     {
-      "id": "ganglot-base",
-      "name": "Ganglöt",
-      "epithet": "Death Anew",
-      "game": "heroes",
-      "storyRole": "pc",
+      "id": "shez-f-base",
+      "name": "Shez",
+      "epithet": "Keen Mercenary",
+      "game": "fewth",
+      "storyRole": "mc",
       "variety": "base",
-      "special": "rearmed",
+      "special": "base",
       "weaponType": "axe",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
-      "version": "2",
-      "shortcode": "Nq"
+      "version": "6",
+      "shortcode": "NU"
+    },
+    {
+      "id": "shez-m-base",
+      "name": "Shez",
+      "epithet": "Rising Mercenary",
+      "game": "fewth",
+      "storyRole": "mc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NV"
+    },
+    {
+      "id": "holst-base",
+      "name": "Holst",
+      "epithet": "Hero of Leicester",
+      "game": "fewth",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NW"
     },
     {
       "id": "ninian-legendary",
@@ -11851,6 +12371,509 @@
       "shortcode": "NX"
     },
     {
+      "id": "corrin-m-s-autumn",
+      "name": "Corrin",
+      "epithet": "Celestial Sorcerer",
+      "game": "fates",
+      "storyRole": "mc",
+      "variety": "special",
+      "special": "autumn",
+      "weaponType": "dagger green",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NY"
+    },
+    {
+      "id": "corrin-f-s-autumn",
+      "name": "Corrin",
+      "epithet": "Starry Seer",
+      "game": "fates",
+      "storyRole": "mc",
+      "variety": "special",
+      "special": "autumn",
+      "weaponType": "dragon blue",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "NZ"
+    },
+    {
+      "id": "duma-s-autumn",
+      "name": "Duma",
+      "epithet": "Strength and Love",
+      "game": "valencia",
+      "storyRole": "npc",
+      "variety": "special",
+      "special": "autumn",
+      "weaponType": "dragon red",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "duo",
+      "cheerleader": "Mila",
+      "shortcode": "Na"
+    },
+    {
+      "id": "naga-s-autumn",
+      "name": "Naga",
+      "epithet": "Harvest Divinity",
+      "game": "shadow dragon",
+      "game2": "awakening",
+      "storyRole": "lore",
+      "variety": "special",
+      "special": "autumn",
+      "weaponType": "dragon colorless",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nb"
+    },
+    {
+      "id": "nils-s-autumn",
+      "name": "Nils",
+      "epithet": "Wandering Star",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "autumn",
+      "weaponType": "dragon green",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "refresher": true,
+      "shortcode": "Nc"
+    },
+    {
+      "id": "eir-kaika",
+      "name": "Eir",
+      "epithet": "Life Ascendant",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "kaika",
+      "special": "kaika",
+      "weaponType": "dagger green",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nd"
+    },
+    {
+      "id": "gregor-base",
+      "name": "Gregor",
+      "epithet": "Swell Sword",
+      "game": "awakening",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "sword",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Ne"
+    },
+    {
+      "id": "phila-base",
+      "name": "Phila",
+      "epithet": "Pegasus Master",
+      "game": "awakening",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nf"
+    },
+    {
+      "id": "ricken-base",
+      "name": "Ricken",
+      "epithet": "Shepherd Novice",
+      "game": "awakening",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "anima",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Ng"
+    },
+    {
+      "id": "robin-f-rearmed",
+      "name": "Robin",
+      "epithet": "Fell Tactician",
+      "game": "awakening",
+      "storyRole": "mc",
+      "variety": "rearmed",
+      "special": "rearmed",
+      "weaponType": "dragon colorless",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nh"
+    },
+    {
+      "id": "cervantes-base",
+      "name": "Cervantes",
+      "epithet": "Invincible General",
+      "game": "awakening",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "ghb",
+      "shortcode": "Ni"
+    },
+    {
+      "id": "arval-base",
+      "name": "Arval",
+      "epithet": "Cycle Keeper",
+      "game": "fewth",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "mythic",
+      "weaponType": "tome",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nj"
+    },
+    {
+      "id": "camilla-s-ninja",
+      "name": "Camilla",
+      "epithet": "Midnight Bloom",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "ninja",
+      "weaponType": "dark",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nk"
+    },
+    {
+      "id": "cherche-s-ninja",
+      "name": "Cherche",
+      "epithet": "Shaded by Wings",
+      "game": "awakening",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "ninja",
+      "weaponType": "axe",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nl"
+    },
+    {
+      "id": "haar-fe10-s-ninja",
+      "name": "Haar",
+      "epithet": "Tempest Runner",
+      "game": "radiant dawn",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "new year",
+      "weaponType": "sword",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "tt",
+      "shortcode": "Nm"
+    },
+    {
+      "id": "heath-s-ninja",
+      "name": "Heath",
+      "epithet": "Wyvern Ninja",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "ninja",
+      "weaponType": "bow colorless",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nn"
+    },
+    {
+      "id": "laegjarn-s-ninja",
+      "name": "Laegjarn",
+      "epithet": "Flame and Frost",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "new year",
+      "weaponType": "bow blue",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "duo",
+      "cheerleader": "Fjorm",
+      "shortcode": "No"
+    },
+    {
+      "id": "elice-base",
+      "name": "Elice",
+      "epithet": "Altean Princess",
+      "game": "shadow dragon",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "staff",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Np"
+    },
+    {
+      "id": "ganglot-base",
+      "name": "Ganglöt",
+      "epithet": "Death Anew",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "rearmed",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "2",
+      "shortcode": "Nq"
+    },
+    {
+      "id": "hardin-base",
+      "name": "Hardin",
+      "epithet": "The Coyote",
+      "game": "shadow dragon",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nr"
+    },
+    {
+      "id": "nyna-base",
+      "name": "Nyna",
+      "epithet": "The Last Princess",
+      "game": "shadow dragon",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "staff",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Ns"
+    },
+    {
+      "id": "tiki-fe01-kaika",
+      "name": "Tiki",
+      "epithet": "Awakened Blood",
+      "game": "shadow dragon",
+      "storyRole": "pc",
+      "variety": "kaika",
+      "special": "kaika",
+      "weaponType": "dragon red",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nt"
+    },
+    {
+      "id": "matthis-base",
+      "name": "Matthis",
+      "epithet": "Brother to Lena",
+      "game": "shadow dragon",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "ghb",
+      "shortcode": "Nu"
+    },
+    {
+      "id": "embla-base",
+      "name": "Embla",
+      "epithet": "God of Closure",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "mythic",
+      "weaponType": "beast red",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nv"
+    },
+    {
+      "id": "veronica-legendary",
+      "name": "Veronica",
+      "epithet": "Princess Rising",
+      "game": "heroes",
+      "storyRole": "mc",
+      "variety": "legendary",
+      "special": "legendary",
+      "weaponType": "dark",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nw"
+    },
+    {
+      "id": "caeldori-base",
+      "name": "Caeldori",
+      "epithet": "Perfect Angel",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nx"
+    },
+    {
+      "id": "dwyer-base",
+      "name": "Dwyer",
+      "epithet": "Sleepy Butler",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "staff",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Ny"
+    },
+    {
+      "id": "kiragi-base",
+      "name": "Kiragi",
+      "epithet": "Upbeat Archer",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "beast colorless",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "Nz"
+    },
+    {
+      "id": "ophelia-rearmed",
+      "name": "Ophelia",
+      "epithet": "Starlit Maiden",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "rearmed",
+      "special": "rearmed",
+      "weaponType": "dark",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N0"
+    },
+    {
+      "id": "seithr-base",
+      "name": "Seiðr",
+      "epithet": "Goddess of Hope",
+      "game": "heroes",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "mythic",
+      "weaponType": "anima",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N1"
+    },
+    {
+      "id": "hans-base",
+      "name": "Hans",
+      "epithet": "Ambitious Brute",
+      "game": "fates",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "grails": "ghb",
+      "shortcode": "N2"
+    },
+    {
+      "id": "annette-s-winter",
+      "name": "Annette",
+      "epithet": "Festive Helper",
+      "game": "fewth",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "winter",
+      "weaponType": "bow colorless",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N3"
+    },
+    {
+      "id": "black-knight-fe09-s-winter",
+      "name": "Black Knight",
+      "epithet": "The Night's Blade",
+      "game": "path of radiance",
+      "storyRole": "npc",
+      "variety": "special",
+      "special": "winter",
+      "weaponType": "axe",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N4"
+    },
+    {
+      "id": "bruno-s-winter",
+      "name": "Bruno",
+      "epithet": "Masked Reveler",
+      "game": "heroes",
+      "storyRole": "npc",
+      "variety": "special",
+      "special": "winter",
+      "weaponType": "anima",
+      "moveType": "armored",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N5"
+    },
+    {
+      "id": "cordelia-s-winter",
+      "name": "Cordelia",
+      "epithet": "Unyielding Snow",
+      "game": "awakening",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "winter",
+      "weaponType": "lance",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "duo": "harmonized",
+      "cheerleader": "Selena",
+      "cheerleaderGame": "fates",
+      "shortcode": "N6"
+    },
+    {
       "id": "dorothea-s-winter",
       "name": "Dorothea",
       "epithet": "Yuletide Dancer",
@@ -11865,6 +12888,20 @@
       "refresher": true,
       "altHell": true,
       "shortcode": "N7"
+    },
+    {
+      "id": "shez-f-legendary",
+      "name": "Shez",
+      "epithet": "Sharpest Blades",
+      "game": "fewth",
+      "storyRole": "mc",
+      "variety": "legendary",
+      "special": "legendary",
+      "weaponType": "dagger blue",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "6",
+      "shortcode": "N8"
     },
     {
       "id": "ash-s-new-year",
@@ -11987,7 +13024,7 @@
     },
     {
       "id": "ursula-s-cultural-festival",
-      "name": "Urusula",
+      "name": "Ursula",
       "epithet": "Royal-Blue Crow",
       "game": "blazing blade",
       "storyRole": "npc",
@@ -13423,7 +14460,7 @@
       "weaponType": "light",
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
-      "version": "6",
+      "version": "7",
       "refresher": true,
       "shortcode": "Po"
     },
@@ -13512,7 +14549,7 @@
       "weaponType": "dark",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
-      "version": "6",
+      "version": "7",
       "refresher": true,
       "shortcode": "Pu"
     },
@@ -13570,7 +14607,7 @@
       "weaponType": "axe",
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
-      "version": "6",
+      "version": "7",
       "refresher": true,
       "shortcode": "Py"
     },

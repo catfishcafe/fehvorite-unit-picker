@@ -1463,6 +1463,16 @@
 
           <p>
             <label
+              ><input type="checkbox" id="resplendentsOnly" /> Resplendents Only</label>
+            <span class="help-text hide-help"
+              >If checked, only units from Grand Hero Battles and Tempest Trials
+              will appear.
+            </span>
+          </p>
+
+
+          <p>
+            <label
               ><input type="checkbox" id="spoilers" /> Include spoilers</label>
             <span class="help-text hide-help"
               >If unchecked, units that might be considered spoilers, either for
@@ -1639,6 +1649,7 @@
         duosOnly: false,
         altHell: false,
         grailsOnly: false,
+        resplendentsOnly: false,
         exclude: false,
         spoilers: true,
         weaponTypes: lists.weaponTypes,
@@ -1844,6 +1855,7 @@
             duosOnly: "#duos",
             altHell: "#altHell",
             grailsOnly: "#grails",
+            resplendentsOnly: "#resplendentsOnly",
             exclude: "#exclude",
             weaponTypes: ".weaponTypes",
             moveTypes: ".moveTypes",
@@ -2181,6 +2193,8 @@
             return !value || unit.altHell === true;
           case "grailsOnly":
             return !value || unit.grails === "ghb" || unit.grails === "tt";
+          case "resplendentsOnly":
+            return !value || unit.hasOwnProperty("resplendent");
           case "exclude":
             return !value || unit.special === "base";
           case "spoilers":
