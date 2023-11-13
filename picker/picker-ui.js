@@ -471,7 +471,7 @@
             return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
         }
         if (item.image || this.options.getItemImageUrl) {
-            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px" alt="' + itemName + '" title="' + itemName + '" loading="eager">');
+            itemContent = $('<div class="container"><img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" height="100px" alt="' + itemName + '" title="' + itemName + '" loading="eager"><div class="floatText">' + `${item.name}` + '</div></div>');
         }
         else {
             itemContent = $('<span>' + itemName + '</span>');
