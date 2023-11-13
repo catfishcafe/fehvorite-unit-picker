@@ -8667,7 +8667,7 @@
       "weaponType": "sword",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
-      "version": "3",
+      "version": "4",
       "duo": "harmonized",
       "cheerleader": "sanaki",
       "cheerleaderGame": "radiant dawn",
@@ -9965,7 +9965,7 @@
       "weaponType": "bow blue",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
-      "version": "3",
+      "version": "5",
       "shortcode": "Kw"
     },
     {
@@ -11069,7 +11069,7 @@
       "weaponType": "staff",
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
-      "version": "3",
+      "version": "6",
       "shortcode": "L8"
     },
     {
