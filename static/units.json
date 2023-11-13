@@ -3317,7 +3317,7 @@
     },
     {
       "id": "alfonse-s-spring",
-      "name": "Alphonse",
+      "name": "Alfonse",
       "epithet": "Spring Prince",
       "game": "heroes",
       "storyRole": "mc",
@@ -3387,7 +3387,7 @@
     },
     {
       "id": "leif-base",
-      "name": "Lief",
+      "name": "Leif",
       "epithet": "Prince of Leonster",
       "game": "thracia",
       "storyRole": "mc",
@@ -12296,7 +12296,7 @@
       "weaponType": "sword",
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
-      "version": "2",
+      "version": "6",
       "shortcode": "NS"
     },
     {
@@ -12641,7 +12641,7 @@
       "weaponType": "axe",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
-      "version": "2",
+      "version": "6",
       "shortcode": "Nq"
     },
     {

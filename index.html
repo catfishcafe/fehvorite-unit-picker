@@ -484,6 +484,7 @@
       }
 
       .floatText{
+        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -547,9 +548,9 @@
       setActiveStyleSheet(title);
     </script>
     <!-- <script>
+      //⚠️current working for individual checkboxes but not with the setSelectAll function
       //getting the checkboxless-checkboxes to change images depending on checked or unchecked
       //based on https://stackoverflow.com/questions/5395235/change-text-of-corresponding-label-when-checkbox-is-checked-unchecked
-      //current working for individual checkboxes but not with the setSelectAll function
       function displayCheckedStatus(checkboxId, labelId) {
         const checkBox = document.getElementById(checkboxId);
         const labelIdVar = document.getElementById(labelId);
@@ -565,13 +566,15 @@
   <body>
     <a href="#" id="darkmode">Light mode</a>
     <h1>
-      FEHvorite Unit Picker: Find and sort your favorite Fire Emblem Heroes
-      units!
+      FEHvorite Unit Picker
     </h1>
-    <h2>
-      Original picker code and written descriptions from
-      <a href="pokesite.aspx">The Cave of Dragonflies</a>
-    </h2>
+    <p>Version: BETA</p>
+    <H2></H2>
+
+    <p>Find and sort your favorite Fire Emblem Heroes
+      units!</p>
+    <p>If you haven't used a picker before and need help getting started, check out
+      the "Picker Explanation" tab. Use the "Options" tab to filter the displayed units.</p>
 
     <!-- <div id="howitworks"></div> -->
 
@@ -1550,9 +1553,9 @@
             "In principle, this picker is perfectly accurate, provided you pick
             consistently - you'll correctly get your second favorite second, even if
             it's pitted against your absolute favorite early on, for instance.
-            <a href="#howitworks" class="toggle"
+            <!-- <a href="#howitworks" class="toggle"
               >Click here for more on how this tool works.</a
-            >
+            > -->
             You can reorder your favorites after you've found them, but in principle
             you shouldn't need to.
           </p>
@@ -1570,8 +1573,6 @@
           </p>
         </div>
         <!-- end explanation -->
-
-
       </div>
     </div>
 
@@ -1764,38 +1765,6 @@
             state.settings.includeForms = state.settings.includeForms ? lists.includeForms : [];
         }
 
-        // Go through all the Pokémon in each array and correct legacy data format
-        // for (i = 0; i < arrays.length; i++) {
-        //     for (j = arrays[i].length - 1; j >= 0; j--) {
-        //         if (arrays[i][j].number) {
-        //             // Old-style data; convert to the new style
-        //             if (arrays[i] === eliminated) {
-        //                 arrays[i][j] = {id: getPokemonIdentifier(arrays[i][j]), eliminatedBy: arrays[i][j].eliminated_by};
-        //             }
-        //             else {
-        //                 arrays[i][j] = getPokemonIdentifier(arrays[i][j]);
-        //             }
-        //         }
-        //         if (arrays[i][j].mon) {
-        //             // Switch to the generic format
-        //             arrays[i][j].id = arrays[i][j].mon;
-        //             delete arrays[i][j].mon;
-        //         }
-        //         if (arrays[i] === eliminated && arrays[i][j].eliminated_by) {
-        //             // Switch to camelCase eliminatedBy
-        //             arrays[i][j].eliminatedBy = arrays[i][j].eliminated_by;
-        //             delete arrays[i][j].eliminated_by;
-        //         }
-        //         if (arrays[i][j].id in legacyReplacements) {
-        //             arrays[i][j].id = legacyReplacements[arrays[i][j].identifier];
-        //         } else if (arrays[i][j] in legacyReplacements) {
-        //             arrays[i][j] = legacyReplacements[arrays[i][j]];
-        //         }
-        //     }
-        // }
-        // Make legacy replacements in eliminatedBy arrays
-        // We go through both arrays backwards so that splicing the indices
-        // won't mess up subsequent indices
         for (i = eliminated.length - 1; i >= 0; i--) {
             for (j = eliminated[i].eliminatedBy.length - 1; j >= 0; j--) {
                 if (eliminated[i].eliminatedBy[j] in legacyReplacements) {
@@ -1816,20 +1785,6 @@
           var formType;
 
           for (i = 0; i < favorites.length; i++) {
-            // Activate forms mode if the pokemon has a form...
-            //   if (favorites[i].form) {
-            //       formTypes = favorites[i].formType.split(",");
-            //       for (j = 0; j < formTypes.length; j++) {
-            //           formType = formTypes[j].split("-");
-            //           if (settings.includeForms.indexOf(formType[0]) === -1) {
-            //               settings.includeForms.push(formType[0]);
-            //           }
-            // Disable major only if this is a minor form.
-            //       if (formType[1] === 'minor') {
-            //           settings.majorOnly = false;
-            //       }
-            //   }
-            //   }
             // Enable spoilers if the unit is a spoiler.
             if (favorites[i].spoiler) {
               settings.spoilers = true;
@@ -1885,7 +1840,6 @@
         elements: {
           settings: {
             resplendent: "#resplendent",
-            //   includeForms: ".include-forms",
             finalOnly: "#final",
             majorOnly: "#major",
             refreshersOnly: "#refreshers",
@@ -1933,8 +1887,6 @@
 
           setPickerWidth();
 
-          //   $("#major").prop("disabled", !hasMinorForms(this.picker.state.settings.includeForms));
-
           $("#remaining").text(remaining);
 
           updateProgressBar(
@@ -1978,9 +1930,6 @@
             ".png"
           );
         },
-        //   getItemImageUrl: function(pokemon, settings) {
-        //       return "/static/images/" + (settings.resplende ? "resplendent/" : "") + pokemon.id + (pokemon.form ? "-" + pokemon.form : "") + ".png";
-        //   }
       });
 
       $.getJSON("/static/units.json?v=sv6", function (json) {
@@ -1988,13 +1937,6 @@
         fehPicker.initialize();
 
         pickerUI.initialize();
-
-        //   pickerUI.elem.settings.includeForms.on('change', function() {
-        //       var includeForms = pickerUI.getSetting('includeForms');
-        //       pickerUI.elem.settings.majorOnly.prop("disabled", !hasMinorForms(includeForms));
-
-        //       setSelectAll('includeForms');
-        //   });
 
         pickerUI.elem.settings.weaponTypes.on("change", function () {
           setSelectAll("weaponTypes");
@@ -2024,7 +1966,6 @@
           setSelectAll("variety");
         });
 
-        //   setSelectAll('includeForms');
         setSelectAll("weaponTypes");
         setSelectAll("moveTypes");
         setSelectAll("games");
@@ -2096,7 +2037,6 @@
         const value = pickerUI.getSetting(setting);
         const selectAll = $('.select-all[value="' + setting + '"]');
         const newValue = value.length === lists[setting].length;
-        // console.log(`setSelectAll('${setting}'): calling selectAll.prop("checked", ${newValue})`);
         selectAll.prop("checked", newValue);
       }
 
@@ -2201,13 +2141,11 @@
 
       function settingIncludesUnits(unit, setting, settings) {
         /**
-         * Returns false if the pokemon should be filtered out by the given
+         * Returns false if the unit should be filtered out by the given
          * setting, or true otherwise.
          */
         var value = settings[setting];
         switch (setting) {
-          //   case 'includeForms':
-          //       return !pokemon.form || isFormIncluded(pokemon, value, settings.majorOnly);
           case "weaponTypes":
             return value.indexOf(unit.weaponType) !== -1;
           case "moveTypes":
@@ -2258,7 +2196,8 @@
             factor = i;
           }
         }
-        // If this would lead to the width being more than three times greater than the height, use the same batch width as the number above.
+        // If this would lead to the width being more than three times greater than the height, 
+        // use the same batch width as the number above.
         if (3 * factor < batchSize / factor) {
           return getBatchWidth(batchSize + 1, maxWidth);
         } else {
@@ -2284,68 +2223,6 @@
           );
         }
       }
-
-      //   function capitalize(word) {
-      //       /**
-      //        * Capitalizes the first letter of the word.
-      //        */
-      //       return word.substring(0, 1).toUpperCase() + word.substring(1);
-      //   }
-
-      //   function getPokemonIdentifier(pokemon) {
-      //       /**
-      //        * Returns the identifier of the given pokemon.
-      //        */
-      //       return pokemon.id || pokemon.identifier || pokemon.number + (pokemon.form || '');
-      //   }
-
-      // function identifierFromName(name) {
-      //   /**
-      //    * Returns the identifier of the pokemon whose name is given
-      //    * (case-insensitive).
-      //    */
-      //   return fehPicker.forEachItem(function (identifier) {
-      //     if (
-      //       fehPicker.itemMap[identifier].name.toLowerCase() ===
-      //       name.toLowerCase()
-      //     ) {
-      //       return identifier;
-      //     } else {
-      //       return false;
-      //     }
-      //   });
-      // }
-
-      //   function finaling3neration(pokemon, g3nerations) {
-      //       /**
-      //        * Returns true if the given pokemon object is a final evolution in
-      //        * the given g3neration.
-      //        */
-      //       return pokemon.finalEvolution === true || pokemon.finalEvolution && weaponTypes.indexOf(pokemon.finalEvolution) === -1;
-      //   }
-
-      //   function isFormIncluded(pokemon, includeForms, majorOnly) {
-      //       /**
-      //        * Returns true if the given pokemon object should be included by
-      //        * the given form settings.
-      //        */
-      //       if (!pokemon.form) {
-      //           return true;
-      //       }
-      //       var formTypes = pokemon.formType.split(",");
-      //       var formType;
-      //       var i;
-      //       for (var i = 0; i < formTypes.length; i++) {
-      //           formType = formTypes[i].split("-");
-      //           if (majorOnly && formType[1] === 'minor') {
-      //               return false;
-      //           }
-      //           if (includeForms.indexOf(formType[0]) === -1) {
-      //               return false;
-      //           }
-      //       }
-      //       return true;
-      //   }
 
       function hasMinorForms(forms) {
         /**
@@ -2401,116 +2278,6 @@
         }
 
         console.log(Object.keys(formTypeMap).sort());
-      }
-
-      // Some fun simulation: How many pokemon are you going to get for the second "run", i.e. how many will you need to eliminate to find your second favorite after finding your first?
-      // The pickedMin and pickedMax arguments determine how many pokemon you'll generally pick from a batch of many.
-      function simulateFirstPickerRound(pickedMin, pickedMax) {
-        var simulatedPicker = new picker.Picker({
-          items: Array.from(Array(1008).keys()).map(function (i) {
-            return { id: i };
-          }),
-        });
-
-        simulatedPicker.initialize();
-
-        var picks = 0;
-
-        while (simulatedPicker.state.arrays.favorites.length === 0) {
-          var evaluating = simulatedPicker.state.arrays.evaluating;
-          var min = Math.min(pickedMin || 1, evaluating.length / 2);
-          var max = Math.min(pickedMax || 1, evaluating.length / 2);
-          if (evaluating.length <= 5) {
-            min = 1;
-          }
-          var topN = min + Math.random() * Math.max(0, max - min);
-          var picked = [];
-          evaluating.sort();
-          simulatedPicker.pick(evaluating.slice(0, topN));
-          picks++;
-        }
-
-        return (
-          simulatedPicker.state.arrays.current.length +
-          simulatedPicker.state.arrays.evaluating.length
-        );
-      }
-
-      function runFirstRoundStats(pickedMin, pickedMax, numTests = 50) {
-        var results = [];
-        var sum = 0;
-        for (var i = 0; i < numTests; i++) {
-          var result = simulateFirstPickerRound(pickedMin, pickedMax);
-          results.push(result);
-          sum += result;
-        }
-        console.log(
-          "Average second run:",
-          sum / results.length,
-          ", max:",
-          Math.max.apply(null, results),
-          ", min:",
-          Math.min.apply(null, results)
-        );
-      }
-
-      function combineRuns(levels) {
-        let curRun = null;
-        let prev = null;
-        let result = [];
-        levels.forEach(function (level) {
-          if (prev && level === prev + 1) {
-            if (curRun) {
-              curRun.push(level);
-            } else {
-              curRun = [prev, level];
-            }
-          } else if (curRun) {
-            if (curRun.length > 2) {
-              result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
-            } else {
-              result.push.apply(result, curRun);
-            }
-            curRun = null;
-          } else if (prev) {
-            result.push(prev);
-          }
-          prev = level;
-        });
-        if (curRun) {
-          if (curRun.length > 2) {
-            result.push(curRun[0] + "-" + curRun[curRun.length - 1]);
-          } else {
-            result.push.apply(result, curRun);
-          }
-        } else {
-          result.push(prev);
-        }
-        return result;
-      }
-
-      function combineRunsReduce(levels) {
-        return levels
-          .reduce((accumulator, currentValue) => {
-            if (accumulator.length < 1) return [[currentValue]];
-
-            const lastRange = accumulator[accumulator.length - 1];
-            const lastValue = lastRange[lastRange.length - 1];
-            if (currentValue === lastValue + 1) {
-              lastRange.push(currentValue);
-            } else {
-              accumulator.push([currentValue]);
-            }
-            return accumulator;
-          }, [])
-          .map((range) => {
-            if (range.length > 2) {
-              return range[0] + "-" + range[range.length - 1];
-            } else {
-              return range.join(", ");
-            }
-          })
-          .join(", ");
       }
 
     </script>
