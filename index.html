@@ -484,7 +484,7 @@
       }
 
       .floatText{
-        /* display: none; */
+        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -570,6 +570,7 @@
     </h1>
     <p>Version: BETA</p>
     <H2></H2>
+    <p>⚠️Test text⚠️</p>
 
     <p>Find and sort your favorite Fire Emblem Heroes
       units!</p>
@@ -1932,7 +1933,7 @@
         },
       });
 
-      $.getJSON("/static/units.json?v=sv6", function (json) {
+      $.getJSON("/static/units.json", function (json) {
         fehPicker.options.items = json.items;
         fehPicker.initialize();
 
