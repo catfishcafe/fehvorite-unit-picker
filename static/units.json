@@ -14699,6 +14699,21 @@
       "shortcode": "P3"
     },
     {
+      "id": "saizo-s-ninja",
+      "name": "Saizo",
+      "epithet": "Hoshido's Flame",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "special",
+      "special": "ninja",
+      "weaponType": "lance",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "grails": "tt",
+      "shortcode": "P4"
+    },
+    {
       "id": "sanaki-s-ninja",
       "name": "Sanaki",
       "epithet": "Dawnsworn Ninja",
@@ -14710,7 +14725,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P4"
+      "shortcode": "P5"
     },
     {
       "id": "zelgius-s-ninja",
@@ -14724,22 +14739,92 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P5"
+      "shortcode": "P6"
     },
     {
-      "id": "saizo-s-ninja",
-      "name": "Saizo",
-      "epithet": "Hoshido's Flame",
-      "game": "fates",
+      "id": "ginnungagap-base",
+      "name": "Ginnungagap",
+      "epithet": "Ruler of Nihility",
+      "game": "heroes",
       "storyRole": "pc",
-      "variety": "special",
-      "special": "ninja",
-      "weaponType": "lance",
+      "variety": "base",
+      "special": "rearmed",
+      "weaponType": "dagger colorless",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P7"
+    },
+    {
+      "id": "harken-base",
+      "name": "Harken",
+      "epithet": "Troubled Warrior",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "sword",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "grails": "tt",
-      "shortcode": "P6"
+      "shortcode": "P8"
+    },
+    {
+      "id": "isadora-base",
+      "name": "Isadora",
+      "epithet": "Escort of Pharae",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "lance",
+      "moveType": "cavalry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P9"
+    },
+    {
+      "id": "nino-attuned",
+      "name": "Nino",
+      "epithet": "Fang's Heart",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "attuned",
+      "special": "attuned",
+      "weaponType": "dagger green",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P-"
+    },
+    {
+      "id": "wil-base",
+      "name": "Wil",
+      "epithet": "Unequaled Archer",
+      "game": "blazing blade",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "bow colorless",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P_"
+    },
+    {
+      "id": "fargus-base",
+      "name": "Fargus",
+      "epithet": "Badon Buccaneer",
+      "game": "blazing blade",
+      "storyRole": "npc",
+      "variety": "base",
+      "special": "base",
+      "weaponType": "axe",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "grails": "ghb",
+      "shortcode": "QA"
     },
     {
       "id": "kiran-base",
