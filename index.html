@@ -530,7 +530,7 @@
       }
 
       .floatText{
-        /* display: none; */
+        display: none;
         color: white;
         position: absolute;
         top: 50%;
@@ -703,6 +703,28 @@
               their resplendent artwork.</span
             >
           </p>
+
+          <p>
+            <label>
+              <input type="checkbox" id="view-name" onclick="viewName()"/> Display unit name</label>
+            <span class="help-text">
+              Display names of units on top of unit image (BETA)</span>
+          </p>
+          <!-- <script>
+            function viewName() {
+              const viewNameCheckbox = document.getElementById('view-name')
+              console.log(viewNameCheckbox.checked);
+              const nameDisplay = document.getElementsByClassName('floatText')
+              for (i = 0; i < nameDisplay.length; i++) {
+                // console.log(nameDisplay[i].style.display)
+                if (viewNameCheckbox.checked) {
+                  console.log('text');
+                  nameDisplay[i].style.display = 'block';
+                } else {
+                  console.log('no text');
+                  nameDisplay[i].style.display = 'none';
+            }}}
+          </script> -->
 
           <p>Weapon types to include:</p>
           <p>
