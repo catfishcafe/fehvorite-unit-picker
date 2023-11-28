@@ -484,7 +484,7 @@
                  + 
                 itemName
                  + 
-                '" loading="eager"><div class="floatText" >'
+                '" loading="eager"><div class="floatText" style="display: none">'
                  + 
                 `${item.name}` + '</div></div>');
         }
