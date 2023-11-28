@@ -1279,6 +1279,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
+      "resplendent": true,
       "shortcode": "BX"
     },
     {
