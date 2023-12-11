@@ -8902,6 +8902,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
+      "altHell": true,
       "refresher": true,
       "duo": "harmonized",
       "cheerleader": "Lene",
