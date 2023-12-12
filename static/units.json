@@ -14643,15 +14643,15 @@
       "shortcode": "Pz"
     },
     {
-      "id": "veyle-base",
-      "name": "Veyle",
-      "epithet": "Gentle Dragon",
-      "game": "engage",
+      "id": "triandra-attuned",
+      "name": "Triandra",
+      "epithet": "Reverent Dream",
+      "game": "heroes",
       "storyRole": "pc",
-      "variety": "base",
-      "special": "mythic",
-      "weaponType": "light",
-      "moveType": "infantry",
+      "variety": "attuned",
+      "special": "attuned",
+      "weaponType": "sword",
+      "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "shortcode": "P0"
@@ -14672,6 +14672,20 @@
       "shortcode": "P1"
     },
     {
+      "id": "veyle-base",
+      "name": "Veyle",
+      "epithet": "Gentle Dragon",
+      "game": "engage",
+      "storyRole": "pc",
+      "variety": "base",
+      "special": "mythic",
+      "weaponType": "light",
+      "moveType": "infantry",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "P2"
+    },
+    {
       "id": "heather-s-ninja",
       "name": "Heather",
       "epithet": "Wandering Ninja",
@@ -14684,7 +14698,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "altHell": true,
-      "shortcode": "P2"
+      "shortcode": "P3"
     },
     {
       "id": "reina-s-ninja",
@@ -14699,7 +14713,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "altHell": true,
-      "shortcode": "P3"
+      "shortcode": "P4"
     },
     {
       "id": "saizo-s-ninja",
@@ -14714,7 +14728,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "grails": "tt",
-      "shortcode": "P4"
+      "shortcode": "P5"
     },
     {
       "id": "sanaki-s-ninja",
@@ -14728,7 +14742,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P5"
+      "shortcode": "P6"
     },
     {
       "id": "zelgius-s-ninja",
@@ -14742,7 +14756,7 @@
       "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P6"
+      "shortcode": "P7"
     },
     {
       "id": "ginnungagap-base",
@@ -14756,7 +14770,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P7"
+      "shortcode": "P8"
     },
     {
       "id": "harken-base",
@@ -14770,7 +14784,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P8"
+      "shortcode": "P9"
     },
     {
       "id": "isadora-base",
@@ -14784,7 +14798,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P9"
+      "shortcode": "P-"
     },
     {
       "id": "nino-attuned",
@@ -14798,7 +14812,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P-"
+      "shortcode": "P_"
     },
     {
       "id": "wil-base",
@@ -14812,7 +14826,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "P_"
+      "shortcode": "QA"
     },
     {
       "id": "fargus-base",
@@ -14827,7 +14841,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "grails": "ghb",
-      "shortcode": "QA"
+      "shortcode": "QB"
     },
     {
       "id": "kvasir-base",
@@ -14841,7 +14855,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QB"
+      "shortcode": "QC"
     },
     {
       "id": "gullveig-base",
@@ -14855,7 +14869,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QC"
+      "shortcode": "QD"
     },
     {
       "id": "inigo-base",
@@ -14869,7 +14883,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QD"
+      "shortcode": "QE"
     },
     {
       "id": "laurent-base",
@@ -14883,7 +14897,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QE"
+      "shortcode": "QF"
     },
     {
       "id": "lucina-rearmed",
@@ -14897,7 +14911,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QF"
+      "shortcode": "QG"
     },
     {
       "id": "ratatoskr-base",
@@ -14911,7 +14925,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QG"
+      "shortcode": "QH"
     },
     {
       "id": "severa-base",
@@ -14925,7 +14939,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "shortcode": "QH"
+      "shortcode": "QI"
     },
     {
       "id": "validar-base",
@@ -14940,7 +14954,7 @@
       "placeholderAttribute": "placeholderValue",
       "version": "7",
       "grails": "ghb",
-      "shortcode": "QI"
+      "shortcode": "QJ"
     },
     {
       "id": "dividers-unsorted",
