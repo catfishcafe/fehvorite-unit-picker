@@ -15030,6 +15030,20 @@
       "shortcode": "QO"
     },
     {
+      "id": "camilla-legendary",
+      "name": "Camilla",
+      "epithet": "Alluring Darkness",
+      "game": "fates",
+      "storyRole": "pc",
+      "variety": "legendary",
+      "special": "legendary",
+      "weaponType": "anima",
+      "moveType": "flying",
+      "placeholderAttribute": "placeholderValue",
+      "version": "7",
+      "shortcode": "QP"
+    },
+    {
       "id": "dividers-unsorted",
       "name": "unsorted",
       "epithet": "dividers",
