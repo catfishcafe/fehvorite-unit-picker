@@ -1012,7 +1012,7 @@
       "storyRole": "pc",
       "variety": "base",
       "special": "base",
-      "weaponType": "sword",
+      "weaponType": "axe",
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
@@ -2796,7 +2796,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "1",
-      "resplendent":"placeholder",
+      "resplendent": "placeholder",
       "shortcode": "C_"
     },
     {
@@ -3312,7 +3312,7 @@
       "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "grails":"tt",
+      "grails": "tt",
       "shortcode": "Dj"
     },
     {
@@ -3454,7 +3454,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "2",
-      "grails":"ghb",
+      "grails": "ghb",
       "shortcode": "Dt"
     },
     {
@@ -3602,7 +3602,7 @@
       "refresher": true,
       "shortcode": "D3"
     },
-        {
+    {
       "id": "julius-base",
       "name": "Julius",
       "epithet": "Scion of Darkness",
@@ -10626,7 +10626,7 @@
       "game": "path of radiance",
       "storyRole": "npc",
       "variety": "base",
-      "special": "base",  
+      "special": "base",
       "weaponType": "sword",
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
@@ -15027,7 +15027,7 @@
       "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "7",
-      "altHell":"true",
+      "altHell": "true",
       "shortcode": "QO"
     },
     {
@@ -15322,7 +15322,7 @@
       "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": 0,
-      "shortcode": "1A"   
+      "shortcode": "1A"
     },
     {
       "id": "feh-npc",
