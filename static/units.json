@@ -7599,8 +7599,8 @@
       "storyRole": "npc",
       "variety": "base",
       "special": "base",
-      "weaponType": "",
-      "moveType": "",
+      "weaponType": "staff",
+      "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "4",
       "shortcode": "IO"
@@ -9094,8 +9094,8 @@
       "storyRole": "pc",
       "variety": "base",
       "special": "base",
-      "weaponType": "",
-      "moveType": "",
+      "weaponType": "lance",
+      "moveType": "flying",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "shortcode": "J0"
@@ -9881,7 +9881,7 @@
       "variety": "base",
       "special": "base",
       "weaponType": "lance",
-      "moveType": "",
+      "moveType": "armored",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "shortcode": "Kq"
