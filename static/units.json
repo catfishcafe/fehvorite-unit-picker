@@ -9647,7 +9647,7 @@
       "variety": "base",
       "special": "mythic",
       "weaponType": "lance",
-      "moveType": "",
+      "moveType": "infantry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "shortcode": "Ka"
@@ -10242,7 +10242,7 @@
       "variety": "base",
       "special": "base",
       "weaponType": "light",
-      "moveType": "infantry",
+      "moveType": "cavalry",
       "placeholderAttribute": "placeholderValue",
       "version": "5",
       "shortcode": "LD"
@@ -13418,7 +13418,7 @@
     },
     {
       "id": "gilliam-base",
-      "name": "Gillaim",
+      "name": "Gilliam",
       "epithet": "Wall of Silence",
       "game": "sacred stones",
       "storyRole": "pc",
