@@ -14498,7 +14498,7 @@
       "shortcode": "Pp"
     },
     {
-      "id": "elincia-legendary",
+      "id": "elincia-fe10-legendary",
       "name": "Elincia",
       "epithet": "Undaunted Queen",
       "game": "radiant dawn",
@@ -15102,10 +15102,10 @@
       "shortcode": "QT"
     },
     {
-      "id": "heithr-s-new-year",
+      "id": "seithr-s-new-year",
       "name": "Seiðr",
       "epithet": "Time's Goddesses",
-      "game": "fate",
+      "game": "heroes",
       "storyRole": "pc",
       "variety": "special",
       "special": "new year",
