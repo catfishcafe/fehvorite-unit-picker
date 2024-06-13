@@ -1,0 +1,27 @@
+,
+{
+  "id": "",
+  "name": "",
+  "epithet": "",
+  "game": "",
+  "storyRole": "",
+  "variety": "",
+  "special": "",
+  "weaponType": "",
+  "moveType": "",
+  "version": "8",
+  "shortcode": ""
+}
+
+other attributes:
+      "altHell": "",
+      "cheerleader": "",
+      "cheerleader2": "",
+      "cheerleaderGame": "",
+      "cheerleaderGame2": "",
+      "duo": "",
+      "game2": "",
+      "grails": "",
+      "refresher": "",
+      "resplendent": "",
+      "variety2": "",
