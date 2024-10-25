@@ -1321,8 +1321,8 @@
                 value="base"
                 checked=""
               />
-              Base</label
-            >
+              Base
+            </label>
             <label>
               <input
                 type="checkbox"
@@ -1348,8 +1348,8 @@
                 value="legendary"
                 checked=""
               />
-              Legendary</label
-            >
+              Legendary
+            </label>
             <label
               ><input
                 type="checkbox"
@@ -1359,7 +1359,7 @@
               />
               Mythic
             </label>
-          </label>
+            </label>
             <label>
               <input
                 type="checkbox"
@@ -1369,50 +1369,21 @@
               />
               Ascended
             </label>
+            <label>
             <input
               type="checkbox"
               class="variety"
               value="rearmed"
               checked=""
             />
-              Rearmed</label
-            >
-            <input
-              type="checkbox"
-              class="variety"
-              value="attuned"
-              checked=""
-            />
-              Attuned
+              Rearmed
             </label>
-            <label
-            ><input
-              type="checkbox"
-              class="variety"
-              value="emblem"
-              checked=""
-            />
-            Emblem
-            <label
-              ><input
-                type="checkbox"
-                class="variety"
-                value="special"
-                checked=""
-              />
-              Special</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                class="variety"
-                value="misc"
-                checked=""
-              />
-              Misc.</label
-            >
+            <label><input type="checkbox" class="variety" value="attuned" checked=""/>Attuned</label>
+            <label><input type="checkbox" class="variety" value="aided" checked=""/>Aided</label>
+            <label><input type="checkbox" class="variety" value="emblem" checked="">Emblem</label>
+            <label><input type="checkbox" class="variety" value="special" checked=""/>Special</label>
+            <label><input type="checkbox" class="variety" value="misc" checked=""/>Misc.</label>
           </p>
-
           <p>
             Types of specials to include:
             </p>
@@ -1488,7 +1459,7 @@
             >
           </p>
 
-          <p>Rarities to include:</p>
+          <p>⚠️UNDER CONSTRUCTION⚠️ Rarities to include:</p>
           <p>
             <label
               ><input
@@ -1721,6 +1692,18 @@
         <div id="updates" style="display: none">
           <div id="updates-background">
             <p>
+              2024/10/24
+              <ul>
+                <li>updated unit list</li>
+                <li>"aided" filter is now working</li>
+              </ul>
+              To fix:
+                <ul>
+                <li>the units just added have no artwork (just the most recent banner with aided Dagr)</li>
+                <li>"Rarity" filter is functioning but units' rarities have not been updated</li>
+              </ul>
+            </p>
+            <p>
               2024/9/26
               <ul>
                 <li>updated unit list</li>
@@ -1850,6 +1833,7 @@
           "kaika",
           "rearmed",
           "attuned",
+          "aided",
           "emblem",
           "special",
           "misc",
@@ -1874,7 +1858,6 @@
           "none"
         ],
         rarities: ["4s", "5s", "4s special", "grails", "story"],
-        // ,"special 4s", "grails"
         "dummyAtt": ["soup", "turnips"]
       };
 

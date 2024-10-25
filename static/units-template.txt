@@ -1,3 +1,4 @@
+
 ,
 {
   "id": "",
@@ -9,8 +10,9 @@
   "special": "",
   "weaponType": "",
   "moveType": "",
+  "rarity": "",
   "version": "8",
-  "shortcode": ""
+  "shortcode": "S"
 }
 
 other attributes:

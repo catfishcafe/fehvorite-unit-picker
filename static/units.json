@@ -18258,7 +18258,7 @@
       "epithet": "Dvergr Heir",
       "game": "heroes",
       "storyRole": "pc",
-      "variety": "attuned",
+      "variety": "aided",
       "special": "none",
       "weaponType": "lance",
       "moveType": "cavalry",
@@ -18395,8 +18395,9 @@
       "special": "none",
       "weaponType": "bow green",
       "moveType": "cavalry",
+      "rarity": "5s",
       "version": "8",
-      "shortcode": "Sa"
+      "shortcode": "SA"
     },
     {
       "id": "caspar-base",
@@ -18408,22 +18409,23 @@
       "special": "none",
       "weaponType": "axe",
       "moveType": "infantry",
+      "rarity": "4s",
       "version": "8",
-      "shortcode": "Sb"
+      "shortcode": "SB"
     },
     {
       "id": "dagr-aided",
       "name": "Dagr",
       "epithet": "Sunny Bloom",
-      "game": "three houses",
+      "game": "heroes",
       "storyRole": "pc",
-      "variety": "base",
-      "variety2": "attuned",
+      "variety": "aided",
       "special": "none",
       "weaponType": "sword",
       "moveType": "infantry",
+      "rarity": "5s",
       "version": "8",
-      "shortcode": "Sc"
+      "shortcode": "SC"
     },
     {
       "id": "dorothea-base",
@@ -18435,9 +18437,10 @@
       "special": "none",
       "weaponType": "light",
       "moveType": "infantry",
+      "rarity": "5s",
       "version": "8",
       "refresher": true,
-      "shortcode": "Sd"
+      "shortcode": "SD"
     },
     {
       "id": "marianne-rearmed",
@@ -18445,13 +18448,13 @@
       "epithet": "Cursed Blessing",
       "game": "three houses",
       "storyRole": "pc",
-      "variety": "base",
-      "variety2": "rearmed",
+      "variety": "rearmed",
       "special": "none",
       "weaponType": "dark",
       "moveType": "flying",
+      "rarity": "5s",
       "version": "8",
-      "shortcode": "Se"
+      "shortcode": "SE"
     },
     {
       "id": "metodey-base",
@@ -18463,9 +18466,10 @@
       "special": "none",
       "weaponType": "dagger colorless",
       "moveType": "infantry",
+      "rarity": "grails",
       "version": "8",
       "grails": "ghb",
-      "shortcode": "Sf"
+      "shortcode": "SF"
     }
   ]
 }
