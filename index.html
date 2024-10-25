@@ -1488,6 +1488,43 @@
             >
           </p>
 
+          <p>Rarities to include:</p>
+          <p>
+            <label
+              ><input
+                type="checkbox"
+                id="rarities-all"
+                class="select-all"
+                value="rarities"
+              />
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="rarities hideCheckbox"
+                value="4s"
+                checked="" />
+              4 stars (general pool)
+            </label>
+            <label
+              ><input
+                type="checkbox"
+                class="rarities hideCheckbox"
+                value="5s"
+                checked="" />
+              5 stars
+            </label>
+            <label
+            ><input
+              type="checkbox"
+              class="rarities hideCheckbox"
+              value="grails"
+              checked="" />
+            Grand hero battle/tempest trial
+          </label>
+          </p>
+
           <p>Versions to include:</p>
           <p>
             <label>
@@ -1836,6 +1873,8 @@
           "child",
           "none"
         ],
+        rarities: ["4s", "5s", "4s special", "grails", "story"],
+        // ,"special 4s", "grails"
         "dummyAtt": ["soup", "turnips"]
       };
 
@@ -1856,6 +1895,7 @@
         versions: lists.versions,
         variety: lists.variety,
         specials: lists.specials,
+        rarities: lists.rarities,
         dummyAtt: lists.dummyAtt,
         games: lists.games,
         maxBatchSize: 20,
@@ -1906,6 +1946,8 @@
                 games: state.games || lists.games,
                 variety: state.variety || lists.variety,
                 specials: state.specials || lists.specials,
+                version: state.verskion || lists.version,
+                rarities: state.rarities || lists.rarities,
                 dummyAtt: state.dummyAtt || lists.dummyAtt,
                 maxBatchSize: state.max_batch_size || defaultSettings.maxBatchSize
             };
@@ -2018,6 +2060,7 @@
             games: ".games",
             variety: ".variety",
             specials: ".specials",
+            rarities: ".rarities",
             dummyAtt: ".dummyAtt",
             spoilers: "#spoilers",
             maxBatchSize: "#max-batch-size",
@@ -2130,6 +2173,10 @@
           setSelectAll("specials");
         });
 
+        pickerUI.elem.settings.rarities.on("change", function () {
+          setSelectAll("rarities");
+        });
+
         pickerUI.elem.settings.dummyAtt.on("change", function () {
           setSelectAll("dummyAtt");
         });
@@ -2141,6 +2188,7 @@
         setSelectAll("versions");
         setSelectAll("variety");
         setSelectAll("specials");
+        setSelectAll("rarities");
         setSelectAll("dummyAtt");
       });
 
@@ -2212,6 +2260,7 @@
       $(".select-all").on("change", function () {
         const setting = $(this).val();
         const values = $(this).prop("checked") ? lists[setting] : [];
+        console.log('potatoes'),
         console.log(`.select-all.on('change'): setting=${setting}, values=${values}`);
         pickerUI.setSetting(setting, values);
         fehPicker.setSettings(pickerUI.getSettings());
@@ -2338,6 +2387,8 @@
             return value.indexOf(unit.variety) !== -1 || value.indexOf(unit.variety2) !== -1;
           case "specials":
             return value.indexOf(unit.special) !== -1;
+          case "rarities":
+            return value.indexOf(unit.rarity) !== -1;
           case "refreshersOnly":
             return !value || unit.refresher === true;
           case "duosOnly":
