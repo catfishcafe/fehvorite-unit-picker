@@ -63,8 +63,36 @@
         margin-left: -10px;
         margin-right: -10px;
         padding: 10px;
-        overflow: hidden;
       }
+      /* overflow: hidden; */
+
+.background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.main-image img {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+/*I'd eventually like to get the 93% to target ONLY portrait mode*/
+
+.frame img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Makes sure clicks pass through to the main image */
+}
 
       .tabs {
         margin: 20px 0;
@@ -218,6 +246,15 @@
         height: 100px;
         z-index: 100;
       }
+
+      /* .portrait-img {
+       height: 75%;
+      }
+
+      .full-img {
+        height: 100px
+      } */
+
 
       @media (max-width: 656px) {
         #units.item-list {
@@ -535,6 +572,13 @@
         text-align: center;
       }
 
+      /* .image-wrapper {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        text-align: center;
+      } */
+
       .floatText{
         color: white;
         position: absolute;
@@ -621,13 +665,13 @@
     <h1>
       FEHvorite Unit Picker
     </h1>
-    <p>Version 1.0</p>
+    <p>Version 1.1: Portrait mode now available in "display options"!</p>
     <H2></H2>
 
     <p>Find and sort your favorite Fire Emblem Heroes
       units!</p>
     <p>If you haven't used a picker before and need help getting started, check out
-      the "Picker Explanation" tab. Use the "Options" tab to filter the displayed units.</p>
+      the "Picker Explanation" tab. Please visit the "Filters" and "Display Options" tabs to improve your experience.</p>
 
     <!-- <div id="howitworks"></div> -->
 
@@ -659,10 +703,10 @@
         <ul class="tabs">
           <li id="expand-favorites"><a href="#" title="Expand list">‹</a></li>
           <li class="active"><a href="#found-favorites">Found Favorites</a></li>
-          <li><a href="#filters">Filters</a></li>
+          <li><a href="#filters">Unit Filters</a></li>
           <li><a href="#options">Display Options</a></li>
           <li><a href="#explanation">Picker Explanation</a></li>
-          <li><a href="#updates">Update Log</a></li>
+          <!-- <li><a href="#updates">Update Log</a></li> -->
         </ul>
 
         <div id="found-favorites" style="display: block">
@@ -1378,7 +1422,7 @@
             />
               Rearmed
             </label>
-            <label><input type="checkbox" class="variety" value="attuned" checked=""/>Attuned</label>
+            <label><input type="checkbox" class="variety" value="kyoushin" checked=""/>Attuned</label>
             <label><input type="checkbox" class="variety" value="aided" checked=""/>Aided</label>
             <label><input type="checkbox" class="variety" value="emblem" checked="">Emblem</label>
             <label><input type="checkbox" class="variety" value="special" checked=""/>Special</label>
@@ -1412,89 +1456,29 @@
 
           <p>Types of characters to include:</p>
           <p>
-            <label
-              ><input
-                type="checkbox"
-                id="storyRoles-all"
-                class="select-all"
-                value="storyRoles"
-              />
+            <label><input type="checkbox" id="storyRoles-all" class="select-all" value="storyRoles"/>
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
-            <label
-              ><input
-                type="checkbox"
-                class="storyRoles"
-                value="mc"
-                checked=""
-              />
-              Protagonists/Player avatars
-            </label>
-            <label
-              ><input
-                type="checkbox"
-                class="storyRoles"
-                value="pc"
-                checked=""
-              />
-              Other PCs</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                class="storyRoles"
-                value="npc"
-                checked=""
-              />
-              NPCs</label
-            >
-            <label
-              ><input
-                type="checkbox"
-                class="storyRoles"
-                value="lore"
-                checked=""
-              />
-              lore</label
-            >
+            <label><input type="checkbox" class="storyRoles" value="mc" checked=""/>Protagonists/Player avatars</label>
+            <label><input type="checkbox" class="storyRoles" value="pc" checked=""/>Other PCs</label>
+            <label><input type="checkbox" class="storyRoles" value="npc" checked=""/>NPCs</label>
+            <label><input type="checkbox" class="storyRoles" value="lore" checked=""/>lore</label>
           </p>
-
-          <p>⚠️UNDER CONSTRUCTION⚠️ Rarities to include:</p>
+<!-- 
+          <p>⚠️UNDER CONSTRUCTION⚠️ Summoning probabilities to include:</p>
           <p>
-            <label
-              ><input
-                type="checkbox"
-                id="rarities-all"
-                class="select-all"
-                value="rarities"
-              />
-              <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
-            >
-            <label
-              ><input
-                type="checkbox"
-                class="rarities hideCheckbox"
-                value="4s"
-                checked="" />
-              4 stars (general pool)
+            <label>
+              <input type="checkbox" id="rarities-all" class="select-all" value="rarities"/>
+              <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
-            <label
-              ><input
-                type="checkbox"
-                class="rarities hideCheckbox"
-                value="5s"
-                checked="" />
-              5 stars
-            </label>
-            <label
-            ><input
-              type="checkbox"
-              class="rarities hideCheckbox"
-              value="grails"
-              checked="" />
-            Grand hero battle/tempest trial
-          </label>
-          </p>
+
+            <label><input type="checkbox" class="rarities hideCheckbox" value="story" checked="" />Story units (not summonable)</label>
+            <label><input type="checkbox" class="rarities hideCheckbox" value="4s" checked="" />3-4 stars</label>
+            <label><input type="checkbox" class="rarities hideCheckbox" value="4s into 5s" checked="" />4 stars changed into 5 stars</label>
+            <label><input type="checkbox" class="rarities hideCheckbox" value="5s" checked="" />5 (*including specials for now)</label>
+            <label><input type="checkbox" class="rarities hideCheckbox" value="special" checked="" />[4 stars changed to 5 stars special / 4-5 stars special]</label>
+            <label><input type="checkbox" class="rarities hideCheckbox" value="grails" checked="" />Grand hero battle/tempest trial (not summonable)</label>
+          </p> -->
 
           <p>Versions to include:</p>
           <p>
@@ -1600,22 +1584,34 @@
         </div>
         <!-- end filters -->
         <!-- start display options -->
+        
         <div id="options" style="display: none">
-        <p>
-          <label
-            ><input type="checkbox" id="resplendent" /> resplendent
-            mode</label>
-          <span class="help-text"
-            >If checked, any units with a resplendent version will display
-            their resplendent artwork.</span
-          >
-        </p>
-        <p>
+
+          <p>
+            <label><input type="checkbox" id="portrait" />
+              portrait mode
+            </label>
+            <span class="help-text">
+              If checked, units will display in portrait mode instead of full-artwork mode
+            </span>
+          </p>
+
+          <p>
+            <label
+              ><input type="checkbox" id="resplendent" /> resplendent
+              mode</label>
+            <span class="help-text"
+              >If checked, any units with a resplendent version will display
+              their resplendent artwork.</span
+            >
+          </p>
+
+        <!-- <p>
           <label>
             <input type="checkbox" id="view-name" onclick="viewName()"/> Display unit name</label>
           <span class="help-text">
             Display names of units on top of unit image (BETA)</span>
-        </p>
+        </p> -->
         <!-- script to toggle display text for units -->
         <script>
           function viewName() {
@@ -1689,7 +1685,7 @@
         </div>
         <!-- end explanation -->
         <!-- start update log -->
-        <div id="updates" style="display: none">
+        <!-- <div id="updates" style="display: none">
           <div id="updates-background">
             <p>
               2024/10/24
@@ -1742,7 +1738,7 @@
               </ul>
             </p>
           </div>
-        </div>
+        </div> -->
         <!-- end update log -->
       </div>
     </div>
@@ -1832,7 +1828,7 @@
           "mythic",
           "kaika",
           "rearmed",
-          "attuned",
+          "kyoushin",
           "aided",
           "emblem",
           "special",
@@ -1857,12 +1853,12 @@
           "child",
           "none"
         ],
-        rarities: ["4s", "5s", "4s special", "grails", "story"],
-        "dummyAtt": ["soup", "turnips"]
+        // rarities: ["story", "4s", "4s into 5s", "5s", "grails", "special"]
       };
 
       var defaultSettings = {
         resplendent: false,
+        portrait: false,
         includeForms: [],
         majorOnly: false,
         refreshersOnly: false,
@@ -1878,7 +1874,7 @@
         versions: lists.versions,
         variety: lists.variety,
         specials: lists.specials,
-        rarities: lists.rarities,
+        // rarities: lists.rarities,
         dummyAtt: lists.dummyAtt,
         games: lists.games,
         maxBatchSize: 20,
@@ -1918,6 +1914,7 @@
             // Backwards-compatibility: old states since before settings became a sub-object
             state.settings = {
                 resplendent: state.resplendent,
+                portrait: state.portrait,
                 includeForms: state.include_forms ? lists.includeForms : [],
                 spoilers: state.spoilers,
                 // finalOnly: state.final_only,
@@ -1930,7 +1927,7 @@
                 variety: state.variety || lists.variety,
                 specials: state.specials || lists.specials,
                 version: state.verskion || lists.version,
-                rarities: state.rarities || lists.rarities,
+                // rarities: state.rarities || lists.rarities,
                 dummyAtt: state.dummyAtt || lists.dummyAtt,
                 maxBatchSize: state.max_batch_size || defaultSettings.maxBatchSize
             };
@@ -2028,8 +2025,9 @@
         elements: {
           settings: {
             resplendent: "#resplendent",
-            finalOnly: "#final",
-            majorOnly: "#major",
+            // finalOnly: "#final",
+            // majorOnly: "#major",
+            portrait: "#portrait",
             refreshersOnly: "#refreshers",
             duosOnly: "#duos",
             altHell: "#altHell",
@@ -2043,7 +2041,7 @@
             games: ".games",
             variety: ".variety",
             specials: ".specials",
-            rarities: ".rarities",
+            // rarities: ".rarities",
             dummyAtt: ".dummyAtt",
             spoilers: "#spoilers",
             maxBatchSize: "#max-batch-size",
@@ -2110,13 +2108,20 @@
         wrapItem: function (item) {
           return $("<li></li>").append($("<span></span>").append(item));
         },
+        
         getItemImageUrl: function (unit, settings) {
           return (
             "static/images/" +
+            (settings.portrait
+              ? "portraits/"
+              : "") +
             unit.id +
             (settings.resplendent && unit.hasOwnProperty("resplendent")
               ? "-r"
-              : "") +
+              : "") +  
+            (settings.portrait
+              ? "-p"
+              : "") +  
             ".png"
           );
         },
@@ -2156,9 +2161,9 @@
           setSelectAll("specials");
         });
 
-        pickerUI.elem.settings.rarities.on("change", function () {
-          setSelectAll("rarities");
-        });
+        // pickerUI.elem.settings.rarities.on("change", function () {
+        //   setSelectAll("rarities");
+        // });
 
         pickerUI.elem.settings.dummyAtt.on("change", function () {
           setSelectAll("dummyAtt");
@@ -2171,7 +2176,7 @@
         setSelectAll("versions");
         setSelectAll("variety");
         setSelectAll("specials");
-        setSelectAll("rarities");
+        // setSelectAll("rarities");
         setSelectAll("dummyAtt");
       });
 
@@ -2243,7 +2248,6 @@
       $(".select-all").on("change", function () {
         const setting = $(this).val();
         const values = $(this).prop("checked") ? lists[setting] : [];
-        console.log('potatoes'),
         console.log(`.select-all.on('change'): setting=${setting}, values=${values}`);
         pickerUI.setSetting(setting, values);
         fehPicker.setSettings(pickerUI.getSettings());
@@ -2370,8 +2374,8 @@
             return value.indexOf(unit.variety) !== -1 || value.indexOf(unit.variety2) !== -1;
           case "specials":
             return value.indexOf(unit.special) !== -1;
-          case "rarities":
-            return value.indexOf(unit.rarity) !== -1;
+          // case "rarities":
+          //   return value.indexOf(unit.rarity) !== -1;
           case "refreshersOnly":
             return !value || unit.refresher === true;
           case "duosOnly":

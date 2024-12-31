@@ -504,9 +504,18 @@
         .addClass("item")
         .data("item", item.id);
     }
+
+    // under construction: this section displays unit artwork. here I'm trying to get portrait mode and full-art mode to display differently. the oriignal code that works is below.
     if (item.image || this.options.getItemImageUrl) {
       itemContent = $(
-        '<div class="container"><img src="' +
+        '<div class="container">' +
+          (settings.portrait
+            ? '<div class="background">' +
+              '<img src="static/images/portraits/portrait-bg.png" alt="background">' +
+              "</div>"
+            : "") +
+          '<div class="main-image">' +
+          '<img src="' +
           (this.options.getItemImageUrl
             ? this.options.getItemImageUrl(item, settings)
             : item.image) +
@@ -514,13 +523,48 @@
           itemName +
           '" title="' +
           itemName +
-          '" loading="eager"><div class="floatText" style="display: none">' +
+          '" loading="eager"' +
+          (settings.portrait
+            ? ' class="portrait-img">'
+            : ' class="full-img">') +
+          "</div>" +
+          (settings.portrait
+            ? '<div class="frame">' +
+              '<img src="static/images/portraits/portrait-frame.png" alt="frame">' +
+              "</div>"
+            : "") +
+          '<div class="floatText" style="display: none">' +
           `${item.name}` +
-          "</div></div>"
+          "</div>" +
+          "</div>"
       );
     } else {
       itemContent = $("<span>" + itemName + "</span>");
     }
+
+    // this section displays unit artwork. This is the original code that works. the new code for portrait mode is above.
+    // if (item.image || this.options.getItemImageUrl) {
+    //   itemContent = $(
+    //     '<div class="container">' +
+    //       // (settings.portrait
+    //       //   ? '<img src="static/images/portraits/portrait-frame.png">'
+    //       //   : "") +
+    //       '<img src="' +
+    //       (this.options.getItemImageUrl
+    //         ? this.options.getItemImageUrl(item, settings)
+    //         : item.image) +
+    //       '" alt="' +
+    //       itemName +
+    //       '" title="' +
+    //       itemName +
+    //       '" loading="eager"><div class="floatText" style="display: none">' +
+    //       `${item.name}` +
+    //       "</div></div>"
+    //   );
+    // } else {
+    //   itemContent = $("<span>" + itemName + "</span>");
+    // }
+
     return this.wrapItem(itemContent).addClass("item").data("item", item.id);
   };
 

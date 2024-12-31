@@ -6,12 +6,12 @@
   "epithet": "",
   "game": "",
   "storyRole": "",
-  "variety": "",
-  "special": "",
+  "variety": "special",
+  "special": "none",
   "weaponType": "",
   "moveType": "",
   "rarity": "",
-  "version": "8",
+  "version": "9",
   "shortcode": "S"
 }
 
