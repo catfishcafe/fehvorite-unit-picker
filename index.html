@@ -82,7 +82,7 @@
   height: 90%;
   object-fit: contain;
 }
-/*I'd eventually like to get the 93% to target ONLY portrait mode*/
+/*I'd eventually like to get the 90% to target ONLY portrait mode*/
 
 .frame img {
   position: absolute;
@@ -223,8 +223,6 @@
       .item-list li {
         margin: 0;
         display: inline-block;
-        /* height: 106px;
-        width: 106px; */
         border: 3px solid transparent;
         text-align: center;
         position: relative;
@@ -555,13 +553,25 @@
       }
 
       #testId {
-    opacity: 0.4;
-    filter: alpha(opacity=40); /* msie */
+        opacity: 0.4;
+        filter: alpha(opacity=40); /* msie */
       }
 
-      /* .hideCheckbox {
-        display: none;
-      } */
+.hideCheckbox {
+  display: none
+}
+
+.hideCheckbox ~ img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  opacity: .5;
+}
+
+.hideCheckbox:checked ~ img {
+    filter: grayscale(0%);
+    transition: filter 0.3s ease;
+    opacity: 1;
+}
 
       .orb {
         height: 38px;
@@ -743,35 +753,6 @@
         <!-- start filters -->
         <div id="filters" style="display: none">
 
-          <!-- <p>
-            <label>
-              <input
-                type="checkbox"
-                id="dummyAtt-all"
-                class="select-all"
-                value="dummyAtt"
-              />
-              <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                class="dummyAtt"
-                value="soup"
-                checked=""
-              />
-              Soup</label
-            >
-            <label>
-              <input
-                type="checkbox"
-                class="dummyAtt"
-                value="turnips"
-                checked=""
-              />
-              Turnips
-            </label> -->
-
           <p>Weapon types to include:</p>
           <p>
             <label>
@@ -790,10 +771,8 @@
                 value="sword"
                 onload="displayCheckedStatus('weapon-melee-sword','swordId');"
                 onchange="displayCheckedStatus('weapon-melee-sword','swordId');"
-                checked="" />
-              <span id="swordId">
-                <img src="static/images/weapon-melee-sword.png" alt="sword icon" title="sword" class=""/>
-              </span>
+                checked />
+                <img src="static/images/weapon-melee-sword.png" alt="sword icon" title="sword" class="filterImg"/>
             </label>
             <label
               ><input
@@ -803,9 +782,7 @@
                 value="lance"
                 onclick="displayCheckedStatus('weapon-melee-lance','lanceId');"
                 checked="" />
-              <span id="lanceId">
                 <img src="static/images/weapon-melee-lance.png" alt="lance icon" title="lance"/>
-              </span>
             </label>
             <label>
               <input
@@ -815,9 +792,7 @@
                 value="axe"
                 onclick="displayCheckedStatus('weapon-melee-axe','axeId');"
                 checked="" />
-              <span id=axeId>
                 <img src="static/images/weapon-melee-axe.png" alt="axe icon" title="axe"/>
-              </span>
             </label>
             <label
               ><input
@@ -827,9 +802,7 @@
                 value="staff"
                 onclick="displayCheckedStatus('weapon-staff','staffId');"
                 checked="" />
-              <span id="staffId">
                 <img src="static/images/weapon-staff.png" alt="staff icon" title="staff"/>
-              </span>
             </label>
             <label>
               <input
@@ -839,13 +812,11 @@
                 value="dark"
                 onclick="displayCheckedStatus('weapon-tome-red','darkId');"
                 checked="" />
-              <span id="darkId"><img src="static/images/weapon-tome-red.png" alt="red tome icon" title="red tome"
-            /></span></label>
+              <img src="static/images/weapon-tome-red.png" alt="red tome icon" title="red tome"
+            /></label>
             <label>
               <input type="checkbox" class="weaponTypes hideCheckbox" id="weapon-tome-blue" value="light" onclick="displayCheckedStatus('weapon-tome-blue','lightId');" checked="" />
-              <span id="lightId">
                 <img src="static/images/weapon-tome-blue.png" alt="blue tome icon"/>
-              </span>
             </label>
             <label>
               <input type="checkbox"
@@ -854,9 +825,7 @@
               value="anima"
               onclick="displayCheckedStatus('weapon-tome-green','animaId');"
               checked="" />
-              <span id="animaId">
                 <img src="static/images/weapon-tome-green.png" alt="green tome icon" title="green tome"/>
-              </span>
             </label>
             <label>
               <input
@@ -866,9 +835,7 @@
                 value="tome"
                 onclick="displayCheckedStatus('weapon-tome-colorless','tomeId');"
                 checked="" />
-              <span id="tomeId">
                 <img src="static/images/weapon-tome-colorless.png" alt="colorless tome icon" title="colorless tome"/>
-              </span>
             </label>
             <label>
               <input
@@ -878,9 +845,7 @@
                 value="bow red"
                 onclick="displayCheckedStatus('weapon-bow-red','bowRedId');"
                 checked="" />
-              <span id="bowRedId">
                 <img src="static/images/weapon-bow-red.png" alt="red bow icon" title="red bow"/>
-              </span>
             </label>
             <label>
               <input
@@ -890,9 +855,7 @@
                 value="bow blue"
                 onclick="displayCheckedStatus('weapon-bow-blue','bowBlueId');"
                 checked="" />
-              <span id="bowBlueId">
                 <img src="static/images/weapon-bow-blue.png" alt="blue bow icon" title="blue bow"/>
-              </span>
             </label>
             <label>
               <input
@@ -902,9 +865,7 @@
                 value="bow green"
                 onclick="displayCheckedStatus('weapon-bow-green','bowGreenId');"
                 checked="" />
-              <span id="bowGreenId">
                 <img src="static/images/weapon-bow-green.png" alt="green bow icon" title="green bow"/>
-              </span>
             </label>
             <label>
               <input
@@ -914,13 +875,11 @@
                 value="bow colorless"
                 onclick="displayCheckedStatus('weapon-bow-colorless','bowColorlessId');"
                 checked="" />
-              <span id="bowColorlessId">
                 <img
                   src="static/images/weapon-bow-colorless.png"
                   alt="colorless bow icon"
                   title="colorless bow"
                 />
-              </span>
             </label>
             <label>
               <input
@@ -930,13 +889,11 @@
                 value="dagger red"
                 onclick="displayCheckedStatus('weapon-dagger-red','daggerRedId');"
                 checked="" />
-              <span id="daggerRedId">
                 <img
                   src="static/images/weapon-dagger-red.png"
                   alt="red dagger icon"
                   title="red dagger"
                 />
-              </span>
             </label>
             <label
               ><input
@@ -946,13 +903,11 @@
                 value="dagger blue"
                 onclick="displayCheckedStatus('weapon-dagger-blue','daggerBlueId');"
                 checked="" />
-              <span id="daggerBlueId">
                 <img
                   src="static/images/weapon-dagger-blue.png"
                   alt="blue dagger icon"
                   title="blue dagger"
                 />
-              </span>
             </label>
             <label
               ><input
@@ -962,13 +917,11 @@
                 id="weapon-dagger-green"
                 onclick="displayCheckedStatus('weapon-dagger-green','daggerGreenId');"
                 checked="" />
-                <span id="daggerGreenId">
                   <img
                     src="static/images/weapon-dagger-green.png"
                     alt="green dagger icon"
                     title="green dagger"
                   />
-                </span>
             </label>
             <label>
               <input
@@ -978,13 +931,11 @@
                 value="dagger colorless"
                 onclick="displayCheckedStatus('weapon-dagger-colorless','daggerColorlessId');"
                 checked="" />
-              <span id="daggerColorlessId">
                 <img
                   src="static/images/weapon-dagger-colorless.png"
                   alt="colorless dagger icon"
                   title="colorless dagger"
                 />
-              </span>
             </label>
             <label>
               <input
@@ -994,13 +945,11 @@
                 value="beast red"
                 onclick="displayCheckedStatus('weapon-beast-red','BeastRedId');"
                 checked="" />
-              <span id="beastRedId">
                 <img
                 src="static/images/weapon-beast-red.png"
                 alt="red beast icon"
                 title="red beast"
                 />
-              </span>
             </label>
             <label
               ><input
@@ -1094,7 +1043,7 @@
               ><input
                 type="checkbox"
                 id="moveTypes-all"
-                class="select-all"
+                class="select-all hideCheckbox"
                 value="moveTypes"
               />
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
@@ -1151,7 +1100,7 @@
               ><input
                 type="checkbox"
                 id="games-all"
-                class="select-all"
+                class="select-all hideCheckbox"
                 value="games"
               />
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb"></label
@@ -1353,7 +1302,7 @@
               <input
                 type="checkbox"
                 id="variety-all"
-                class="select-all"
+                class="select-all hideCheckbox"
                 value="variety"
               />
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
@@ -1432,7 +1381,7 @@
             Types of specials to include:
             </p>
             <p>
-            <label><input type="checkbox" id="specials-all" class="select-all" value="specials"/>
+            <label><input type="checkbox" id="specials-all" class="select-all hideCheckbox" value="specials"/>
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label><input type="checkbox" class="specials" value="adrift" checked=""/>Adrift</label>
@@ -1456,7 +1405,7 @@
 
           <p>Types of characters to include:</p>
           <p>
-            <label><input type="checkbox" id="storyRoles-all" class="select-all" value="storyRoles"/>
+            <label><input type="checkbox" id="storyRoles-all" class="select-all hideCheckbox" value="storyRoles"/>
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label><input type="checkbox" class="storyRoles" value="mc" checked=""/>Protagonists/Player avatars</label>
@@ -1483,7 +1432,7 @@
           <p>Versions to include:</p>
           <p>
             <label>
-              <input type="checkbox" id="versions-all" class="select-all" value="versions"/>
+              <input type="checkbox" id="versions-all" class="select-all hideCheckbox" value="versions"/>
               <img src="static/images/select-all-select-all.png" alt="select all" class="orb">
             </label>
             <label>
