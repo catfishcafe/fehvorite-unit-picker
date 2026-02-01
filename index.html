@@ -681,7 +681,7 @@
     <p>Find and sort your favorite Fire Emblem Heroes
       units!</p>
     <p>If you haven't used a picker before and need help getting started, check out
-      the "Picker Explanation" tab. Please visit the "Filters" and "Display Options" tabs to improve your experience.</p>
+      the "Picker Explanation" tab. Please visit the "Unit Filters" and "Display Options" tabs to improve your experience.</p>
 
     <!-- <div id="howitworks"></div> -->
 
@@ -690,10 +690,13 @@
         <ul id="units" class="item-list" style="opacity: 1; width: 560px"></ul>
 
         <p id="buttons">
-          <button id="pick">Pick</button> <button id="pass">Pass</button>
+          <button id="pick">Pick</button>
+          <button id="pass">Pass</button>
           <button id="undo" class="disabled">Undo</button>
           <button id="redo" class="disabled">Redo</button>
+          <!-- <button id="selectAllButton">Select All</button> -->
         </p>
+        
 
         <div class="picker-info">
           <p>
@@ -1283,6 +1286,15 @@
                 alt="Tokyo Mirage Sessions #FE icon"
                 title="Tokyo Mirage Sessions #FE"
             /></label>
+                        <label
+              ><input type="checkbox" class="games" value="shadows" checked="" />
+              <!-- <img
+                src="static/images/games-shadows.png"
+                alt="Tokyo Mirage Sessions #FE icon"
+                title="Tokyo Mirage Sessions #FE"
+            /> -->
+          Shadows
+        </label>
             <span class="help-text">
               <a href="#game-toggle" class="toggle">(About Games)</a>
               <div id="game-toggle" >
@@ -1338,6 +1350,15 @@
               ><input
                 type="checkbox"
                 class="variety"
+                value="chosen"
+                checked=""
+              />
+              Chosen
+            </label>
+            <label
+              ><input
+                type="checkbox"
+                class="variety"
                 value="legendary"
                 checked=""
               />
@@ -1373,6 +1394,7 @@
             </label>
             <label><input type="checkbox" class="variety" value="kyoushin" checked=""/>Attuned</label>
             <label><input type="checkbox" class="variety" value="aided" checked=""/>Aided</label>
+                        <label><input type="checkbox" class="variety" value="entwined" checked=""/>Entwined</label>
             <label><input type="checkbox" class="variety" value="emblem" checked="">Emblem</label>
             <label><input type="checkbox" class="variety" value="special" checked=""/>Special</label>
             <label><input type="checkbox" class="variety" value="misc" checked=""/>Misc.</label>
@@ -1387,7 +1409,7 @@
             <label><input type="checkbox" class="specials" value="adrift" checked=""/>Adrift</label>
             <label><input type="checkbox" class="specials" value="autumn" checked=""/>Autumn (harvest festival)</label>
             <label><input type="checkbox" class="specials" value="child" checked=""/>Child</label>
-            <label><input type="checkbox" class="specials" value="cultural festival" checked=""/>Cultural Festival (desert)</label>
+            <label><input type="checkbox" class="specials" value="cultural festival" checked=""/>Cultural Festival (desert/etc.)</label>
             <label><input type="checkbox" class="specials" value="devoted" checked=""/>Devoted</label>
             <label><input type="checkbox" class="specials" value="hotspring" checked=""/>Hotspring</label>
             <label><input type="checkbox" class="specials" value="new year" checked=""/>New Year</label>
@@ -1467,7 +1489,14 @@
               <input type="checkbox" class="versions" value="8" checked=""/>
               8
             </label>
-
+            <label>
+              <input type="checkbox" class="versions" value="9" checked=""/>
+              9
+            </label>
+              <label>
+              <input type="checkbox" class="versions" value="10" checked=""/>
+              10
+            </label>
             <p>Other Filters:</p>
             
             <label>
@@ -1503,6 +1532,14 @@
             <span class="help-text hide-help"
               >If checked, only units with a resplendent version will appear. Note that this is different than "resplendent mode."
             </span>
+
+            
+            <label
+              ><input type="checkbox" id="generalPool" /> Include units in the general pool</label>
+            <label
+              ><input type="checkbox" id="notGeneralPool" /> Include units not in the general pool</label>
+
+
 
           <!-- <label>
             <input type="checkbox" id="exclude" /> Exclude secondary types for bases</label>
@@ -1763,22 +1800,24 @@
           "engage",
           "heroes",
           "warriors",
-          "tms"
+          "tms",
+          "shadows"
         ],
-        minorFormTypes: ["alternate", "battle", "gender", "aesthetic"],
         moveTypes: ["infantry", "armored", "cavalry", "flying"],
         storyRoles: ["mc", "pc", "npc", "lore"],
-        versions: ["1", "2", "3", "4", "5", "6", "7", "8"],
+        versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         variety: [
           "base",
           "fallen",
           "brave",
+          "chosen",
           "legendary",
           "mythic",
           "kaika",
           "rearmed",
           "kyoushin",
           "aided",
+          "entwined",
           "emblem",
           "special",
           "misc",
@@ -1815,6 +1854,8 @@
         altHell: false,
         grailsOnly: false,
         resplendentsOnly: false,
+        generalPool: true,
+        notGeneralPool: true,
         exclude: false,
         spoilers: true,
         weaponTypes: lists.weaponTypes,
@@ -1982,6 +2023,8 @@
             altHell: "#altHell",
             grailsOnly: "#grails",
             resplendentsOnly: "#resplendentsOnly",
+            generalPool: "#generalPool",
+            notGeneralPool: "#notGeneralPool",
             exclude: "#exclude",
             weaponTypes: ".weaponTypes",
             moveTypes: ".moveTypes",
@@ -2335,6 +2378,10 @@
             return !value || unit.grails === "ghb" || unit.grails === "tt";
           case "resplendentsOnly":
             return !value || unit.hasOwnProperty("resplendent");
+          case "generalPool":
+            return value || unit.generalPool === false;
+          case "notGeneralPool":
+            return value || unit.generalPool === true;
           case "exclude":
             return !value || unit.variety2 === "base";
           case "spoilers":

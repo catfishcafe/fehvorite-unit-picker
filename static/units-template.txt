@@ -5,13 +5,14 @@
   "epithet": "",
   "game": "",
   "storyRole": "",
-  "variety": "special",
-  "special": "devoted",
+  "variety": "",
+  "special": "",
   "weaponType": "",
   "moveType": "",
   "rarity": "",
-  "version": "8",
-  "shortcode": "S"
+  "generalPool": ,
+  "version": "10",
+  "shortcode": "t"
 }
 
 other attributes:
@@ -26,3 +27,6 @@ other attributes:
       "refresher": "",
       "resplendent": "",
       "variety2": "",
+
+
+      
