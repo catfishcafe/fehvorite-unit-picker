@@ -8472,7 +8472,6 @@
       "generalPool": false,
       "version": "4",
       "grails": "tt",
-      "altHell": true,
       "shortcode": "Id"
     },
     {
@@ -9669,7 +9668,6 @@
       "rarity": "special",
       "generalPool": false,
       "version": "5",
-      "altHell": true,
       "shortcode": "Jp"
     },
     {
@@ -11650,7 +11648,6 @@
       "generalPool": false,
       "version": "5",
       "grails": "tt",
-      "altHell": true,
       "shortcode": "Lo"
     },
     {
@@ -11749,7 +11746,6 @@
       "rarity": "5s",
       "generalPool": false,
       "version": "6",
-      "altHell": true,
       "shortcode": "Lu"
     },
     {
@@ -12332,7 +12328,6 @@
       "generalPool": false,
       "version": "6",
       "grails": "tt",
-      "altHell": true,
       "shortcode": "MT"
     },
     {
@@ -14023,7 +14018,6 @@
       "rarity": "5s",
       "generalPool": false,
       "version": "7",
-      "altHell": true,
       "shortcode": "N_"
     },
     {
@@ -17197,7 +17191,6 @@
       "rarity": "special",
       "generalPool": false,
       "version": "8",
-      "altHell": true,
       "shortcode": "RK"
     },
     {
@@ -20685,6 +20678,7 @@
   "moveType": "armored",
   "rarity": "",
   "generalPool": false,
+  "altHell": "true",
   "version": "9",
   "shortcode": "tp"
 },
